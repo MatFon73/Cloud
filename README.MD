@@ -38,4 +38,4 @@
 - max_input_time: this sets the maximum time in seconds that a script can parse input data.
 - memory limit: Defines the memory allocated to PHP.
 
-###End
+### End
