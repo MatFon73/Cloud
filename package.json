@@ -1,0 +1,23 @@
+{
+  "name": "directorios",
+  "version": "1.0.0",
+  "description": "- this project was created by hobbie to make a \"google drive\" in local network.\r - Repository (https://github.com/MatheoFonck73/CodeQr).\r - Systems Engineering universidad de investigacion y desarrollo (UDI).\r - Creator for Mateo Fonseca (https://twitter.com/MatheoFonck73).",
+  "main": "app.js",
+  "dependencies": {
+    "sweetalert2": "^11.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatheoFonck73/Directorio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatheoFonck73/Directorio/issues"
+  },
+  "homepage": "https://github.com/MatheoFonck73/Directorio#readme"
+}

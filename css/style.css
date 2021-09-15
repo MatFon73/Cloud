@@ -1,0 +1,64 @@
+.grids {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr 1fr;
+  grid-template-rows: 0.1fr 1.45fr 1.45fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Menu Menu Menu"
+    "File Data Data"
+    "File Data Data";
+}
+
+.File {
+  grid-area: File;
+  height: 100%;
+  width: 16.8%;
+  background-color: rgb(29, 33, 41);
+  margin-right: 1px white solid;
+  position: fixed;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.Menu {
+  grid-area: Menu;
+  padding-top: 0.5%;
+  background-color: rgb(29, 33, 41);
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  position: fixed;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.Data {
+  grid-area: Data;
+  padding: 5%;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: white;
+  margin: 0;
+}
+button {
+  margin-top: 5%;
+  text-align: center;
+}
+h4,h3 {
+  color: white;
+}
+th,
+td,table {
+  color: rgb(29, 33, 41) ;
+  text-align: center;
+  font-size: 14px;
+}
+a{
+  color: rgb(29, 33, 41) ;
+  text-decoration: none;
+}
+a:hover{
+  color: rgb(29, 33, 41);
+}
