@@ -29,6 +29,10 @@
 - You can use any version of linux server, in my case I use ubuntu server (https://ubuntu.com/download/server).
 - You must install apache and php to be able to use it.
 
+### Command for install
+- sudo apt install apache2.
+- sudo apt install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd php7.3-curl php7.3-mysql.
+
 ## php.ini
 - To change the load size of php you must modify the following variables in the file "php.ini".
 - file location: /etc/php/7.3/apache2/php.ini.
