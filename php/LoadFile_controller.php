@@ -25,7 +25,7 @@ class LoadFile
                         <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
                         <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
                 if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
-                    echo "<td scope = 'col'>" . round(filesize("../upload/" . $element), 2) . " Bit" . "</td></tr>";
+                    echo "<td scope = 'col'>" . round(filesize("../upload/" . $element), 2) . " Byte" . "</td></tr>";
                 } else {
                     if (filesize("../upload/" . $element) >= 1024 && filesize("../upload/" . $element) < 1048576) {
                         echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) / 1024, 2) . " KB" . "</td></tr>";
