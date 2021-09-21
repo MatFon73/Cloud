@@ -21,7 +21,7 @@
 ![](https://imagizer.imageshack.com/img923/2858/Izp4qJ.png)
 
 ## How to use
-- Upload: click on search, select the file and then click on the "Upload File" button.
+- Upload: click on "browser", select the file and then click on the "Upload File" button.
 - Delete: you must put the name with the extension and click on the "Delete File" button.
 - Download: to download you must give in the file name.
 
@@ -41,5 +41,6 @@
 - max_execution_time: this sets the maximum time in seconds that a script can run before it ends.
 - max_input_time: this sets the maximum time in seconds that a script can parse input data.
 - memory limit: Defines the memory allocated to PHP.
+- when they change the file "php.ini" you must restart the apache service inside the server with the following command "sudo service apache2 restart". 
 
 ### End
