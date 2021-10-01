@@ -35,7 +35,7 @@
 
 ## php.ini
 - To change the load size of php you must modify the following variables in the file "php.ini".
-- file location: /etc/php/7.3/apache2/php.ini.
+- file location: /etc/php/{version}/apache2/php.ini.
 - upload_max_filesize: this maximum size in megabytes. 
 - post_max_size: Defines the maximum upload limit for POST requests.
 - max_execution_time: this sets the maximum time in seconds that a script can run before it ends.
