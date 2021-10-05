@@ -21,8 +21,8 @@
 ![](https://imagizer.imageshack.com/img923/2858/Izp4qJ.png)
 
 ## How to use
-- Upload: click on "browser", select the file and then click on the "Upload File" button.
-- Delete: you must put the name with the extension and click on the "Delete File" button.
+- Upload: click on "browser", select the file and then click on the "Upload" button.
+- Delete: you must put the name with the extension and click on the "Delete" button.
 - Download: to download you must give in the file name.
 
 ## Server Linux
