@@ -18,7 +18,7 @@
 - sweetalert2: alert.
 
 ## Interface
-![](https://imagizer.imageshack.com/img923/2858/Izp4qJ.png)
+![](https://imagizer.imageshack.com/img922/9633/p0DWmk.png)
 
 ## How to use
 - Upload: click on "browser", select the file and then click on the "Upload" button.
