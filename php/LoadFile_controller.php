@@ -47,3 +47,5 @@ class LoadFile
     }
 }
 LoadFile::Load('../upload');
+
+#Creator: Mateo Fonseca (MatheoFonck73)

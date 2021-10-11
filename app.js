@@ -142,3 +142,5 @@ function Load() {
   return false;
 }
 setInterval("Load()", 2000);
+
+// #Creator: Mateo Fonseca (MatheoFonck73)

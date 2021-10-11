@@ -17,3 +17,5 @@ class Delete
     }
 }
 Delete::File();
+
+#Creator: Mateo Fonseca (MatheoFonck73)

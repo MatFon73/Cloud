@@ -2,7 +2,7 @@
 
 ## Basic information
 - This project was created by hobbie to make a "google drive" in local network.
-- The file "php.ini" is configured to increase the size of the file that can be uploaded to 3g. 
+- The file "php.ini" is configured to increase the size of the file that can be uploaded to 6g. 
 - Repository (https://github.com/MatheoFonck73/Cloud).
 - Systems Engineering universidad de investigacion y desarrollo (UDI).
 - Creator for Mateo Fonseca (https://twitter.com/MatheoFonck73).
