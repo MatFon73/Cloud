@@ -1,3 +1,24 @@
+const Search = document.getElementById("SearchFile");
+
+function SearchFile() {
+  $.ajax({
+    url: "php/LoadFile_controller.php",
+    type: "Post",
+    data: $("#SearchFile").serialize(),
+    success: function (r) {
+      if (r == "") {
+        $("#table").html('<h1 class ="text-center">File not found </h1>');
+      } else {
+        $("#table").html(r);
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
+  return false;
+}
+
 function DeleteFile() {
   var Delete = document.getElementById("Delete");
 
@@ -59,26 +80,24 @@ function UploadFile() {
     });
     return false;
   }
-  if(FileName.indexOf(' ') >= 0){
+  if (FileName.indexOf(" ") >= 0) {
     Swal.fire({
       icon: "warning",
       title: "Upload",
       text: "No not space name.",
     });
     return false;
-}
+  }
   let timerInterval;
   Swal.fire({
     icon: "warning",
     title: "Upload alert!",
     text: "Upload File.",
-    timer: 100000000,
     timerProgressBar: false,
     didOpen: () => {
       Swal.showLoading();
       const b = Swal.getHtmlContainer().querySelector("b");
-      timerInterval = setInterval(() => {
-      }, 100);
+      timerInterval = setInterval(() => {}, 100);
     },
     willClose: () => {
       clearInterval(timerInterval);
@@ -129,10 +148,12 @@ function Load() {
     url: "php/LoadFile_controller.php",
     type: "Post",
     success: function (r) {
-      if (r == "") {
-        $("#table").html('<h1 class ="text-center">No documents</h1>');
-      } else {
-        $("#table").html(r);
+      if(Search.value == ""){
+        if (r == "") {
+          $("#table").html('<h1 class ="text-center">No documents</h1>');
+        } else {
+          $("#table").html(r);
+        }
       }
     },
     error: function (e) {
@@ -141,6 +162,6 @@ function Load() {
   });
   return false;
 }
-setInterval("Load()", 2000);
 
+setInterval("Load()", 2000)
 // #Creator: Mateo Fonseca (MatheoFonck73)
