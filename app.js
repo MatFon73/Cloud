@@ -20,7 +20,6 @@ function SearchFile() {
 }
 
 function DeleteFile(Delete) {  
-  alert(Delete.value)
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
