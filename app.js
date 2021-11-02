@@ -20,6 +20,7 @@ function SearchFile() {
 }
 
 function DeleteFile(Delete) {  
+  alert(Delete.value)
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -33,7 +34,7 @@ function DeleteFile(Delete) {
       $.ajax({
         type: "POST",
         url: "php/Delete_controller.php",
-        data: $("#Files").serialize(),
+        data: $("#Delete" + Delete.value).serialize(),
         success: function (r) {
           if (r == "Delete Compelte") {
             Swal.fire({
@@ -50,7 +51,6 @@ function DeleteFile(Delete) {
               confirmButtonColor: "rgb(29, 33, 41)",
             });
           }
-          Delete.value = "";
         },
       });
     }
@@ -152,6 +152,5 @@ function Load() {
   });
   return false;
 }
-
 setInterval("Load()", 2000)
 // #Creator: Mateo Fonseca (MatheoFonck73)

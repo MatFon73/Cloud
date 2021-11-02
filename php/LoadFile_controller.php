@@ -14,6 +14,7 @@ class LoadFile
             if (count($List) < 1) {
                 return;
             } else {
+
                 echo '<table class="table">
                 <tr>
                     <th scope="col">#</th>
@@ -23,10 +24,11 @@ class LoadFile
                     <th scope="col">Delete</th>
                 </tr>';
                 foreach ($List as $element) {
+
                     if ($SearchFile == "") {
                         echo "<tr>
                         <td scope = 'col'>" . $i++ . "</td>
-                        <input value = ".$element." name = 'Delete' style = 'display:none'>
+                        <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
                         <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
                         <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
                         if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
@@ -44,12 +46,12 @@ class LoadFile
                                 }
                             }
                         }
-                        echo '<td scope = "col"><button id="Delete" name="Delete" type="submit" onclick="return DeleteFile(this)" value="'.$element.'" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                        echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
                     } else {
                         if (strlen(strstr($element, $SearchFile)) > 0) {
                             echo "<tr>
-                        <input value = ".$element." name = 'Delete' style = 'display:none'>
                         <td scope = 'col'>" . $i++ . "</td>
+                        <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
                         <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
                         <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
                             if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
@@ -67,7 +69,7 @@ class LoadFile
                                     }
                                 }
                             }
-                            echo '<td scope = "col"><button id="Delete" name="Delete" type="submit" onclick="return DeleteFile(this)" value="'.$element.'" class="Delete btn bnt-danger"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
                         }
                     }
                 }
