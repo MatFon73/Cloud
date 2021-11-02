@@ -19,17 +19,7 @@ function SearchFile() {
   return false;
 }
 
-function DeleteFile() {
-  var Delete = document.getElementById("Delete");
-
-  if (Delete.value == "") {
-    Swal.fire({
-      icon: "warning",
-      title: "Delete",
-      text: "No blanks.",
-    });
-    return false;
-  }
+function DeleteFile(Delete) {  
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -43,7 +33,7 @@ function DeleteFile() {
       $.ajax({
         type: "POST",
         url: "php/Delete_controller.php",
-        data: $("#RemoveFile").serialize(),
+        data: $("#Files").serialize(),
         success: function (r) {
           if (r == "Delete Compelte") {
             Swal.fire({

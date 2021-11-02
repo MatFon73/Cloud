@@ -23,7 +23,7 @@
 ## How to use
 - Search: write the name of the file.
 - Upload: click on "browser", select the file and then click on the "Upload" button.
-- Delete: you must put the name with the extension and click on the "Delete" button.
+- Delete: click on the trash can icon.
 - Download: to download you must give in the file name.
 
 ## Server Linux
@@ -43,6 +43,6 @@
 - max_input_time: this sets the maximum time in seconds that a script can parse input data.
 - memory limit: Defines the memory allocated to PHP.
 - when they change the file "php.ini" you must restart the apache service inside the server with the following command "sudo service apache2 restart".
-- you must give permissions to the "cloud" folder with the command "sudo chmod -R 777".
+- you must give permissions to the "Cloud" folder with the command "sudo chmod -R 777".
 
 ### End

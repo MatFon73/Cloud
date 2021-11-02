@@ -24,6 +24,10 @@
       rel="stylesheet"
       href="library/sweetalert2/dist/sweetalert2.min.css"
     />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="library/@fortawesome/fontawesome-free/css/all.css">
+
     <!-- Icon -->
     <link rel="icon" type="image/png" href="favicon.png" />
 
@@ -32,18 +36,19 @@
   <body onload="return Load()">
     <div class="grids">
       <div class="Menu">
-        <h3 class="text-center">Files Manager</h3>
+        <h3 class="text-center">Files Manager&nbsp;<i class="fas fa-folder"></i></h3>
       </div>
       <div class="File">
-        <div style="margin-top: 40%">
+        <div style="margin-top: 60%">
           <div class="Search">
-            <h4 class="text-center" style="padding-top:5%;">Search</h4>
+            <h4 class="text-center" style="padding-top:5%;">Search&nbsp;<i class="fas fa-search"></i></h4>
             <div class="col" style="padding: 5%">
-              <input type="text" onkeyup="SearchFile()"  placeholder="Name File" class="form-control" id="SearchFile" name="SearchFile">
+              <input type="text" style="display:inline-block;width: 82%;border-radius: 3px 0% 0% 3px;" onkeyup="SearchFile()"  placeholder="Name File" class="form-control" id="SearchFile" name="SearchFile">
+              <span class="form-control" style="text-align:center; float:right; width:18%;border-radius: 0% 3px 3px 0%;"><i class="fa fa-search"></i></span>
             </div>
           </div>
           <div class="FileUpdate">
-            <h4 class="text-center" style="padding-top:5%;">Upload File</h4>
+            <h4 class="text-center" style="padding-top:5%;">Upload File&nbsp;<i class="fas fa-cloud-upload-alt"></i></h4>
             <div class="col" style="padding: 5%">
               <input type="file" id="FilesForm" class="form-control" required />
               <center>
@@ -52,37 +57,17 @@
                   class="btn btn-light"
                   onclick="return UploadFile()"
                 >
-                  Upload
+                  Upload&nbsp;<i class="fas fa-cloud-upload-alt"></i>
                 </button>
               </center>
             </div>
           </div>
-          <form id="RemoveFile" method="POST">
-            <h4 class="text-center" style="padding-top:5%">Delete File</h4>
-            <div class="col" style="padding: 5%">
-              <input
-                autocomplete="off"
-                name="Delete"
-                id="Delete"
-                type="text"
-                class="form-control"
-                placeholder="Name File"
-              />
-              <center>
-                <button
-                  type="submit"
-                  class="btn btn-light"
-                  onclick="return DeleteFile()"
-                >
-                  Delete
-                </button>
-              </center>
-            </div>
-          </form>
         </div>
       </div>
       <div class="Data" style="margin-top: 5%; margin-right: 5%">
+        <form id="Files">
         <div id="table"></div>
+      </form>
       </div>
     </div>
   </body>
@@ -95,6 +80,10 @@
     type="text/javascript"
     src="library/Jquery-3.5.0/jquery-3.5.0.js"
   ></script>
+  <script
+  type="text/javascript"
+  src="library/@fortawesome/fontawesome-free/js/all.js"
+></script>
 </html>
 
 <!-- #Creator: Mateo Fonseca (MatheoFonck73) -->

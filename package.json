@@ -4,6 +4,7 @@
   "description": "- this project was created by hobbie to make a \"google drive\" in local network.\r - Repository (https://github.com/MatheoFonck73/CodeQr).\r - Systems Engineering universidad de investigacion y desarrollo (UDI).\r - Creator for Mateo Fonseca (https://twitter.com/MatheoFonck73).",
   "main": "app.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "sweetalert2": "^11.1.4"
   },
   "devDependencies": {},
