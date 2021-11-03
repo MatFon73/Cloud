@@ -3,9 +3,10 @@ class LoadFile
 {
     public static function Table($i, $element)
     {
+
         try {
             echo "<tr>
-            <td scope = 'col'>" . $i++ . "</td>
+            <td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
             <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
             <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
@@ -42,7 +43,6 @@ class LoadFile
             if (count($List) < 1) {
                 return;
             } else {
-
                 echo '<table class="table">
                 <tr>
                     <th scope="col">#</th>
@@ -51,16 +51,17 @@ class LoadFile
                     <th scope="col">Size</th>
                     <th scope="col">Delete</th>
                 </tr>';
+
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
-                        LoadFile::Table($i, $element);
+                        LoadFile::Table($i++, $element);
                     } else {
                         if (strlen(strstr($element, $SearchFile)) > 0) {
-                            LoadFile::Table($i, $element);
+                            LoadFile::Table($i++, $element);
                         }
                     }
-                    echo '</table>';
                 }
+                echo '</table>';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
