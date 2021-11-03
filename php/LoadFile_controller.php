@@ -1,6 +1,34 @@
 <?php
 class LoadFile
 {
+    public static function Table($i, $element)
+    {
+        try {
+            echo "<tr>
+            <td scope = 'col'>" . $i++ . "</td>
+            <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
+            <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
+            <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
+            if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
+                echo "<td scope = 'col'>" . round(filesize("../upload/" . $element), 2) . " Byte" . "</td>";
+            } else {
+                if (filesize("../upload/" . $element) >= 1024 && filesize("../upload/" . $element) < 1048576) {
+                    echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) / 1024, 2) . " KB" . "</td>";
+                } else {
+                    if (filesize("../upload/" . $element) >= 1048576 && filesize("../upload/" . $element) < 1073741824) {
+                        echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1048576, 2)) . " MB" . "</td>";
+                    } else {
+                        if (filesize("../upload/" . $element) >= 1024000) {
+                            echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1073741824, 2)) . " GB" . "</td>";
+                        }
+                    }
+                }
+            }
+            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
+        } catch (Exception $e) {
+            echo "An error has occurred: " . $e;
+        }
+    }
     public static function Load($Url)
     {
         try {
@@ -24,56 +52,15 @@ class LoadFile
                     <th scope="col">Delete</th>
                 </tr>';
                 foreach ($List as $element) {
-
                     if ($SearchFile == "") {
-                        echo "<tr>
-                        <td scope = 'col'>" . $i++ . "</td>
-                        <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
-                        <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
-                        <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
-                        if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
-                            echo "<td scope = 'col'>" . round(filesize("../upload/" . $element), 2) . " Byte" . "</td>";
-                        } else {
-                            if (filesize("../upload/" . $element) >= 1024 && filesize("../upload/" . $element) < 1048576) {
-                                echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) / 1024, 2) . " KB" . "</td>";
-                            } else {
-                                if (filesize("../upload/" . $element) >= 1048576 && filesize("../upload/" . $element) < 1073741824) {
-                                    echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1048576, 2)) . " MB" . "</td>";
-                                } else {
-                                    if (filesize("../upload/" . $element) >= 1024000) {
-                                        echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1073741824, 2)) . " GB" . "</td>";
-                                    }
-                                }
-                            }
-                        }
-                        echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                        LoadFile::Table($i, $element);
                     } else {
                         if (strlen(strstr($element, $SearchFile)) > 0) {
-                            echo "<tr>
-                        <td scope = 'col'>" . $i++ . "</td>
-                        <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
-                        <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>$element</a></td>
-                        <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
-                            if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
-                                echo "<td scope = 'col'>" . round(filesize("../upload/" . $element), 2) . " Byte" . "</td>";
-                            } else {
-                                if (filesize("../upload/" . $element) >= 1024 && filesize("../upload/" . $element) < 1048576) {
-                                    echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) / 1024, 2) . " KB" . "</td>";
-                                } else {
-                                    if (filesize("../upload/" . $element) >= 1048576 && filesize("../upload/" . $element) < 1073741824) {
-                                        echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1048576, 2)) . " MB" . "</td>";
-                                    } else {
-                                        if (filesize("../upload/" . $element) >= 1024000) {
-                                            echo "<td scope = 'col'>" . (round(filesize("../upload/" . $element) / 1073741824, 2)) . " GB" . "</td>";
-                                        }
-                                    }
-                                }
-                            }
-                            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
+                            LoadFile::Table($i, $element);
                         }
                     }
+                    echo '</table>';
                 }
-                echo '</table>';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
