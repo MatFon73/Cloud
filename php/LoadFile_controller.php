@@ -3,7 +3,6 @@ class LoadFile
 {
     public static function Table($i, $element)
     {
-
         try {
             echo "<tr>
             <td scope = 'col'>" . $i . "</td>
