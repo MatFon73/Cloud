@@ -4,7 +4,7 @@ class UploadFile
     public static function Upload()
     {
         try {
-            $format = array('ini',"iso","exe",'mp3', 'doc', 'docx', 'xls', 'jpeg', 'jpg', 'mp4', 'rar', 'zip', 'xlsx', 'pdf', 'png', 'gif', 'pptx', 'txt');
+            $format = array("iso","exe",'mp3', 'doc', 'docx', 'xls', 'jpeg', 'jpg', 'mp4', 'rar', 'zip', 'xlsx', 'pdf', 'png', 'gif', 'pptx', 'txt');
             $File = $_FILES['I']['name'];
             $upload = "../upload/";
             $file = ($_FILES['I']['name']);
