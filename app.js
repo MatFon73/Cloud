@@ -1,5 +1,9 @@
 const Search = document.getElementById("SearchFile");
 
+function Unlock(){
+  var button = document.getElementById('UploadFile');
+  button.disabled = false; 
+}
 function SearchFile() {
   $.ajax({
     url: "php/LoadFile_controller.php",
@@ -19,7 +23,7 @@ function SearchFile() {
   return false;
 }
 
-function DeleteFile(Delete) {  
+function DeleteFile(Delete) {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -61,14 +65,7 @@ function UploadFile() {
   var File = $("#FilesForm")[0].files[0];
   var FileName = $("#FilesForm")[0].files[0].name;
   formData.append("I", File);
-  if (typeof File == "undefined") {
-    Swal.fire({
-      icon: "warning",
-      title: "Upload",
-      text: "No blank.",
-    });
-    return false;
-  }
+
   if (FileName.indexOf(" ") >= 0) {
     Swal.fire({
       icon: "warning",
@@ -137,7 +134,7 @@ function Load() {
     url: "php/LoadFile_controller.php",
     type: "Post",
     success: function (r) {
-      if(Search.value == ""){
+      if (Search.value == "") {
         if (r == "") {
           $("#table").html('<h1 class ="text-center">No documents</h1>');
         } else {
@@ -151,5 +148,5 @@ function Load() {
   });
   return false;
 }
-setInterval("Load()", 2000)
+setInterval("Load()", 2000);
 // #Creator: Mateo Fonseca (MatheoFonck73)
