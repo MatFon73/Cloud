@@ -7,7 +7,7 @@ class LoadFile
         $icon = "";
 
         if ($extension == 'exe' || $extension == 'iso') {
-            $icon = 'fas fa-';
+            $icon = 'fas fa-file';
         }
         if ($extension == 'jpg' || $extension == 'png' || $extension == "jpeg" || $extension == "gif") {
             $icon = 'fas fa-file-image';
@@ -15,8 +15,11 @@ class LoadFile
         if ($extension == 'mp3') {
             $icon = 'fas fa-file-audio';
         }
-        if ($extension == 'docx' || $extension == 'doc' || $extension == "txt") {
+        if ($extension == 'docx' || $extension == 'doc') {
             $icon = 'fas fa-file-word';
+        }
+        if($extension == "txt"){
+            $icon = 'fas fa-file-alt';
         }
         if ($extension == 'rar' || $extension == 'zip') {
             $icon = 'fas fa-file-archive';
