@@ -1,41 +1,47 @@
 <?php
 class LoadFile
 {
+    public static function Icons($element){
+
+        $extension = pathinfo($element, PATHINFO_EXTENSION);
+        $icon = "";
+
+        if ($extension == 'exe' || $extension == 'iso') {
+            $icon = 'fas fa-';
+        }
+        if ($extension == 'jpg' || $extension == 'png' || $extension == "jpeg" || $extension == "gif") {
+            $icon = 'fas fa-file-image';
+        }
+        if ($extension == 'mp3') {
+            $icon = 'fas fa-file-audio';
+        }
+        if ($extension == 'docx' || $extension == 'doc' || $extension == "txt") {
+            $icon = 'fas fa-file-word';
+        }
+        if ($extension == 'rar' || $extension == 'zip') {
+            $icon = 'fas fa-file-archive';
+        }
+        if ($extension == 'xls' || $extension == 'xlsx') {
+            $icon = 'fas fa-file-excel';
+        }
+        if ($extension == 'pdf') {
+            $icon = 'fas fa-file-pdf';
+        }
+        if ($extension == 'mp4') {
+            $icon = 'fas fa-file-video';
+        }
+        if ($extension == 'pptx') {
+            $icon = 'fas fa-file-powerpoint';
+        }
+        return $icon;
+    }
     public static function Table($i, $element)
     {
         $type_size = array(" Byte", " KB", " MB", " GB");
         $size = array(1, 1024, 1048576, 1073741824);
-        $extension = pathinfo($element, PATHINFO_EXTENSION);
         $icon = "";
         $x = 0;
         try {
-            if ($extension == 'exe' || $extension == 'iso') {
-                $icon = '<i class="icono fas fa-file"></i>';
-            }
-            if ($extension == 'jpg' || $extension == 'png' || $extension == "jpeg" || $extension == "gif") {
-                $icon = '<i class="icono fas fa-file-image"></i>';
-            }
-            if ($extension == 'mp3') {
-                $icon = '<i class="icono fas fa-file-audio"></i>';
-            }
-            if ($extension == 'docx' || $extension == 'doc' || $extension == "txt") {
-                $icon = '<i class="icono fas fa-file-word"></i>';
-            }
-            if ($extension == 'rar' || $extension == 'zip') {
-                $icon = '<i class="icono fas fa-file-archive"></i>';
-            }
-            if ($extension == 'xls' || $extension == 'xlsx') {
-                $icon = '<i class="icono fas fa-file-excel"></i>';
-            }
-            if ($extension == 'pdf') {
-                $icon = '<i class="icono fas fa-file-pdf"></i>';
-            }
-            if ($extension == 'mp4') {
-                $icon = '<i class="icono fas fa-file-video"></i>';
-            }
-            if ($extension == 'pptx') {
-                $icon = '<i class="icono fas fa-file-powerpoint"></i>';
-            }
             if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
                 $x = 0;
                 $size[0];
@@ -58,7 +64,7 @@ class LoadFile
             }
             echo "<tr><td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
-            <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'>" . $icon . "&nbsp;$element</a></td>
+            <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='".LoadFile::Icons($element)."'></i>&nbsp;$element</a></td>
             <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
             echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) /  $size[$x], 2) . "" . $type_size[$x] . "" . "</td>";
             echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';

@@ -65,6 +65,11 @@ a {
 a:hover {
   color: rgb(29, 33, 41);
 }
+#SearchFile {
+  display: inline-block;
+  width: 82%;
+  border-radius: 3px 0% 0% 3px;
+}
 #RemoveFile,
 .FileUpdate,
 .Search {
@@ -81,10 +86,19 @@ a:hover {
   width: 30%;
 }
 .Delete {
-  color:#dc3545 ;
+  color: #dc3545;
 }
-.Delete:hover{
-  color:#dc3545 ;
+.Delete:hover {
+  color: #dc3545;
+}
+@media only screen and (max-width: 980px) {
+  .IconSearch {
+    display: none;
+  }
+  #SearchFile {
+    border-radius: 3px 3px 3px 3px;
+    width: 100%;
+  }
 }
 
 /* #Creator: Mateo Fonseca (MatheoFonck73) */
