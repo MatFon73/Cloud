@@ -42,7 +42,6 @@ class LoadFile
     {
         $type_size = array(" Byte", " KB", " MB", " GB");
         $size = array(1, 1024, 1048576, 1073741824);
-        $icon = "";
         $x = 0;
         try {
             if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
