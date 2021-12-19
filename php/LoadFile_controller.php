@@ -2,10 +2,8 @@
 class LoadFile
 {
     public static function Icons($element){
-
         $extension = pathinfo($element, PATHINFO_EXTENSION);
         $icon = "";
-
         if ($extension == 'exe' || $extension == 'iso') {
             $icon = 'fas fa-file';
         }
@@ -42,27 +40,20 @@ class LoadFile
     {
         $type_size = array(" Byte", " KB", " MB", " GB");
         $size = array(1, 1024, 1048576, 1073741824);
+        $url = "../upload/" . $element;
         $x = 0;
         try {
-            if (filesize("../upload/" . $element) < 1024 && filesize("../upload/" . $element) < 1048576) {
+            if (filesize($url) < 1024 && filesize($url) < 1048576) {
                 $x = 0;
-                $size[0];
-                $type_size[0];
             }
-            if (filesize("../upload/" . $element) >= 1024 && filesize("../upload/" . $element) < 1048576) {
+            if (filesize($url) >= 1024 && filesize($url) < 1048576) {
                 $x = 1;
-                $size[1];
-                $type_size[1];
             }
-            if (filesize("../upload/" . $element) >= 1048576 && filesize("../upload/" . $element) < 1073741824) {
+            if (filesize($url) >= 1048576 && filesize($url) < 1073741824) {
                 $x = 2;
-                $size[2];
-                $type_size[2];
             }
-            if (filesize("../upload/" . $element) >= 1073741824) {
+            if (filesize($url) >= 1073741824) {
                 $x = 3;
-                $size[3];
-                $type_size[3];
             }
             echo "<tr><td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
