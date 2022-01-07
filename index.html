@@ -36,7 +36,8 @@
 
     <title>Home</title>
   </head>
-  <body onload="return Load()">
+
+  <body onload="return Load(), Storage()">
     <div class="grids">
       <div class="Menu">
         <h3 class="text-center">
@@ -44,7 +45,14 @@
         </h3>
       </div>
       <div class="File">
-        <div style="margin-top: 70%">
+        <div style="margin-top: 50%">
+          <div id="Bar">
+            <div class="col" style="padding: 5%">
+              <h4 class="text-center">Storage</h4>
+              <div id="Storage"></div>
+            </div>
+          </div>
+
           <div class="Search">
             <h4 class="text-center" style="padding-top: 5%">
               Search&nbsp;<i class="fas fa-search"></i>
@@ -75,11 +83,17 @@
               Upload File&nbsp;<i class="fas fa-cloud-upload-alt"></i>
             </h4>
             <div class="col" style="padding: 5%">
-              <input onchange="Unlock()" type="file" id="FilesForm" class="form-control" required />
+              <input
+                onchange="Unlock()"
+                type="file"
+                id="FilesForm"
+                class="form-control"
+                required
+              />
               <center>
                 <button
                   type="submit"
-                  style="margin-top: 5%;margin-left: -5%;"
+                  style="margin-top: 5%; margin-left: -5%"
                   class="btn btn-light"
                   id="UploadFile"
                   disabled="disabled"

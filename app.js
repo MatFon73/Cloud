@@ -116,6 +116,7 @@ function UploadFile() {
             clearInterval(timerInterval);
           },
         });
+        Storage();
       }
     },
     error: function (e) {
@@ -144,6 +145,20 @@ function Load() {
     },
     error: function (e) {
       $("#table").html(e);
+    },
+  });
+  return false;
+}
+
+function Storage() {
+  $.ajax({
+    url: "php/Storage_controller.php",
+    type: "Post",
+    success: function (r) {
+          $("#Storage").html(r);
+    },
+    error: function (e) {
+      $("#Storage").html(e);
     },
   });
   return false;
