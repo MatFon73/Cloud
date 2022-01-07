@@ -46,6 +46,7 @@ function DeleteFile(Delete) {
               text: r,
               confirmButtonColor: "rgb(29, 33, 41)",
             });
+            Storage();
           } else {
             Swal.fire({
               icon: "error",
