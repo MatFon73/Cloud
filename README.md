@@ -18,7 +18,7 @@
 - sweetalert2: alert.
 
 ## Interface
-![](https://imagizer.imageshack.com/img922/9729/cbd9ji.png)
+![](https://imagizer.imageshack.com/img922/5824/a4oXdw.png)
 
 ## How to use
 - Search: write the name of the file.
