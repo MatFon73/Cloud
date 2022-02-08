@@ -1,8 +1,8 @@
 const Search = document.getElementById("SearchFile");
 
-function Unlock(){
-  var button = document.getElementById('UploadFile');
-  button.disabled = false; 
+function Unlock() {
+  var button = document.getElementById("UploadFile");
+  button.disabled = false;
 }
 function SearchFile() {
   $.ajax({
@@ -23,44 +23,6 @@ function SearchFile() {
   return false;
 }
 
-function DeleteFile(Delete) {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "rgb(29, 33, 41)",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      $.ajax({
-        type: "POST",
-        url: "php/Delete_controller.php",
-        data: $("#Delete" + Delete.value).serialize(),
-        success: function (r) {
-          if (r == "Delete Compelte") {
-            Swal.fire({
-              icon: "success",
-              title: "Delete",
-              text: r,
-              confirmButtonColor: "rgb(29, 33, 41)",
-            });
-            Storage();
-          } else {
-            Swal.fire({
-              icon: "error",
-              title: "Delete",
-              text: r,
-              confirmButtonColor: "rgb(29, 33, 41)",
-            });
-          }
-        },
-      });
-    }
-  });
-  return false;
-}
 function UploadFile() {
   var formData = new FormData();
   var File = $("#FilesForm")[0].files[0];
@@ -156,11 +118,71 @@ function Storage() {
     url: "php/Storage_controller.php",
     type: "Post",
     success: function (r) {
-          $("#Storage").html(r);
+      $("#Storage").html(r);
     },
     error: function (e) {
       $("#Storage").html(e);
     },
+  });
+  return false;
+}
+async function DeleteFile(Delete) {
+ 
+  const { value: password } = await Swal.fire({
+    title: 'Enter your password',
+    icon: 'question',
+    input: 'password',
+    inputLabel: 'Password',
+    inputPlaceholder: 'Enter your password',
+    inputAttributes: {
+      maxlength: 10,
+      autocapitalize: 'off',
+      autocorrect: 'off'
+    }
+  })
+  
+  if (password != "12345") {
+    Swal.fire({
+      icon: "error",
+      title: "Password",
+      text: "Incorrect password",
+    });
+    return false;
+  }
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "rgb(29, 33, 41)",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        type: "POST",
+        url: "php/Delete_controller.php",
+        data: $("#Delete" + Delete.value).serialize(),
+        success: function (r) {
+          if (r == "Delete Compelte") {
+            Swal.fire({
+              icon: "success",
+              title: "Delete",
+              text: r,
+              confirmButtonColor: "rgb(29, 33, 41)",
+            });
+            Storage();
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Delete",
+              text: r,
+              confirmButtonColor: "rgb(29, 33, 41)",
+            });
+          }
+        },
+      });
+    }
   });
   return false;
 }
