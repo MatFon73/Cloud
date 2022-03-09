@@ -4,12 +4,17 @@ class UploadFile
     public static function Upload()
     {
         try {
-            $format = array("iso","exe",'mp3', 'doc', 'docx', 'xls', 'jpeg', 'jpg', 'mp4', 'rar', 'zip', 'xlsx', 'pdf', 'png', 'gif', 'pptx', 'txt');
+            $format = array(
+                "iso", "exe", 'mp3',
+                'doc', 'docx', 'xls', 'jpeg',
+                'jpg', 'mp4', 'rar', 'zip',
+                'xlsx', 'pdf', 'png',
+                'gif', 'pptx', 'txt'
+            );
             $File = $_FILES['I']['name'];
             $upload = "../upload/";
-            $file = ($_FILES['I']['name']);
             $tmp = ($_FILES['I']['tmp_name']);
-            $save =  $upload . $file;
+            $save =  $upload . $File;
             $extension = pathinfo($File, PATHINFO_EXTENSION);
 
             if (!in_array($extension, $format)) {

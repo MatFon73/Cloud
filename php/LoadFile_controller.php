@@ -1,40 +1,28 @@
 <?php
 class LoadFile
 {
-    public static function Icons($element){
+    public static function Icons($element)
+    {
         $extension = pathinfo($element, PATHINFO_EXTENSION);
-        $icon = "";
-        if ($extension == 'exe' || $extension == 'iso') {
-            $icon = 'fas fa-file';
+        $icon = array(
+            'file', 'file', 'file-audio',
+            'file-word', 'file-word', 'file-excel', 'file-image',
+            'file-image', 'file-video', 'file-archive', 'file-archive',
+            'file-excel', 'file-pdf', 'file-image',
+            'file-image', 'file-powerpoint', 'file-alt',
+        );
+        $format = array(
+            "iso", "exe", 'mp3',
+            'doc', 'docx', 'xls', 'jpeg',
+            'jpg', 'mp4', 'rar', 'zip',
+            'xlsx', 'pdf', 'png',
+            'gif', 'pptx', 'txt'
+        );
+        for ($j = 0; $j <= count($format); ++$j) {
+            if ($format[$j] == $extension) {
+                return $icon[$j];
+            }
         }
-        if ($extension == 'jpg' || $extension == 'png' || $extension == "jpeg" || $extension == "gif") {
-            $icon = 'fas fa-file-image';
-        }
-        if ($extension == 'mp3') {
-            $icon = 'fas fa-file-audio';
-        }
-        if ($extension == 'docx' || $extension == 'doc') {
-            $icon = 'fas fa-file-word';
-        }
-        if($extension == "txt"){
-            $icon = 'fas fa-file-alt';
-        }
-        if ($extension == 'rar' || $extension == 'zip') {
-            $icon = 'fas fa-file-archive';
-        }
-        if ($extension == 'xls' || $extension == 'xlsx') {
-            $icon = 'fas fa-file-excel';
-        }
-        if ($extension == 'pdf') {
-            $icon = 'fas fa-file-pdf';
-        }
-        if ($extension == 'mp4') {
-            $icon = 'fas fa-file-video';
-        }
-        if ($extension == 'pptx') {
-            $icon = 'fas fa-file-powerpoint';
-        }
-        return $icon;
     }
     public static function Table($i, $element)
     {
@@ -43,21 +31,21 @@ class LoadFile
         $url = "../upload/" . $element;
         $x = 0;
         try {
-            if (filesize($url) < 1024 && filesize($url) < 1048576) {
+            if (filesize($url) < $size[1]) {
                 $x = 0;
             }
-            if (filesize($url) >= 1024 && filesize($url) < 1048576) {
+            if (filesize($url) >= $size[1] && filesize($url) < $size[2]) {
                 $x = 1;
             }
-            if (filesize($url) >= 1048576 && filesize($url) < 1073741824) {
+            if (filesize($url) >= $size[2] && filesize($url) < $size[3]) {
                 $x = 2;
             }
-            if (filesize($url) >= 1073741824) {
+            if (filesize($url) >= $size[3]) {
                 $x = 3;
             }
             echo "<tr><td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
-            <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='".LoadFile::Icons($element)."'></i>&nbsp;$element</a></td>
+            <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a></td>
             <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
             echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) /  $size[$x], 2) . "" . $type_size[$x] . "" . "</td>";
             echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
