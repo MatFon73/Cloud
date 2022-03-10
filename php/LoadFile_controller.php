@@ -34,6 +34,10 @@ class LoadFile
             for ($j = 0; $j <= count($size); ++$j) {
                 if (filesize($url) >= $size[$j] && filesize($url) < $size[$j+1]) {
                     $x = $j;
+                }else{
+                    if(filesize($url) > $size[3] && $j == 3){
+                        $x = $j;
+                    }
                 }
             }
             echo "<tr><td scope = 'col'>" . $i . "</td>
