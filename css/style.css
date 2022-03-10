@@ -36,9 +36,14 @@
 }
 .Data {
   grid-area: Data;
-  margin-bottom: 4%;
-  margin-top: 4%; 
-  margin-right: 4%;
+  z-index: -1;
+  margin-bottom: 25px;
+  position: fixed;
+  left: 21%;
+  top: 8%;
+  width: 79%;
+  height: 95%;
+  overflow: scroll;
 }
 body {
   font-family: "Josefin Sans", sans-serif;

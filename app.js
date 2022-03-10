@@ -22,7 +22,6 @@ function SearchFile() {
   });
   return false;
 }
-
 function UploadFile() {
   var formData = new FormData();
   var File = $("#FilesForm")[0].files[0];
@@ -92,7 +91,6 @@ function UploadFile() {
   });
   return false;
 }
-
 function Load() {
   $.ajax({
     url: "php/LoadFile_controller.php",
@@ -112,7 +110,6 @@ function Load() {
   });
   return false;
 }
-
 function Storage() {
   $.ajax({
     url: "php/Storage_controller.php",
@@ -127,9 +124,8 @@ function Storage() {
   return false;
 }
 async function DeleteFile(Delete) {
- 
   const { value: password } = await Swal.fire({
-    title: 'Enter your password',
+    title: 'Enter password',
     icon: 'question',
     input: 'password',
     inputLabel: 'Password',
