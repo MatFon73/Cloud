@@ -133,7 +133,7 @@ async function DeleteFile(Delete) {
     icon: 'question',
     input: 'password',
     inputLabel: 'Password',
-    inputPlaceholder: 'Enter your password',
+    inputPlaceholder: 'Enter password',
     inputAttributes: {
       maxlength: 10,
       autocapitalize: 'off',

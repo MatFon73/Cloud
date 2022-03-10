@@ -31,17 +31,10 @@ class LoadFile
         $url = "../upload/" . $element;
         $x = 0;
         try {
-            if (filesize($url) < $size[1]) {
-                $x = 0;
-            }
-            if (filesize($url) >= $size[1] && filesize($url) < $size[2]) {
-                $x = 1;
-            }
-            if (filesize($url) >= $size[2] && filesize($url) < $size[3]) {
-                $x = 2;
-            }
-            if (filesize($url) >= $size[3]) {
-                $x = 3;
+            for ($j = 0; $j <= count($size); ++$j) {
+                if (filesize($url) >= $size[$j] && filesize($url) < $size[$j+1]) {
+                    $x = $j;
+                }
             }
             echo "<tr><td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
