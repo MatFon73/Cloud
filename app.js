@@ -1,5 +1,4 @@
 const Search = document.getElementById("SearchFile");
-
 function Unlock() {
   var button = document.getElementById("UploadFile");
   button.disabled = false;
@@ -79,6 +78,7 @@ function UploadFile() {
           },
         });
         Storage();
+        Load();
       }
     },
     error: function (e) {
@@ -125,18 +125,18 @@ function Storage() {
 }
 async function DeleteFile(Delete) {
   const { value: password } = await Swal.fire({
-    title: 'Enter password',
-    icon: 'question',
-    input: 'password',
-    inputLabel: 'Password',
-    inputPlaceholder: 'Enter password',
+    title: "Enter password",
+    icon: "question",
+    input: "password",
+    inputLabel: "Password",
+    inputPlaceholder: "Enter password",
     inputAttributes: {
       maxlength: 10,
-      autocapitalize: 'off',
-      autocorrect: 'off'
-    }
-  })
-  
+      autocapitalize: "off",
+      autocorrect: "off",
+    },
+  });
+
   if (password != "12345") {
     Swal.fire({
       icon: "error",
@@ -168,6 +168,7 @@ async function DeleteFile(Delete) {
               confirmButtonColor: "rgb(29, 33, 41)",
             });
             Storage();
+            Load();
           } else {
             Swal.fire({
               icon: "error",
@@ -182,5 +183,4 @@ async function DeleteFile(Delete) {
   });
   return false;
 }
-setInterval("Load()", 2000);
 // #Creator: Mateo Fonseca (MatheoFonck73)

@@ -32,15 +32,15 @@ class LoadFile
         $x = 0;
         try {
             for ($j = 0; $j <= count($size); ++$j) {
-                if (filesize($url) >= $size[$j] && filesize($url) < $size[$j+1]) {
+                if (filesize($url) >= $size[$j] && filesize($url) < $size[$j + 1]) {
                     $x = $j;
-                }else{
-                    if(filesize($url) > $size[3] && $j == 3){
+                } else {
+                    if (filesize($url) > $size[3] && $j == 3) {
                         $x = $j;
                     }
                 }
             }
-            echo "<tr><td scope = 'col'>" . $i . "</td>
+            echo "<tr class='hide' id='hideMe' ><td scope = 'col'>" . $i . "</td>
             <input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>
             <td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a></td>
             <td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
@@ -59,9 +59,7 @@ class LoadFile
         unset($List[array_search('..', $List, true)]);
         $SearchFile = $_POST["SearchFile"];
         try {
-            if (count($List) < 1) {
-                return;
-            } else {
+            if (count($List) > 0) {
                 echo '<table class="table">
                 <tr>
                     <th scope="col">#</th>

@@ -5,7 +5,7 @@
 - The file "php.ini" is configured to increase the size of the file that can be uploaded to 6g. 
 - Repository (https://github.com/MatheoFonck73/Cloud).
 - Systems Engineering universidad de investigacion y desarrollo (UDI).
-- Creator for Mateo Fonseca (https://twitter.com/MatheoFonck73).
+- Created by Mateo Fonseca (https://twitter.com/MatheoFonck73).
 
 ## Programming Languages
 - js: ajax.
@@ -18,13 +18,14 @@
 - sweetalert2: alert.
 
 ## Interface
-![](https://imagizer.imageshack.com/img922/5824/a4oXdw.png)
+![](https://i.ibb.co/VSrgFL2/Sin-t-tulo.png)
 
 ## How to use
 - Search: write the name of the file.
 - Upload: click on "browser", select the file and then click on the "Upload" button.
 - Delete: click on the trash can icon.
 - Download: to download you must give in the file name.
+- Reaload: Reaload the table.
 
 ## Server Linux
 - You can use any version of linux server, in my case I use ubuntu server (https://ubuntu.com/download/server).

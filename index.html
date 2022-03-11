@@ -28,7 +28,7 @@
     <!-- Font awesome -->
     <link
       rel="stylesheet"
-      href="library/@fortawesome/fontawesome-free/css/all.css"
+      href="library/@fortawesome/css/all.css"
     />
 
     <!-- Icon -->
@@ -36,8 +36,7 @@
 
     <title>Home</title>
   </head>
-
-  <body onload="return Load(), Storage()">
+  <body onload="Load(), Storage()">
     <div class="grids">
       <div class="Menu">
         <h3 class="text-center">
@@ -52,7 +51,6 @@
               <div id="Storage"></div>
             </div>
           </div>
-
           <div class="Search">
             <h4 class="text-center" style="padding-top: 5%">
               Search&nbsp;<i class="fas fa-search"></i>
@@ -93,13 +91,22 @@
               <center>
                 <button
                   type="submit"
-                  style="margin-top: 5%; margin-left: -5%"
+                  style="margin:5%"
                   class="btn btn-light"
                   id="UploadFile"
                   disabled="disabled"
-                  onclick="return UploadFile()"
+                  onclick="UploadFile()"
                 >
                   Upload&nbsp;<i class="fas fa-cloud-upload-alt"></i>
+                </button>
+                <button
+                  type="submit"
+                  style="margin: 5%"
+                  class="btn btn-light"
+                  id="UploadFile"
+                  onclick="Load()"
+                >
+                  Reload&nbsp;<i class="fas fa-solid fa-arrow-rotate-right"></i>
                 </button>
               </center>
             </div>

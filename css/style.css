@@ -109,6 +109,23 @@ a:hover {
     width: 100%;
   }
 }
+table {
+  border-collapse: collapse;
+}
+.hide{
+  display: table-row;
+  animation: slide-down 0.3s ease-out;
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
 #process{
   background-color: white;
   border-radius: 5px;
