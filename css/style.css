@@ -109,6 +109,21 @@ a:hover {
     width: 100%;
   }
 }
+@media only screen and (max-width: 1366px) {
+  .File {
+    margin-top: -5%;
+    height: 115%;
+  }
+  .Data{
+    top: 9%;
+  }
+  h1, h2, h3, h4, h5, h6,.form-control, .btn {
+    font-size: 10px;
+  }
+  table, td, th, tr{
+    font-size: 15px;
+  }
+}
 table {
   border-collapse: collapse;
 }
