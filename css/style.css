@@ -118,10 +118,10 @@ a:hover {
     top: 9%;
   }
   h1, h2, h3, h4, h5, h6,.form-control, .btn {
-    font-size: 10px;
+    font-size: 20px;
   }
   table, td, th, tr{
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 table {
