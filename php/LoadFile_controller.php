@@ -1,6 +1,7 @@
 <?php
 class LoadFile
 {
+
     public static function Icons($element)
     {
         $extension = pathinfo($element, PATHINFO_EXTENSION);
@@ -26,6 +27,7 @@ class LoadFile
     }
     public static function Table($i, $element)
     {
+        $extension = pathinfo($element, PATHINFO_EXTENSION);
         $type_size = array(" Byte", " KB", " MB", " GB");
         $size = array(1, 1024, 1048576, 1073741824);
         $url = "../upload/" . $element;
@@ -42,10 +44,13 @@ class LoadFile
             }
             echo "<tr class='hide' id='hideMe' ><td scope = 'col'>" . $i . "</td>";
             echo "<input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>";
-            echo "<td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a></td>";
+            echo "<td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a>";
+            if($extension =='jpg' || $extension =='png' || $extension =='jpeg'){
+                echo "<button value = " . $element . " title='Preview' class='info btn btn' type='submit' id='image' onclick='Image(this)'><i class='fas fa-solid fa-circle-info'></i></button></td>";
+            }
             echo "<td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
             echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) /  $size[$x], 2) . "" . $type_size[$x] . "" . "</td>";
-            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="return DeleteFile(this)" value="' . $i . '" class="Delete btn bnt-light"><i class="fas fa-trash-alt"></i></button></td></tr>';
+            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="DeleteFile(this)" value="' . $i . '" class="Delete btn btn"><i class="fas fa-trash-alt"></i></button></td></tr>';
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }

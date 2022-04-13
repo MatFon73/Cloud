@@ -134,5 +134,8 @@ table {
   background-color: rgb(187, 187, 187);
   border-radius: 5px;
 position: relative;}
+.info{
+  margin-top: .8%;
+}
 
 /* #Creator: Mateo Fonseca (MatheoFonck73) */

@@ -3,6 +3,16 @@ function Unlock() {
   var button = document.getElementById("UploadFile");
   button.disabled = false;
 }
+function Image(image){
+  Swal.fire({
+    title: image.value,
+    imageUrl: 'upload/'+image.value,
+    imageWidth: image.width,
+    imageHeight: image.height,
+    padding:'.5%',
+    imageAlt: 'Custom image'
+  });
+}
 function SearchFile() {
   $.ajax({
     url: "php/LoadFile_controller.php",
