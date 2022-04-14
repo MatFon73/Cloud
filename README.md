@@ -17,8 +17,11 @@
 - jquery: to make requests.
 - sweetalert2: alert.
 
-## Interface
-![](https://i.ibb.co/VSrgFL2/Sin-t-tulo.png)
+## Interface - Light Mode
+![](https://i.ibb.co/5vJ412p/light.png)
+
+## Interface - Dark Mode
+![](https://i.ibb.co/MCv8Msm/Dark.png)
 
 ## How to use
 - Search: write the name of the file.
