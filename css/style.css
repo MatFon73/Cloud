@@ -18,9 +18,6 @@ button {
   text-align: center;
   font-size: 100px;
 }
-button:focus {
-  outline: none;
-}
 h4,
 h3 {
   color: var(--text-secunday-color);
@@ -132,25 +129,32 @@ table {
 .Delete:hover {
   color: var(--Danger-color);
 }
-@media only screen and (max-width: 980px) {
+
+@media only screen and (max-width: 1400px) and (min-width: 1000px){
+  .File {
+    margin-top: -4%;
+    height: 115%;
+  }
+  .Data{
+    margin-top: -1%;
+  }
+  h1, h2, h4, h5, h6,.form-control {
+    font-size: 20px;
+  }
+  table, td, th, tr{
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .Data{
+    margin-top: -2%;
+  }
   .IconSearch {
     display: none;
   }
   #SearchFile {
     border-radius: 3px 3px 3px 3px;
     width: 100%;
-  }
-}
-@media only screen and (max-width: 1400px) {
-  .File {
-    margin-top: -4%;
-    height: 115%;
-  }
-  h1, h2, h3, h4, h5, h6,.form-control, .btn {
-    font-size: 20px;
-  }
-  table, td, th, tr{
-    font-size: 15px;
   }
 }
 @keyframes slide-down {
