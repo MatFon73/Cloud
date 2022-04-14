@@ -1,4 +1,42 @@
 const Search = document.getElementById("SearchFile");
+var button = document.getElementById("darkmode");
+var color = ["rgb(29, 33, 41)", "#fff"];
+var background = color[button.value];
+
+function DarkMode() {
+  var root = document.documentElement;
+  if (button.value == "1") {
+    button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
+    button.value = "0";
+    background = color[button.value];
+    console.log(button.value+" "+background)
+    root.style.setProperty("--Light-color", color[0]);
+    root.style.setProperty("--text-primary-color", color[1]);
+    button.animate([{ opacity: "0" }, { opacity: "1" }], {
+      duration: 500,
+    });
+    document
+      .getElementById("Data")
+      .animate([{ opacity: "0" }, { opacity: "1" }], {
+        duration: 500,
+      });
+  } else {
+    button.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    button.value = "1";
+    background = color[button.value];
+    console.log(button.value+" "+background)
+    root.style.setProperty("--Light-color", color[1]);
+    root.style.setProperty("--text-primary-color", color[0]);
+    button.animate([{ opacity: "0" }, { opacity: "1" }], {
+      duration: 500,
+    });
+    document
+      .getElementById("Data")
+      .animate([{ opacity: "0" }, { opacity: "1" }], {
+        duration: 500,
+      });
+  }
+}
 function Unlock() {
   var button = document.getElementById("UploadFile");
   button.disabled = false;
@@ -9,6 +47,7 @@ function Image(image) {
     imageUrl: "upload/" + image.value,
     imageWidth: image.width,
     imageHeight: image.height,
+    background: background,
     padding: ".5%",
     imageAlt: "Custom image",
   });
@@ -42,6 +81,7 @@ function UploadFile() {
       icon: "warning",
       title: "Upload",
       text: "No not space name.",
+      background: background,
     });
     return false;
   }
@@ -50,6 +90,7 @@ function UploadFile() {
     icon: "warning",
     title: "Upload alert!",
     text: "Upload File.",
+    background: background,
     timerProgressBar: false,
     didOpen: () => {
       Swal.showLoading();
@@ -72,7 +113,8 @@ function UploadFile() {
           icon: "error",
           title: "Uploaded",
           text: "It is not the correct format.",
-          confirmButtonColor: "rgb(29, 33, 41)",
+          background: background,
+          confirmButtonColor: "#5cb85c",
           willClose: () => {
             clearInterval(timerInterval);
           },
@@ -82,7 +124,8 @@ function UploadFile() {
           icon: "success",
           title: "Uploaded",
           text: "The file was loaded successfully.",
-          confirmButtonColor: "rgb(29, 33, 41)",
+          background: background,
+          confirmButtonColor: "#5cb85c",
           willClose: () => {
             clearInterval(timerInterval);
           },
@@ -96,6 +139,7 @@ function UploadFile() {
         icon: "error",
         title: "Upload",
         text: e,
+        background: background,
       });
     },
   });
@@ -137,6 +181,7 @@ async function DeleteFile(Delete) {
   const { value: password } = await Swal.fire({
     title: "Enter password",
     icon: "question",
+    background: background,
     input: "password",
     inputLabel: "Password",
     inputPlaceholder: "Enter password",
@@ -152,6 +197,7 @@ async function DeleteFile(Delete) {
       icon: "error",
       title: "Password",
       text: "Incorrect password",
+      background: background,
     });
     return false;
   }
@@ -160,8 +206,9 @@ async function DeleteFile(Delete) {
     text: "You won't be able to revert this!",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "rgb(29, 33, 41)",
-    cancelButtonColor: "#d33",
+    background: background,
+    confirmButtonColor: "#5cb85c",
+    cancelButtonColor: "#dc3545",
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
@@ -170,21 +217,23 @@ async function DeleteFile(Delete) {
         url: "php/Delete_controller.php",
         data: $("#Delete" + Delete.value).serialize(),
         success: function (r) {
-          if (r == "Delete Compelte") {
+          if (r == "Delete Complete") {
             Swal.fire({
               icon: "success",
               title: "Delete",
+              background: background,
               text: r,
-              confirmButtonColor: "rgb(29, 33, 41)",
+              confirmButtonColor: "#5cb85c",
             });
             Storage();
             Load();
           } else {
             Swal.fire({
               icon: "error",
+              background: background,
               title: "Delete",
               text: r,
-              confirmButtonColor: "rgb(29, 33, 41)",
+              confirmButtonColor: "#5cb85c",
             });
           }
         },
@@ -192,45 +241,5 @@ async function DeleteFile(Delete) {
     }
   });
   return false;
-}
-function DarkMode() {
-  var color = ['rgb(29, 33, 41)', 'white'];
-  var button = document.getElementById("darkmode");
-  var root = document.documentElement;
-  if (button.value == '1') {
-    button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
-    button.value = '2';
-    root.style.setProperty("--Light-color", color[0]);
-    root.style.setProperty('--text-primary-color',color[1]);
-    button.animate([
-      { opacity: '0' },
-      { opacity: '1' }
-    ], {
-      duration: 500,
-    })
-    document.getElementById("Data").animate([
-      { opacity: '0' },
-      { opacity: '1' }
-    ], {
-      duration: 500,
-    });
-    } else {
-    button.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    button.value = '1';
-    root.style.setProperty("--Light-color", color[1]);
-    root.style.setProperty('--text-primary-color',color[0]);
-    button.animate([
-      { opacity: '0' },
-      { opacity: '1' }
-    ], {
-      duration: 500,
-    });
-    document.getElementById("Data").animate([
-      { opacity: '0' },
-      { opacity: '1' }
-    ], {
-      duration: 500,
-    });
-  }
 }
 // #Creator: Mateo Fonseca (MatheoFonck73)

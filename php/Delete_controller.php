@@ -7,7 +7,7 @@ class Delete
         try {
             if (file_exists('../upload/'.$file)){
                 unlink('../upload/'.$file);
-                echo "Delete Compelte";
+                echo "Delete Complete";
             }else{
                 echo "Does not exist";
             }
