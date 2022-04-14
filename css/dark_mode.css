@@ -2,14 +2,15 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    font-size: 10px;
     z-index: 0;
     float: right;
     color: var(--text-secunday-color);
+    background-color: var(--Primary-color);
     margin-right: .5%;
     margin-top: -2.5%;
     text-align: center;
     transition: .5s;
-    outline: none;
 }
 
 .darkmode:hover {
