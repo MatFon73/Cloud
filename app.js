@@ -43,6 +43,7 @@ function Image(image) {
   Swal.fire({
     title: image.value,
     imageUrl: "upload/" + image.value,
+    confirmButtonColor: "#5cb85c",
     imageWidth: image.width,
     imageHeight: image.height,
     background: background,
@@ -78,6 +79,7 @@ function UploadFile() {
     Swal.fire({
       icon: "warning",
       title: "Upload",
+      confirmButtonColor: "#5cb85c",
       text: "No not space name.",
       background: background,
     });
@@ -87,6 +89,7 @@ function UploadFile() {
   Swal.fire({
     icon: "warning",
     title: "Upload alert!",
+    confirmButtonColor: "#5cb85c",
     text: "Upload File.",
     background: background,
     timerProgressBar: false,
@@ -136,6 +139,7 @@ function UploadFile() {
       Swal.fire({
         icon: "error",
         title: "Upload",
+        confirmButtonColor: "#5cb85c",
         text: e,
         background: background,
       });
@@ -180,6 +184,7 @@ async function DeleteFile(Delete) {
     title: "Enter password",
     icon: "question",
     background: background,
+    confirmButtonColor: "#5cb85c",
     input: "password",
     inputLabel: "Password",
     inputPlaceholder: "Enter password",
@@ -194,6 +199,7 @@ async function DeleteFile(Delete) {
     Swal.fire({
       icon: "error",
       title: "Password",
+      confirmButtonColor: "#5cb85c",
       text: "Incorrect password",
       background: background,
     });
