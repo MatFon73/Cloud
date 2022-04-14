@@ -119,6 +119,9 @@ table {
   margin-left: -0.5%;
   color: var(--text-primary-color);
 }
+.info:hover{
+  color: var(--Secondary-color);
+}
 .icon {
   background-color: var(--Light-color);
   color: var(--Shaders-color);;
