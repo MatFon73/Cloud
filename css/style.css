@@ -18,12 +18,12 @@ button {
   text-align: center;
   font-size: 100px;
 }
-h1,
 h4,
 h3 {
   color: var(--text-secunday-color);
 }
 th,
+h1,
 td,
 table {
   color: var(--text-primary-color);
