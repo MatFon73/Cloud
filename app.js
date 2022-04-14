@@ -3,14 +3,14 @@ function Unlock() {
   var button = document.getElementById("UploadFile");
   button.disabled = false;
 }
-function Image(image){
+function Image(image) {
   Swal.fire({
     title: image.value,
-    imageUrl: 'upload/'+image.value,
+    imageUrl: "upload/" + image.value,
     imageWidth: image.width,
     imageHeight: image.height,
-    padding:'.5%',
-    imageAlt: 'Custom image'
+    padding: ".5%",
+    imageAlt: "Custom image",
   });
 }
 function SearchFile() {
@@ -192,5 +192,45 @@ async function DeleteFile(Delete) {
     }
   });
   return false;
+}
+function DarkMode() {
+  var color = ['rgb(29, 33, 41)', 'white'];
+  var button = document.getElementById("darkmode");
+  var root = document.documentElement;
+  if (button.value == '1') {
+    button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
+    button.value = '2';
+    root.style.setProperty("--Light-color", color[0]);
+    root.style.setProperty('--text-primary-color',color[1]);
+    button.animate([
+      { opacity: '0' },
+      { opacity: '1' }
+    ], {
+      duration: 500,
+    })
+    document.getElementById("Data").animate([
+      { opacity: '0' },
+      { opacity: '1' }
+    ], {
+      duration: 500,
+    });
+    } else {
+    button.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    button.value = '1';
+    root.style.setProperty("--Light-color", color[1]);
+    root.style.setProperty('--text-primary-color',color[0]);
+    button.animate([
+      { opacity: '0' },
+      { opacity: '1' }
+    ], {
+      duration: 500,
+    });
+    document.getElementById("Data").animate([
+      { opacity: '0' },
+      { opacity: '1' }
+    ], {
+      duration: 500,
+    });
+  }
 }
 // #Creator: Mateo Fonseca (MatheoFonck73)

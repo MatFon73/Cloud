@@ -3,8 +3,8 @@ class Delete
 {
     public static function File()
     {
+        $file = $_POST['Delete'];
         try {
-            $file = $_POST['Delete'];
             if (file_exists('../upload/'.$file)){
                 unlink('../upload/'.$file);
                 echo "Delete Compelte";
@@ -17,5 +17,4 @@ class Delete
     }
 }
 Delete::File();
-
 #Creator: Mateo Fonseca (MatheoFonck73)

@@ -12,6 +12,7 @@
       integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="css/dark_mode.css" />
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Font Google -->
@@ -42,6 +43,7 @@
         <h3 class="text-center">
           Files Manager&nbsp;<i class="fas fa-folder"></i>
         </h3>
+        <button title = "Dark Mode" value='1' id="darkmode" class="darkmode btn btn" type="submit" onclick="DarkMode()"><i class="fas fa-solid fa-moon"></i></button>
       </div>
       <div class="File">
         <div style="margin-top: 50%">
@@ -114,7 +116,7 @@
           </div>
         </div>
       </div>
-      <div class="Data">
+      <div id = "Data" class="Data">
         <div id="table"></div>
       </div>
     </div>

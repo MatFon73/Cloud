@@ -19,10 +19,14 @@ class LoadFile
             'xlsx', 'pdf', 'png',
             'gif', 'pptx', 'txt'
         );
-        for ($j = 0; $j <= count($format); ++$j) {
-            if ($format[$j] == $extension) {
-                return $icon[$j];
+        try {
+            for ($j = 0; $j <= count($format); ++$j) {
+                if ($format[$j] == $extension) {
+                    return $icon[$j];
+                }
             }
+        } catch (Exception $e) {
+            echo "An error has occurred: " . $e;
         }
     }
     public static function Table($i, $element)
@@ -45,7 +49,7 @@ class LoadFile
             echo "<tr class='hide' id='hideMe' ><td scope = 'col'>" . $i . "</td>";
             echo "<input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>";
             echo "<td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a>";
-            if($extension =='jpg' || $extension =='png' || $extension =='jpeg'){
+            if ($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg') {
                 echo "<button value = " . $element . " title='Preview' class='info btn btn' type='submit' id='image' onclick='Image(this)'><i class='fas fa-solid fa-circle-info'></i></button></td>";
             }
             echo "<td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";

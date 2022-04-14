@@ -1,53 +1,15 @@
-.grids {
-  display: grid;
-  grid-template-columns: 0.8fr 1.45fr 1.25fr;
-  grid-template-rows: 0.1fr 1.45fr 1.45fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "Menu Menu Menu"
-    "File Data Data"
-    "File Data Data";
-}
-
-.File {
-  grid-area: File;
-  height: 100%;
-  width: 20%;
-  background-color: rgb(29, 33, 41);
-  margin-right: 1px white solid;
-  position: fixed;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-.Menu {
-  grid-area: Menu;
-  padding-top: 0.5%;
-  background-color: rgb(29, 33, 41);
-  color: white;
-  margin-bottom: 15%;
-  width: 100%;
-  font-size: 20px;
-  position: fixed;
-  z-index: 1;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-.Data {
-  grid-area: Data;
-  z-index: -1;
-  margin-bottom: 25px;
-  position: fixed;
-  left: 21%;
-  top: 7%;
-  width: 79%;
-  height: 95%;
-  overflow: scroll;
+:root{
+  --Primary-color: rgb(29, 33, 41);
+  --Secondary-color:rgb(187, 187, 187);
+  --Light-color: white;
+  --Danger-color: #dc3545;
+  --Shaders-color: rgba(0, 0, 0, 0.75);
+  --text-primary-color: black;
+  --text-secunday-color: white;
 }
 body {
   font-family: "Josefin Sans", sans-serif;
-  background-color: white;
+  background-color: var(--Light-color);
   margin: 0;
 }
 button {
@@ -58,47 +20,114 @@ button {
 }
 h4,
 h3 {
-  color: white;
+  color: var(--text-secunday-color);
 }
 th,
 td,
 table {
-  color: rgb(29, 33, 41);
+  color: var(--text-primary-color);
   font-size: 20px;
 }
 a {
-  color: rgb(29, 33, 41);
+  color: var(--text-primary-color);
   text-decoration: none;
 }
 a:hover {
-  color: rgb(29, 33, 41);
+  color: var(--text-primary-color);
+}
+table {
+  border-collapse: collapse;
+}
+.grids {
+  display: grid;
+  grid-template-columns: 0.8fr 1.45fr 1.25fr;
+  grid-template-rows: 0.1fr 1.45fr 1.45fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Menu Menu Menu"
+    "File Data Data"
+    "File Data Data";
+}
+.File {
+  grid-area: File;
+  height: 100%;
+  width: 20%;
+  background-color: var(--Primary-color);
+  margin-right: 1px var(--Light-color) solid;
+  position: fixed;
+  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+}
+.Menu {
+  grid-area: Menu;
+  padding-top: 0.5%;
+  background-color: var(--Primary-color);
+  color: var(--Light-color);
+  margin-bottom: 15%;
+  width: 100%;
+  font-size: 20px;
+  position: fixed;
+  z-index: 1;
+  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+}
+.Data {
+  grid-area: Data;
+  padding:.5%;
+  z-index: -1;
+  margin-bottom: 25px;
+  position: fixed;
+  left: 21%;
+  top: 7%;
+  width: 79%;
+  height: 95%;
+  overflow: scroll;
+}
+#process{
+  background-color: var(--text-secunday-color);
+  border-radius: 5px;
+}
+#process-back{
+  background-color: var(--Secondary-color);
+  border-radius: 5px;
+  position: relative;
 }
 #SearchFile {
   display: inline-block;
   width: 82%;
   border-radius: 3px 0% 0% 3px;
 }
-#RemoveFile,
 .FileUpdate,
 .Search,
+#RemoveFile,
 #Bar {
   margin: 5%;
   border-radius: 3%;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+}
+.hide{
+  display: table-row;
+  animation: slide-down 0.3s ease-out;
+}
+.info{
+  margin-top: .8%;
+  color: var(--text-primary-color);
 }
 .icon {
-  background-color: white;
-  color: black;
+  background-color: var(--Light-color);
+  color: var(--Shaders-color);;
   border-radius: 3%;
   width: 30%;
 }
 .Delete {
-  color: #dc3545;
+  color: var(--Danger-color);
 }
 .Delete:hover {
-  color: #dc3545;
+  color: var(--Danger-color);
 }
 @media only screen and (max-width: 980px) {
   .IconSearch {
@@ -115,21 +144,14 @@ a:hover {
     height: 115%;
   }
   .Data{
-    top: 9%;
+    top: 8%;
   }
   h1, h2, h3, h4, h5, h6,.form-control, .btn {
     font-size: 20px;
   }
   table, td, th, tr{
-    font-size: 20px;
+    font-size: 15px;
   }
-}
-table {
-  border-collapse: collapse;
-}
-.hide{
-  display: table-row;
-  animation: slide-down 0.3s ease-out;
 }
 @keyframes slide-down {
   0% {
@@ -141,16 +163,4 @@ table {
     -webkit-transform: translateY(0);
   }
 }
-#process{
-  background-color: white;
-  border-radius: 5px;
-}
-#process-back{
-  background-color: rgb(187, 187, 187);
-  border-radius: 5px;
-position: relative;}
-.info{
-  margin-top: .8%;
-}
-
 /* #Creator: Mateo Fonseca (MatheoFonck73) */
