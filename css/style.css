@@ -18,6 +18,9 @@ button {
   text-align: center;
   font-size: 100px;
 }
+button:focus {
+  outline: none;
+}
 h4,
 h3 {
   color: var(--text-secunday-color);
@@ -82,7 +85,7 @@ table {
   left: 21%;
   top: 7%;
   width: 79%;
-  height: 95%;
+  height: 100%;
   overflow: scroll;
 }
 #process{
@@ -138,13 +141,13 @@ table {
     width: 100%;
   }
 }
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1400px) {
   .File {
-    margin-top: -5%;
+    margin-top: -4%;
     height: 115%;
   }
   .Data{
-    top: 8%;
+    margin-top: 3%;
   }
   h1, h2, h3, h4, h5, h6,.form-control, .btn {
     font-size: 20px;

@@ -1,16 +1,28 @@
-.darkmode{
-    border-radius: 50px;
+.darkmode {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     z-index: 0;
     float: right;
     color: var(--text-secunday-color);
-    -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-    -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-    box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-    margin-right:.5%;
-    margin-bottom: .9%;
+    margin-right: .5%;
+    margin-top: -2.5%;
     text-align: center;
     transition: .5s;
+    outline: none;
 }
-.darkmode:hover{
+
+.darkmode:hover {
     color: var(--Secondary-color);
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 1400px) {
+    .darkmode {
+        margin-top: -2.9%;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .darkmode {
+        margin-top: -3.2%;
+    }
 }
