@@ -120,7 +120,7 @@ table {
   color: var(--text-primary-color);
 }
 .info:hover{
-  color: var(--Secondary-color);
+  color: var(--text-primary-color);
 }
 .icon {
   background-color: var(--Light-color);
