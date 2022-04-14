@@ -115,7 +115,8 @@ table {
   animation: slide-down 0.3s ease-out;
 }
 .info{
-  margin-top: .8%;
+  margin-top: .5%;
+  margin-left: -0.5%;
   color: var(--text-primary-color);
 }
 .icon {
