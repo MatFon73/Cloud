@@ -135,7 +135,7 @@ table {
   color: var(--Danger-color);
 }
 
-@media only screen and (max-width: 1400px) and (min-width: 1000px){
+@media only screen and (max-width: 1600px) and (min-width: 1000px){
   .File {
     margin-top: -4%;
     height: 115%;
@@ -148,6 +148,9 @@ table {
   }
   table, td, th, tr{
     font-size: 15px;
+  }
+  #UploadFile{
+    font-size:12px;
   }
 }
 @media only screen and (max-width: 1000px) {
