@@ -1,7 +1,6 @@
 <?php
 class LoadFile
 {
-
     public static function Icons($element)
     {
         $extension = pathinfo($element, PATHINFO_EXTENSION);
