@@ -1,29 +1,25 @@
-:root{
+:root {
   --Primary-color: rgb(29, 33, 41);
-  --Secondary-color:rgb(187, 187, 187);
+  --Secondary-color: rgb(187, 187, 187);
   --Light-color: white;
   --Danger-color: #dc3545;
   --Shaders-color: rgba(0, 0, 0, 0.75);
-  --text-primary-color: black;
+  --text-primary-color: rgb(29, 33, 41);;
   --text-secunday-color: white;
 }
+
 body {
   font-family: "Josefin Sans", sans-serif;
   background-color: var(--Light-color);
   margin: 0;
 }
-button {
-  margin-top: -2%;
-  margin-left: 6%;
-  text-align: center;
-  font-size: 100px;
-}
+
 h4,
 h3 {
   color: var(--text-secunday-color);
 }
+
 th,
-h1,
 td,
 table {
   color: var(--text-primary-color);
@@ -33,12 +29,37 @@ a {
   color: var(--text-primary-color);
   text-decoration: none;
 }
+
+button {
+  color: var(--text-primary-color);
+  text-decoration: none;
+  background-color: var(--Light-color);
+  font-size: 100%;
+  border: none;
+  text-align: center;
+}
+
 a:hover {
   color: var(--text-primary-color);
 }
+
 table {
   border-collapse: collapse;
 }
+
+.urlFile {
+  color: var(--text-primary-color);
+  background-color: var(--Light-color);
+  border:none;
+  width: 100%;
+  margin-bottom: 1%;
+  outline: none;
+}
+
+h1 {
+  color: var(--text-primary-color);
+}
+
 .grids {
   display: grid;
   grid-template-columns: 0.8fr 1.45fr 1.25fr;
@@ -49,6 +70,7 @@ table {
     "File Data Data"
     "File Data Data";
 }
+
 .File {
   grid-area: File;
   height: 100%;
@@ -60,6 +82,7 @@ table {
   -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
   box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
+
 .Menu {
   grid-area: Menu;
   padding-top: 0.5%;
@@ -74,32 +97,37 @@ table {
   -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
   box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
+
 .Data {
   grid-area: Data;
-  padding:.5%;
+  padding: .5%;
   z-index: -1;
   margin-bottom: 25px;
   position: fixed;
   left: 21%;
   top: 7%;
   width: 79%;
-  height: 96%;
+  height: 94.5%;
   overflow: scroll;
 }
-#process{
+
+#process {
   background-color: var(--text-secunday-color);
   border-radius: 5px;
 }
-#process-back{
+
+#process-back {
   background-color: var(--Secondary-color);
   border-radius: 5px;
   position: relative;
 }
+
 #SearchFile {
   display: inline-block;
   width: 82%;
   border-radius: 3px 0% 0% 3px;
 }
+
 .FileUpdate,
 .Search,
 #RemoveFile,
@@ -110,69 +138,94 @@ table {
   -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
   box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
-.hide{
+
+.hide {
   display: table-row;
   animation: slide-down 0.3s ease-out;
 }
-.info{
+
+.info {
   margin-top: .5%;
   margin-left: -0.5%;
   color: var(--text-primary-color);
 }
-.info:hover{
+
+.info:hover {
   color: var(--text-primary-color);
 }
+
 .icon {
   background-color: var(--Light-color);
-  color: var(--Shaders-color);;
+  color: var(--Shaders-color);
+  ;
   border-radius: 3%;
   width: 30%;
 }
+
 .Delete {
   color: var(--Danger-color);
 }
+
 .Delete:hover {
   color: var(--Danger-color);
 }
 
-@media only screen and (max-width: 1600px) and (min-width: 1000px){
+@media only screen and (max-width: 1600px) and (min-width: 1000px) {
   .File {
     margin-top: -4%;
     height: 115%;
   }
-  .Data{
+
+  .Data {
     margin-top: .5%;
   }
-  h1, h2, h4, h5, h6,.form-control {
+
+  h1,
+  h2,
+  h4,
+  h5,
+  h6,
+  .form-control {
     font-size: 20px;
   }
-  table, td, th, tr{
+
+  table,
+  td,
+  th,
+  tr {
     font-size: 15px;
   }
-  #UploadFile{
-    font-size:12px;
+
+  #UploadFile {
+    font-size: 12px;
   }
 }
+
 @media only screen and (max-width: 1000px) {
-  .Data{
+  .Data {
     margin-top: -2%;
   }
+
   .IconSearch {
     display: none;
   }
+
   #SearchFile {
     border-radius: 3px 3px 3px 3px;
     width: 100%;
   }
 }
+
 @keyframes slide-down {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-100%);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
   }
 }
+
 /* #Creator: Mateo Fonseca (MatheoFonck73) */

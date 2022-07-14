@@ -18,17 +18,20 @@
 - sweetalert2: alert.
 
 ## Interface - Light Mode
-![](https://i.ibb.co/5vJ412p/light.png)
+![](https://i.ibb.co/YTh0LG5/Light-mode.png)
 
 ## Interface - Dark Mode
-![](https://i.ibb.co/MCv8Msm/Dark.png)
+![](https://i.ibb.co/hBZnV88/Dark-mode.png)
 
 ## How to use
 - Search: write the name of the file.
 - Upload: click on "browser", select the file and then click on the "Upload" button.
 - Delete: click on the trash can icon.
+- Rename: change the name.
 - Download: to download you must give in the file name.
-- Reaload: Reaload the table.
+- Reaload: Reaload the word space.
+- Previous folder: returns you to the previous folder.
+- New Folder: create a new folder. 
 
 ## Server Linux
 - You can use any version of linux server, in my case I use ubuntu server (https://ubuntu.com/download/server).

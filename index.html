@@ -27,10 +27,7 @@
     />
 
     <!-- Font awesome -->
-    <link
-      rel="stylesheet"
-      href="library/@fortawesome/css/all.css"
-    />
+    <link rel="stylesheet" href="library/@fortawesome/css/all.css" />
 
     <!-- Icon -->
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -43,13 +40,24 @@
         <h3 class="text-center">
           Files Manager&nbsp;<i class="fas fa-folder"></i>
         </h3>
-        <button title = "Dark Mode" value='1' id="darkmode" class="darkmode" type="submit" onclick="DarkMode()"><i class="fas fa-solid fa-moon"></i></button>
+        <button
+          title="Dark Mode"
+          value="1"
+          id="darkmode"
+          class="darkmode"
+          type="submit"
+          onclick="DarkMode()"
+        >
+          <i class="fas fa-solid fa-moon"></i>
+        </button>
       </div>
       <div class="File">
         <div style="margin-top: 50%">
           <div id="Bar">
             <div class="col" style="padding: 5%">
-              <h4 class="text-center">Storage&nbsp;<i class="fas fa-hdd"></i></h4>
+              <h4 class="text-center">
+                Storage&nbsp;<i class="fas fa-hdd"></i>
+              </h4>
               <div id="Storage"></div>
             </div>
           </div>
@@ -94,7 +102,7 @@
               <center>
                 <button
                   type="submit"
-                  style="margin:5%"
+                  style="margin: 5%"
                   class="btn btn-light"
                   id="UploadFile"
                   disabled="disabled"
@@ -116,24 +124,45 @@
           </div>
         </div>
       </div>
-      <div id = "Data" class="Data">
+      <div id="Data" class="Data">
+        <div class="row">
+          <div class="col-1">
+            <button  tittle="Previous Folder" style="margin-top: -2%; outline: none;" onclick="PreviousFolder()">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <div class="col-6">
+            <input
+            class="urlFile"
+            type="text"
+            value="upload"
+            name="urlFile"
+            id="urlFile"
+          />
+          </div>
+          <div  class="col-5">
+            <button  tittle="New Folder" id="NewFolder" style="float:right; outline: none;" onclick="NewFolder()">
+              <i class="fa-solid fa-folder-plus"></i>
+            </button>
+          </div>
+        </div>
         <div id="table"></div>
       </div>
     </div>
+    <script
+      type="text/javascript"
+      src="library/sweetalert2/dist/sweetalert2.all.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="library/Jquery-3.5.0/jquery-3.5.0.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="library/@fortawesome/js/all.js"
+    ></script>
+    <script src="app.js" type="text/javascript"></script>
   </body>
-  <script
-    type="text/javascript"
-    src="library/sweetalert2/dist/sweetalert2.all.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="library/Jquery-3.5.0/jquery-3.5.0.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="library/@fortawesome/js/all.js"
-  ></script>
-  <script src="app.js" type="text/javascript"></script>
 </html>
 
 <!-- #Creator: Mateo Fonseca (MatheoFonck73) -->

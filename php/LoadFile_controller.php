@@ -9,7 +9,7 @@ class LoadFile
             'file-word', 'file-word', 'file-excel', 'file-image',
             'file-image', 'file-video', 'file-archive', 'file-archive',
             'file-excel', 'file-pdf', 'file-image',
-            'file-image', 'file-powerpoint', 'file-alt',
+            'file-image', 'file-powerpoint', 'file-alt', 'folder'
         );
         $format = array(
             "iso", "exe", 'mp3',
@@ -28,69 +28,53 @@ class LoadFile
             echo "An error has occurred: " . $e;
         }
     }
-    public static function Table($i, $element)
+    public static function Data($element)
     {
-        $extension = pathinfo($element, PATHINFO_EXTENSION);
-        $type_size = array(" Byte", " KB", " MB", " GB");
-        $size = array(1, 1024, 1048576, 1073741824);
-        $url = "../upload/" . $element;
-        $x = 0;
-        try {
-            for ($j = 0; $j <= count($size); ++$j) {
-                if (filesize($url) >= $size[$j] && filesize($url) < $size[$j + 1]) {
-                    $x = $j;
-                } else {
-                    if (filesize($url) > $size[3] && $j == 3) {
-                        $x = $j;
-                    }
-                }
-            }
-            echo "<tr class='hide' id='hideMe' ><td scope = 'col'>" . $i . "</td>";
-            echo "<input value = " . $element . " id = 'Delete" . $i . "' name = 'Delete' style = 'display:none'>";
-            echo "<td scope = 'col'><a title='download' download='$element' href='upload/$element' target='_blank'><i class='fas fa-" . LoadFile::Icons($element) . "'></i>&nbsp;$element</a>";
-            if ($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg') {
-                echo "<button value = " . $element . " title='Preview' class='info btn btn' type='submit' id='image' onclick='Image(this)'><i class='fas fa-solid fa-circle-info'></i></button></td>";
-            }
-            echo "<td scope = 'col'>" . date("F d Y", filectime("../upload/" . $element)) . "</td>";
-            echo "<td scope = 'col'>" . round(filesize("../upload/" . $element) /  $size[$x], 2) . "" . $type_size[$x] . "" . "</td>";
-            echo '<td scope = "col"><button id="Delete' . $i . '" type="submit" onclick="DeleteFile(this)" value="' . $i . '" class="Delete btn btn"><i class="fas fa-trash-alt"></i></button></td></tr>';
-        } catch (Exception $e) {
-            echo "An error has occurred: " . $e;
+        if (pathinfo($element, PATHINFO_EXTENSION) == true) {
+            echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
+            echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
+            echo "<a download='$element' target='_blank' href='".$_POST['url']."/$element'>$element</a> ";
+            echo "<a><i class='fa-solid fa-caret-down'></i></a></div>";
+        } else {
+            echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
+            echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
+            echo "<button id='open' type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
+            echo "<a><i class='fa-solid fa-caret-down'></i></a></div>";
         }
     }
-    public static function Load($Url)
+    public static function Load()
     {
+        $url = "../".$_POST['url'];
         error_reporting(E_ALL ^ E_NOTICE);
-        $i = 1;
-        $List = scandir($Url);
-        unset($List[array_search('.', $List, true)]);
-        unset($List[array_search('..', $List, true)]);
-        $SearchFile = $_POST["SearchFile"];
+
+        if (file_exists($url) == false) {
+            echo '<h1 class ="text-center">Path not found</h1>';
+            exit();
+        } else {
+            $List = scandir($url, 0);
+            unset($List[array_search('.', $List, true)]);
+            unset($List[array_search('..', $List, true)]);
+            $SearchFile = $_POST["search"];
+        }
         try {
             if (count($List) > 0) {
-                echo '<table class="table">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Delete</th>
-                </tr>';
+                echo '<div class="container">
+                <div class="row">';
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
-                        LoadFile::Table($i++, $element);
+                        LoadFile::Data($element);
                     } else {
                         if (strlen(strstr($element, $SearchFile)) > 0) {
-                            LoadFile::Table($i++, $element);
+                            LoadFile::Data($element);
                         }
                     }
                 }
-                echo '</table>';
+                echo '</div></div>';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
     }
 }
-LoadFile::Load('../upload');
+LoadFile::Load();
 #Creator: Mateo Fonseca (MatheoFonck73)

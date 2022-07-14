@@ -42,7 +42,7 @@ function Unlock() {
 function Image(image) {
   Swal.fire({
     title: image.value,
-    imageUrl: "upload/" + image.value,
+    imageUrl: "upload" + image.value,
     confirmButtonColor: "#5cb85c",
     imageWidth: image.width,
     imageHeight: image.height,
@@ -52,21 +52,25 @@ function Image(image) {
   });
 }
 function SearchFile() {
-  $.ajax({
-    url: "php/LoadFile_controller.php",
-    type: "Post",
-    data: $("#SearchFile").serialize(),
-    success: function (r) {
-      if (r == "") {
-        $("#table").html('<h1 class ="text-center">File not found </h1>');
-      } else {
-        $("#table").html(r);
-      }
-    },
-    error: function (e) {
-      $("#table").html(e);
-    },
-  });
+  var Url = $("#urlFile").val();
+  var Search = $("#SearchFile").val();
+  var directory = "url=" + Url + "&search=" + Search;
+  console.log(Url),
+    $.ajax({
+      url: "php/LoadFile_controller.php",
+      type: "POST",
+      data: directory,
+      success: function (r) {
+        if (r == "") {
+          $("#table").html('<h1 class ="text-center">File not found </h1>');
+        } else {
+          $("#table").html(r);
+        }
+      },
+      error: function (e) {
+        $("#table").html(e);
+      },
+    });
   return false;
 }
 function UploadFile() {
@@ -74,7 +78,7 @@ function UploadFile() {
   var File = $("#FilesForm")[0].files[0];
   var FileName = $("#FilesForm")[0].files[0].name;
   formData.append("I", File);
-
+  formData.append("url", document.getElementById("urlFile").value);
   if (FileName.indexOf(" ") >= 0) {
     Swal.fire({
       icon: "warning",
@@ -104,7 +108,7 @@ function UploadFile() {
   });
   $.ajax({
     url: "php/UploadFile_controller.php",
-    type: "Post",
+    type: "POST",
     data: formData,
     processData: false,
     contentType: false,
@@ -124,7 +128,7 @@ function UploadFile() {
         Swal.fire({
           icon: "success",
           title: "Uploaded",
-          text: "The file was loaded successfully.",
+          text: "The file uploaded successfully.",
           background: background,
           confirmButtonColor: "#5cb85c",
           willClose: () => {
@@ -147,29 +151,11 @@ function UploadFile() {
   });
   return false;
 }
-function Load() {
-  $.ajax({
-    url: "php/LoadFile_controller.php",
-    type: "Post",
-    success: function (r) {
-      if (Search.value == "") {
-        if (r == "") {
-          $("#table").html('<h1 class ="text-center">No documents</h1>');
-        } else {
-          $("#table").html(r);
-        }
-      }
-    },
-    error: function (e) {
-      $("#table").html(e);
-    },
-  });
-  return false;
-}
+
 function Storage() {
   $.ajax({
     url: "php/Storage_controller.php",
-    type: "Post",
+    type: "POST",
     success: function (r) {
       $("#Storage").html(r);
     },
@@ -246,4 +232,140 @@ async function DeleteFile(Delete) {
   });
   return false;
 }
+function Load() {
+  var Url = $("#urlFile").val();
+  if (Url == "") {
+    return false;
+  }
+  $.ajax({
+    url: "php/LoadFile_controller.php",
+    type: "POST",
+    data: "url=" + Url,
+    success: function (r) {
+      if (Search.value == "") {
+        if (r == "") {
+          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+        } else {
+          $("#table").html(r);
+        }
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
+  return false;
+}
+function PreviousFolder() {
+  var Url = $("#urlFile").val();
+  var directory = "upload";
+  if (Url != "upload") {
+    for (i = Url.length - 1; i >= 0; i--) {
+      if (Url[i] == "/") {
+        directory = Url.substring(null, i);
+        break;
+      } else {
+        directory = Url.substring(null, i);
+      }
+    }
+  }
+  document.getElementById("SearchFile").value = "";
+  document.getElementById("urlFile").value = directory;
+  $.ajax({
+    url: "php/LoadFile_controller.php",
+    type: "POST",
+    data: "url=" + directory,
+    success: function (r) {
+      if (Search.value == "") {
+        if (r == "") {
+          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+        } else {
+          $("#table").html(r);
+        }
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
+  return false;
+}
+function OpenFolder(boton) {
+  var Url = $("#urlFile").val();
+  document.getElementById("urlFile").value = Url + "/" + boton.value;
+  var directory = "url=" + Url + "/" + boton.value;
+  document.getElementById("SearchFile").value = "";
+  $.ajax({
+    url: "php/LoadFile_controller.php",
+    type: "POST",
+    data: directory,
+    success: function (r) {
+      if (Search.value == "") {
+        if (r == "") {
+          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+        } else {
+          $("#table").html(r);
+        }
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
+  return false;
+}
+
+async function NewFolder() {
+  var Url = $("#urlFile").val();
+  if (Url == "") {
+    return false;
+  }
+  Swal.fire({
+    confirmButtonColor: "#5cb85c",
+    background: background,
+    title: "Folder name.",
+    input: "text",
+    showCancelButton: true,
+    confirmButtonText: "Create",
+    cancelButtonText: "Cancel",
+  }).then((r) => {
+    let Newfolder = r.value;
+    $.ajax({
+      url: "php/NewFolder_controller.php",
+      type: "POST",
+      data: "url=" + Url + "&name=" + Newfolder,
+      success: function (r) {
+        if ((r == "The folder has been created successfully.")) {
+          Swal.fire({
+            icon: "success",
+            background: background,
+            title: "New Folder",
+            text: r,
+            confirmButtonColor: "#5cb85c",
+          });
+          Load();
+        } else {
+          Swal.fire({
+            icon: "warning",
+            background: background,
+            title: "New Folder",
+            text: r,
+            confirmButtonColor: "#5cb85c",
+          });
+        }
+      },
+      error: function (e) {
+        Swal.fire({
+          icon: "error",
+          background: background,
+          title: "New Folder",
+          text: e,
+          confirmButtonColor: "#5cb85c",
+        });
+      },
+    });
+    return false;
+  });
+}
+
 // #Creator: Mateo Fonseca (MatheoFonck73)

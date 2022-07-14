@@ -1,8 +1,9 @@
 <?php
 class UploadFile
 {
-    public static function Upload($upload)
+    public static function Upload()
     {
+        $upload = "../".$_POST['url'];
         $format = array(
             "iso", "exe", 'mp3',
             'doc', 'docx', 'xls', 'jpeg',
@@ -12,7 +13,7 @@ class UploadFile
         );
         $File = $_FILES['I']['name'];
         $tmp = ($_FILES['I']['tmp_name']);
-        $save =  $upload . $File;
+        $save =  $upload. "/".$File;
         $extension = pathinfo($File, PATHINFO_EXTENSION);
         try {
             if (!in_array($extension, $format)) {
@@ -25,5 +26,5 @@ class UploadFile
         }
     }
 }
-UploadFile::Upload("../upload/");
+UploadFile::Upload();
 #Creator: Mateo Fonseca (MatheoFonck73)

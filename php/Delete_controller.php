@@ -5,8 +5,8 @@ class Delete
     {
         $file = $_POST['Delete'];
         try {
-            if (file_exists('../upload/'.$file)){
-                unlink('../upload/'.$file);
+            if (file_exists($_POST["url"].$file)){
+                unlink($_POST["url"].$file);
                 echo "Delete Complete";
             }else{
                 echo "Does not exist";
