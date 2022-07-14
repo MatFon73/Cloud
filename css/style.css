@@ -139,8 +139,7 @@ h1 {
   box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
-.hide {
-  display: table-row;
+a, h1, button {
   animation: slide-down 0.3s ease-out;
 }
 
@@ -219,13 +218,20 @@ h1 {
 @keyframes slide-down {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-100%);
   }
-
+  50% {
+    opacity: 0.5;
+  }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
   }
 }
-
+.dropdown-item, .dropdown-menu{
+  color: var(--text-primary-color);
+  background-color: var(--Light-color);
+}
+.dropdown-item:hover{
+  color: var(--text-primary-color);
+  background-color: var(--Light-color);
+}
 /* #Creator: Mateo Fonseca (MatheoFonck73) */

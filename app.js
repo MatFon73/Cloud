@@ -2,6 +2,12 @@ const Search = document.getElementById("SearchFile");
 var button = document.getElementById("darkmode");
 var color = ["rgb(29, 33, 41)", "#fff"];
 var background = color[button.value];
+var elem = document.getElementById("urlFile");
+elem.onkeyup = function (e) {
+  if (e.keyCode == 13) {
+    Load();
+  }
+};
 
 function DarkMode() {
   var root = document.documentElement;
@@ -39,38 +45,114 @@ function Unlock() {
   var button = document.getElementById("UploadFile");
   button.disabled = false;
 }
-function Image(image) {
-  Swal.fire({
-    title: image.value,
-    imageUrl: "upload" + image.value,
+async function Rename(file) {
+  var Url = $("#urlFile").val();
+  await Swal.fire({
     confirmButtonColor: "#5cb85c",
-    imageWidth: image.width,
-    imageHeight: image.height,
     background: background,
-    padding: ".5%",
-    imageAlt: "Custom image",
+    title: "Rename.",
+    input: "text",
+    showCancelButton: true,
+    confirmButtonText: "Rename",
+    cancelButtonText: "Cancel",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let Newfolder = result.value;
+      $.ajax({
+        url: "php/Rename_controller.php",
+        type: "POST",
+        data: "url=" + Url + "&Nname=" + Newfolder + "&Oname=" + file.value,
+        success: function (r) {
+          if (r == "The name has been changed successfully.") {
+            Swal.fire({
+              icon: "success",
+              background: background,
+              title: "New Name",
+              text: r,
+              confirmButtonColor: "#5cb85c",
+            });
+            Load();
+          } else {
+            Swal.fire({
+              icon: "warning",
+              background: background,
+              title: "New Name",
+              text: r,
+              confirmButtonColor: "#5cb85c",
+            });
+          }
+        },
+        error: function (e) {
+          Swal.fire({
+            icon: "error",
+            background: background,
+            title: "New Name",
+            text: e,
+            confirmButtonColor: "#5cb85c",
+          });
+        },
+      });
+      return false;
+    }
   });
+}
+function Properties(file) {
+  $.ajax({
+    url: "php/Properties_controller.php",
+    type: "POST",
+    data: "url=" + file.value,
+    success: function (r) {
+      if (
+        file.value.split(".").pop() == "jpg" ||
+        file.value.split(".").pop() == "png" ||
+        file.value.split(".").pop() == "jpeg"
+      ) {
+        Swal.fire({
+          imageUrl: file.value,
+          confirmButtonColor: "#5cb85c",
+          imageWidth: file.width,
+          text: r,
+          imageHeight: file.height,
+          background: background,
+          padding: ".5%",
+          imageAlt: "Custom image",
+        });
+      } else {
+        Swal.fire({
+          icon: "info",
+          title: "Properties",
+          background: background,
+          text: r,
+          confirmButtonColor: "#5cb85c",
+        });
+        
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
+  return false;
 }
 function SearchFile() {
   var Url = $("#urlFile").val();
   var Search = $("#SearchFile").val();
   var directory = "url=" + Url + "&search=" + Search;
-  console.log(Url),
-    $.ajax({
-      url: "php/LoadFile_controller.php",
-      type: "POST",
-      data: directory,
-      success: function (r) {
-        if (r == "") {
-          $("#table").html('<h1 class ="text-center">File not found </h1>');
-        } else {
-          $("#table").html(r);
-        }
-      },
-      error: function (e) {
-        $("#table").html(e);
-      },
-    });
+  $.ajax({
+    url: "php/LoadFile_controller.php",
+    type: "POST",
+    data: directory,
+    success: function (r) {
+      if (r == "") {
+        $("#table").html('<h1 class ="text-center">File not found </h1>');
+      } else {
+        $("#table").html(r);
+      }
+    },
+    error: function (e) {
+      $("#table").html(e);
+    },
+  });
   return false;
 }
 function UploadFile() {
@@ -205,7 +287,7 @@ async function DeleteFile(Delete) {
       $.ajax({
         type: "POST",
         url: "php/Delete_controller.php",
-        data: $("#Delete" + Delete.value).serialize(),
+        data: "Delete=" + Delete.value,
         success: function (r) {
           if (r == "Delete Complete") {
             Swal.fire({
@@ -314,57 +396,58 @@ function OpenFolder(boton) {
   });
   return false;
 }
-
 async function NewFolder() {
   var Url = $("#urlFile").val();
   if (Url == "") {
     return false;
   }
-  Swal.fire({
+  await Swal.fire({
     confirmButtonColor: "#5cb85c",
     background: background,
-    title: "Folder name.",
+    title: "New Folder.",
     input: "text",
     showCancelButton: true,
     confirmButtonText: "Create",
     cancelButtonText: "Cancel",
-  }).then((r) => {
-    let Newfolder = r.value;
-    $.ajax({
-      url: "php/NewFolder_controller.php",
-      type: "POST",
-      data: "url=" + Url + "&name=" + Newfolder,
-      success: function (r) {
-        if ((r == "The folder has been created successfully.")) {
+  }).then((result) => {
+    if (result.isConfirmed) {
+      let Newfolder = result.value;
+      $.ajax({
+        url: "php/NewFolder_controller.php",
+        type: "POST",
+        data: "url=" + Url + "&name=" + Newfolder,
+        success: function (r) {
+          if (r == "The folder has been created successfully.") {
+            Swal.fire({
+              icon: "success",
+              background: background,
+              title: "New Folder",
+              text: r,
+              confirmButtonColor: "#5cb85c",
+            });
+            Load();
+          } else {
+            Swal.fire({
+              icon: "warning",
+              background: background,
+              title: "New Folder",
+              text: r,
+              confirmButtonColor: "#5cb85c",
+            });
+          }
+        },
+        error: function (e) {
           Swal.fire({
-            icon: "success",
+            icon: "error",
             background: background,
             title: "New Folder",
-            text: r,
+            text: e,
             confirmButtonColor: "#5cb85c",
           });
-          Load();
-        } else {
-          Swal.fire({
-            icon: "warning",
-            background: background,
-            title: "New Folder",
-            text: r,
-            confirmButtonColor: "#5cb85c",
-          });
-        }
-      },
-      error: function (e) {
-        Swal.fire({
-          icon: "error",
-          background: background,
-          title: "New Folder",
-          text: e,
-          confirmButtonColor: "#5cb85c",
-        });
-      },
-    });
-    return false;
+        },
+      });
+      return false;
+    }
   });
 }
 

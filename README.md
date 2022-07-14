@@ -32,6 +32,7 @@
 - Reaload: Reaload the word space.
 - Previous folder: returns you to the previous folder.
 - New Folder: create a new folder. 
+- Propierties: shows file details.
 
 ## Server Linux
 - You can use any version of linux server, in my case I use ubuntu server (https://ubuntu.com/download/server).

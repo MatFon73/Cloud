@@ -33,18 +33,32 @@ class LoadFile
         if (pathinfo($element, PATHINFO_EXTENSION) == true) {
             echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
             echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
-            echo "<a download='$element' target='_blank' href='".$_POST['url']."/$element'>$element</a> ";
-            echo "<a><i class='fa-solid fa-caret-down'></i></a></div>";
+            echo "<a download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
+            echo '<div class="dropdown">
+					<button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <button onclick="Rename(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item" ><i class="fas fa-pencil"></i>&nbsp;Raname</button>
+                        <button onclick="DeleteFile(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item" ><i class="fas fa-trash-can"></i>&nbsp;Delete</button>
+                        <button onclick="Properties(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item" ><i class="fas fa-circle-info"></i>&nbsp;Properties</button>
+					</ul>
+				</div></div>';
         } else {
             echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
             echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
-            echo "<button id='open' type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
-            echo "<a><i class='fa-solid fa-caret-down'></i></a></div>";
+            echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
+            echo '<div class="dropdown">
+            <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                <button onclick="Rename(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item"><i class="fas fa-pencil"></i>&nbsp;Raname</button>
+                <button onclick="DeleteFile(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item"><i class="fas fa-trash-can"></i>&nbsp;Delete</button>
+                <button onclick="Properties(this)" value="' . $_POST['url'] . '/'.$element.'" class="dropdown-item"><i class="fas fa-circle-info"></i>&nbsp;Properties</button>
+            </ul>
+        </div></div>';
         }
     }
     public static function Load()
     {
-        $url = "../".$_POST['url'];
+        $url = "../" . $_POST['url'];
         error_reporting(E_ALL ^ E_NOTICE);
 
         if (file_exists($url) == false) {

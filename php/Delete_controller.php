@@ -3,12 +3,21 @@ class Delete
 {
     public static function File()
     {
-        $file = $_POST['Delete'];
+        $file = "../" . $_POST['Delete'];
         try {
-            if (file_exists($_POST["url"].$file)){
-                unlink($_POST["url"].$file);
-                echo "Delete Complete";
-            }else{
+            if (file_exists($file)) {
+                if (pathinfo($file, PATHINFO_EXTENSION)) {
+                    unlink($file);
+                    echo "Delete Complete";
+                } else {
+                    if (count(@scandir($file)) > 2) {
+                        echo "Can not delete a full folder.";
+                    } else {
+                        rmdir($file);
+                        echo "Delete Complete";
+                    }
+                }
+            } else {
                 echo "Does not exist";
             }
         } catch (Exception $e) {
