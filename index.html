@@ -37,22 +37,52 @@
   <body onload="Load(), Storage()">
     <div class="grids">
       <div class="Menu">
-        <h3 class="text-center">
-          Files Manager&nbsp;<i class="fas fa-folder"></i>
-        </h3>
-        <button
-          title="Dark Mode"
-          value="1"
-          id="darkmode"
-          class="darkmode"
-          type="submit"
-          onclick="DarkMode()"
-        >
-          <i class="fas fa-solid fa-moon"></i>
-        </button>
+
+        <div class="row">
+          <div class="col-2">
+            <h3 style="margin-left: 10%;">
+              <i class="fas fa-folder"></i>&nbsp;Files
+            </h3>
+          </div>
+          <div class="col-3">
+            <input
+            style="margin-top:-1%;"
+                type="text"
+                autocomplete="off"
+                onkeyup="SearchFile()"
+                placeholder="Search"
+                class="InputSearch form-control"
+                id="SearchFile"
+                name="SearchFile"
+              /><span
+              class="IconSearch form-control"
+              style="
+                text-align: center;
+                margin-top: -3px;
+                float: left;
+                width: 40px;
+                border-radius: 3px 0px 0px 3px;
+              "
+              ><i class="fa fa-search"></i
+            ></span>
+          </div>
+          <div class="col-12">
+            <button
+            style="float: right;"
+            title="Dark Mode"
+            value="1"
+            id="darkmode"
+            class="darkmode"
+            type="submit"
+            onclick="DarkMode()"
+          >
+            <i class="fas fa-solid fa-moon"></i>
+          </button>
+          </div>
+        </div>
       </div>
       <div class="File">
-        <div style="margin-top: 50%">
+        <div style="margin-top:150px">
           <div id="Bar">
             <div class="col" style="padding: 5%">
               <h4 class="text-center">
@@ -61,31 +91,6 @@
               <div id="Storage"></div>
             </div>
           </div>
-          <div class="Search">
-            <h4 class="text-center" style="padding-top: 5%">
-              Search&nbsp;<i class="fas fa-search"></i>
-            </h4>
-            <div class="col" style="padding: 5%">
-              <input
-                type="text"
-                autocomplete="off"
-                onkeyup="SearchFile()"
-                placeholder="File Name"
-                class="InputSearch form-control"
-                id="SearchFile"
-                name="SearchFile"
-              />
-              <span
-                class="IconSearch form-control"
-                style="
-                  text-align: center;
-                  float: right;
-                  width: 18%;
-                  border-radius: 0% 3px 3px 0%;
-                "
-                ><i class="fa fa-search"></i
-              ></span>
-            </div>
           </div>
           <div class="FileUpdate">
             <h4 class="text-center" style="padding-top: 5%">
@@ -121,6 +126,12 @@
                 </button>
               </center>
             </div>
+          </div>
+          <div class="container-fluid align-items-end">
+          <center><a tittle="Twitter" style="margin:2%; color: white;" target="_blank" href="https://twitter.com/MatheoFonck73"><i class="fa-brands fa-twitter"></i></a>
+            <a tittle="instagram" style="margin:2%; color: white;" target="_blank" href="https://www.instagram.com/matheofonck73/"><i class="fa-brands fa-instagram"></i></a>
+            <a tittle="Github" style="margin:2%; color: white;" target="_blank" href="https://github.com/MatheoFonck73"><i class="fa-brands fa-github"></i></a></center>
+            <h6 class="text-center" style="color: white;"><i class="fa-solid fa-copyright"></i> - Mateo Fonseca - 2022</h6>
           </div>
         </div>
       </div>

@@ -18,10 +18,10 @@
 - sweetalert2: alert.
 
 ## Interface - Light Mode
-![](https://i.ibb.co/YTh0LG5/Light-mode.png)
+![](https://i.ibb.co/8bpX1PD/Light-mode.png)
 
 ## Interface - Dark Mode
-![](https://i.ibb.co/hBZnV88/Dark-mode.png)
+![](https://i.ibb.co/9vxSR8z/Dark-mode.png)
 
 ## How to use
 - Search: write the name of the file.

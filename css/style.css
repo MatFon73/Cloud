@@ -4,7 +4,8 @@
   --Light-color: white;
   --Danger-color: #dc3545;
   --Shaders-color: rgba(0, 0, 0, 0.75);
-  --text-primary-color: rgb(29, 33, 41);;
+  --text-primary-color: rgb(29, 33, 41);
+  ;
   --text-secunday-color: white;
 }
 
@@ -25,6 +26,7 @@ table {
   color: var(--text-primary-color);
   font-size: 20px;
 }
+
 a {
   color: var(--text-primary-color);
   text-decoration: none;
@@ -50,7 +52,7 @@ table {
 .urlFile {
   color: var(--text-primary-color);
   background-color: var(--Light-color);
-  border:none;
+  border: none;
   width: 100%;
   margin-bottom: 1%;
   outline: none;
@@ -62,7 +64,7 @@ h1 {
 
 .grids {
   display: grid;
-  grid-template-columns: 0.8fr 1.45fr 1.25fr;
+  grid-template-columns: 0.5fr 1.48fr 1.25fr;
   grid-template-rows: 0.1fr 1.45fr 1.45fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -74,7 +76,7 @@ h1 {
 .File {
   grid-area: File;
   height: 100%;
-  width: 20%;
+  width: 17%;
   background-color: var(--Primary-color);
   margin-right: 1px var(--Light-color) solid;
   position: fixed;
@@ -88,7 +90,7 @@ h1 {
   padding-top: 0.5%;
   background-color: var(--Primary-color);
   color: var(--Light-color);
-  margin-bottom: 15%;
+  margin-bottom: 1%;
   width: 100%;
   font-size: 20px;
   position: fixed;
@@ -104,42 +106,37 @@ h1 {
   z-index: -1;
   margin-bottom: 25px;
   position: fixed;
-  left: 21%;
-  top: 7%;
-  width: 79%;
-  height: 94.5%;
+  left: 17%;
+  top: 60px;
+  width: 84%;
+  height: 100%;
   overflow: scroll;
 }
 
 #process {
   background-color: var(--text-secunday-color);
   border-radius: 5px;
+  z-index:-1
 }
 
 #process-back {
-  background-color: var(--Secondary-color);
+  background-color:var(--Secondary-color);
   border-radius: 5px;
   position: relative;
+  z-index:-1
 }
 
 #SearchFile {
   display: inline-block;
-  width: 82%;
-  border-radius: 3px 0% 0% 3px;
+  width: 50%;
+  border-radius: 0px 3px 3px 0px;
 }
 
-.FileUpdate,
-.Search,
-#RemoveFile,
-#Bar {
-  margin: 5%;
-  border-radius: 3%;
-  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-}
 
-a, h1, button {
+
+a,
+h1,
+button {
   animation: slide-down 0.3s ease-out;
 }
 
@@ -171,7 +168,7 @@ a, h1, button {
 
 @media only screen and (max-width: 1600px) and (min-width: 1000px) {
   .File {
-    margin-top: -4%;
+    margin-top: -3%;
     height: 115%;
   }
 
@@ -185,7 +182,7 @@ a, h1, button {
   h5,
   h6,
   .form-control {
-    font-size: 20px;
+    size: 10px;
   }
 
   table,
@@ -202,11 +199,12 @@ a, h1, button {
 
 @media only screen and (max-width: 1000px) {
   .Data {
-    margin-top: -2%;
+    margin-top: -1%;
   }
 
   .IconSearch {
     display: none;
+    margin-top: -18%;
   }
 
   #SearchFile {
@@ -219,19 +217,25 @@ a, h1, button {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
 }
-.dropdown-item, .dropdown-menu{
+
+.dropdown-item,
+.dropdown-menu {
   color: var(--text-primary-color);
   background-color: var(--Light-color);
 }
-.dropdown-item:hover{
+
+.dropdown-item:hover {
   color: var(--text-primary-color);
   background-color: var(--Light-color);
 }
+
 /* #Creator: Mateo Fonseca (MatheoFonck73) */

@@ -31,7 +31,7 @@ class LoadFile
     public static function Data($element)
     {
         if (pathinfo($element, PATHINFO_EXTENSION) == true) {
-            echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
+            echo '<div style="margin:3%;" class="col text-center">';
             echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
             echo "<a download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
             echo '<div class="dropdown">
@@ -43,7 +43,7 @@ class LoadFile
 					</ul>
 				</div></div>';
         } else {
-            echo '<div style="margin-bottom:1%;" class="col-3 text-center">';
+            echo '<div style="margin:3%;" class="col text-center">';
             echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
             echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
             echo '<div class="dropdown">
