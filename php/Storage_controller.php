@@ -8,8 +8,9 @@ class Storage
         $percentage = round((($Free / $Storage) * 100), 2) . "%";
         try {
             echo "<div id='process-back'>";
+            echo "<h5 style='left:25%; position:absolute' title='" . $percentage . ' Free' . "'>" . $percentage . ' Free' . "</h5>";
             echo "<div style='width:" . $percentage . "' id='process'>";
-            echo "<h5 style='text-align:center;'>" . $percentage . ' Free' . "</h5></div></div>";
+            echo "<h5>&nbsp;</h5></div></div>";
             echo "<h5 style='color:white;' class='text-center'>" . $Free . " GB  Free / " . $Storage . " GB " . "</h5>";
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;

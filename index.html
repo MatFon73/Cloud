@@ -45,26 +45,24 @@
             </h3>
           </div>
           <div class="col-3">
+            <span
+              class="IconSearch form-control"
+              id="IconSearch"
+              title="Search"
+              ><i class="fa fa-search"></i
+            ></span>
             <input
-            style="margin-top:-1%;"
+                title="Search"
                 type="text"
                 autocomplete="off"
                 onkeyup="SearchFile()"
+                onfocus="document.getElementById('IconSearch').style = 'border:1px solid white;  border-right: none;';"
+                onblur="document.getElementById('IconSearch').style = 'border:1px solid rgb(41, 46, 54);  border-right: none;';"
                 placeholder="Search"
-                class="InputSearch form-control"
+                class="InputSearch"
                 id="SearchFile"
                 name="SearchFile"
-              /><span
-              class="IconSearch form-control"
-              style="
-                text-align: center;
-                margin-top: -3px;
-                float: left;
-                width: 40px;
-                border-radius: 3px 0px 0px 3px;
-              "
-              ><i class="fa fa-search"></i
-            ></span>
+                />
           </div>
           <div class="col-12">
             <button
@@ -112,6 +110,7 @@
                   id="UploadFile"
                   disabled="disabled"
                   onclick="UploadFile()"
+                  title="Upload"
                 >
                   Upload&nbsp;<i class="fas fa-cloud-upload-alt"></i>
                 </button>
@@ -121,6 +120,7 @@
                   class="btn btn-light"
                   id="UploadFile"
                   onclick="Load()"
+                  title="Reload"
                 >
                   Reload&nbsp;<i class="fas fa-solid fa-arrow-rotate-right"></i>
                 </button>
@@ -128,10 +128,10 @@
             </div>
           </div>
           <div class="container-fluid align-items-end">
-          <center><a tittle="Twitter" style="margin:2%; color: white;" target="_blank" href="https://twitter.com/MatheoFonck73"><i class="fa-brands fa-twitter"></i></a>
-            <a tittle="instagram" style="margin:2%; color: white;" target="_blank" href="https://www.instagram.com/matheofonck73/"><i class="fa-brands fa-instagram"></i></a>
-            <a tittle="Github" style="margin:2%; color: white;" target="_blank" href="https://github.com/MatheoFonck73"><i class="fa-brands fa-github"></i></a></center>
-            <h6 class="text-center" style="color: white;"><i class="fa-solid fa-copyright"></i> - Mateo Fonseca - 2022</h6>
+          <center><a title="Twitter" style="margin:2%; color: white;" target="_blank" href="https://twitter.com/MatheoFonck73"><i class="fa-brands fa-twitter"></i></a>
+            <a title="Instagram" style="margin:2%; color: white;" target="_blank" href="https://www.instagram.com/matheofonck73/"><i class="fa-brands fa-instagram"></i></a>
+            <a title="Github" style="margin:2%; color: white;" target="_blank" href="https://github.com/MatheoFonck73"><i class="fa-brands fa-github"></i></a></center>
+            <h6 title="#Creator: MatheoFonck73 - Copyright"class="text-center" style="color: white;"><i class="fa-solid fa-copyright"></i> - Mateo Fonseca - 2022</h6>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
         <div class="row">
           <div class="col-1">
             <button
-              tittle="Previous Folder"
+              title="Previous Folder"
               style="margin-top: -2%; outline: none"
               onclick="PreviousFolder()"
             >
@@ -154,11 +154,12 @@
               name="urlFile"
               id="urlFile"
               autocomplete="off"
+              title="URL"
             />
           </div>
           <div class="col-5">
             <button
-              tittle="New Folder"
+              title="New Folder"
               id="NewFolder"
               style="float: right; outline: none"
               onclick="NewFolder()"

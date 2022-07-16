@@ -8,7 +8,6 @@ elem.onkeyup = function (e) {
     Load();
   }
 };
-
 function DarkMode() {
   var root = document.documentElement;
   if (button.value == "1") {
@@ -115,7 +114,7 @@ function Properties(file) {
           imageHeight: file.height,
           background: background,
           padding: ".5%",
-          imageAlt: "Custom image",
+          imageAlt: "File",
         });
       } else {
         Swal.fire({
@@ -161,16 +160,6 @@ function UploadFile() {
   var FileName = $("#FilesForm")[0].files[0].name;
   formData.append("I", File);
   formData.append("url", document.getElementById("urlFile").value);
-  if (FileName.indexOf(" ") >= 0) {
-    Swal.fire({
-      icon: "warning",
-      title: "Upload",
-      confirmButtonColor: "#5cb85c",
-      text: "No not space name.",
-      background: background,
-    });
-    return false;
-  }
   let timerInterval;
   Swal.fire({
     icon: "warning",

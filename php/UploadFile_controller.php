@@ -9,7 +9,8 @@ class UploadFile
             'doc', 'docx', 'xls', 'jpeg',
             'jpg', 'mp4', 'rar', 'zip',
             'xlsx', 'pdf', 'png',
-            'gif', 'pptx', 'txt'
+            'gif', 'pptx', 'txt', 'js',
+            'php','css','html','msi', '7z','jar'
         );
         $File = $_FILES['I']['name'];
         $tmp = ($_FILES['I']['tmp_name']);

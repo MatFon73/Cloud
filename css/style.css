@@ -39,6 +39,7 @@ button {
   font-size: 100%;
   border: none;
   text-align: center;
+  cursor: pointer;
 }
 
 a:hover {
@@ -76,7 +77,7 @@ h1 {
 .File {
   grid-area: File;
   height: 100%;
-  width: 17%;
+  width: 16.5%;
   background-color: var(--Primary-color);
   margin-right: 1px var(--Light-color) solid;
   position: fixed;
@@ -90,7 +91,6 @@ h1 {
   padding-top: 0.5%;
   background-color: var(--Primary-color);
   color: var(--Light-color);
-  margin-bottom: 1%;
   width: 100%;
   font-size: 20px;
   position: fixed;
@@ -116,30 +116,53 @@ h1 {
 #process {
   background-color: var(--text-secunday-color);
   border-radius: 5px;
-  z-index:-1
+  z-index: -1
 }
 
 #process-back {
-  background-color:var(--Secondary-color);
+  background-color: var(--Secondary-color);
   border-radius: 5px;
   position: relative;
-  z-index:-1
+  z-index: -1
 }
 
 #SearchFile {
   display: inline-block;
-  width: 50%;
+  width: 60%;
+  height: 38px;
   border-radius: 0px 3px 3px 0px;
+  background-color: rgb(29, 33, 41);
+  color: white;
+  outline: 0;
+  margin-top:-1%;
+  margin-right: -50%;
+  font-size: medium;
+  border: 1px solid rgb(41, 46, 54);
+  border-left: none;
+  transition: 0.5s;
 }
-
-
-
+#SearchFile:focus{
+  border: 1px solid white;
+  border-left: none;
+}
 a,
 h1,
 button {
   animation: slide-down 0.3s ease-out;
 }
-
+.IconSearch {
+  background-color: rgb(29, 33, 41);
+  color: white;
+  border:1px solid rgb(41, 46, 54);
+  text-align: center;
+  margin-top: -3px;
+  width: 40px;
+  float: left;
+  border-radius: 3px 0px 0px 3px;
+  border-right: none;
+  transition: 0.5s;
+  cursor: pointer;
+}
 .info {
   margin-top: .5%;
   margin-left: -0.5%;
@@ -193,7 +216,7 @@ button {
   }
 
   #UploadFile {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 
@@ -210,6 +233,10 @@ button {
   #SearchFile {
     border-radius: 3px 3px 3px 3px;
     width: 100%;
+    border-left: 1px solid rgb(41, 46, 54);
+  }
+  #SearchFile:focus{
+    border-left: 1px solid white;
   }
 }
 

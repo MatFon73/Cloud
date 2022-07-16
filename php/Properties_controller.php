@@ -9,31 +9,35 @@ class Properties
         $size = array(1, 1024, 1048576, 1073741824);
         $x = 0;
         try {
-            for ($j = 0; $j <= count($size); ++$j) {
-                if (filesize("../" . $_POST['url']) >= $size[$j] && filesize("../" . $_POST['url']) < $size[$j + 1]) {
-                    $x = $j;
-                } else {
-                    if (filesize("../" . $_POST['url']) > $size[3] && $j == 3) {
+            if (file_exists("../" . $_POST['url'])) {
+                for ($j = 0; $j <= count($size); ++$j) {
+                    if (filesize("../" . $_POST['url']) >= $size[$j] && filesize("../" . $_POST['url']) < $size[$j + 1]) {
                         $x = $j;
+                    } else {
+                        if (filesize("../" . $_POST['url']) > $size[3] && $j == 3) {
+                            $x = $j;
+                        }
                     }
                 }
-            }
-            if ($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg') {
-                echo  "Date: " . date("F d Y", filectime("../" . $_POST['url']));
-                echo " \nSize: " . round(filesize("../" . $_POST['url']) / $size[$x], 2) . " " . $type_size[$x];
-                echo  " \nLocation: " . $_POST['url'];
-                echo  " \nType file: " . pathinfo('../' . $_POST['url'], PATHINFO_EXTENSION);
-            } else {
-                if ($extension == "") {
-                    echo  "Date: " . date("F d Y", filectime("../" . $_POST['url']));
-                    echo  " Type file: folder";
-                    echo "\nLocation: " . $_POST['url'];
-                } else {
+                if ($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg') {
                     echo  "Date: " . date("F d Y", filectime("../" . $_POST['url']));
                     echo " \nSize: " . round(filesize("../" . $_POST['url']) / $size[$x], 2) . " " . $type_size[$x];
-                    echo  " \nType file: " . pathinfo('../' . $_POST['url'], PATHINFO_EXTENSION) . "\n";
-                    echo "\nLocation: " . $_POST['url'];
+                    echo  " \nLocation: " . $_POST['url'];
+                    echo  " \nType file: " . pathinfo('../' . $_POST['url'], PATHINFO_EXTENSION);
+                } else {
+                    if ($extension == "") {
+                        echo  "Date: " . date("F d Y", filectime("../" . $_POST['url']));
+                        echo  " Type file: folder";
+                        echo "\nLocation: " . $_POST['url'];
+                    } else {
+                        echo  "Date: " . date("F d Y", filectime("../" . $_POST['url']));
+                        echo " \nSize: " . round(filesize("../" . $_POST['url']) / $size[$x], 2) . " " . $type_size[$x];
+                        echo  " \nType file: " . pathinfo('../' . $_POST['url'], PATHINFO_EXTENSION) . "\n";
+                        echo "\nLocation: " . $_POST['url'];
+                    }
                 }
+            }else{
+                echo 'This file does not exist';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
