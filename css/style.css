@@ -107,8 +107,8 @@ h1 {
   margin-bottom: 25px;
   position: fixed;
   left: 17%;
-  top: 60px;
-  width: 84%;
+  top: 50px;
+  width: 83%;
   height: 100%;
   overflow: scroll;
 }
@@ -194,11 +194,6 @@ button {
     margin-top: -3%;
     height: 115%;
   }
-
-  .Data {
-    margin-top: .5%;
-  }
-
   h1,
   h2,
   h4,
