@@ -250,22 +250,7 @@ function Storage() {
   return false;
 }
 async function DeleteFile(Delete) {
-  Swal.fire({
-    icon: "warning",
-    title: "Delete alert!",
-    confirmButtonColor: "#5cb85c",
-    text: "Delete File.",
-    background: background,
-    timerProgressBar: false,
-    didOpen: () => {
-      Swal.showLoading();
-      const b = Swal.getHtmlContainer().querySelector("b");
-      timerInterval = setInterval(() => {}, 100);
-    },
-    willClose: () => {
-      clearInterval(timerInterval);
-    },
-  });
+  
   const { value: password } = await Swal.fire({
     title: "Enter password",
     icon: "question",
@@ -302,6 +287,22 @@ async function DeleteFile(Delete) {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
+      Swal.fire({
+        icon: "warning",
+        title: "Delete alert!",
+        confirmButtonColor: "#5cb85c",
+        text: "Delete File.",
+        background: background,
+        timerProgressBar: false,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {}, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      });
       $.ajax({
         type: "POST",
         url: "php/Delete_controller.php",
