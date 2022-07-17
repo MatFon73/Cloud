@@ -250,6 +250,22 @@ function Storage() {
   return false;
 }
 async function DeleteFile(Delete) {
+  Swal.fire({
+    icon: "warning",
+    title: "Delete alert!",
+    confirmButtonColor: "#5cb85c",
+    text: "Delete File.",
+    background: background,
+    timerProgressBar: false,
+    didOpen: () => {
+      Swal.showLoading();
+      const b = Swal.getHtmlContainer().querySelector("b");
+      timerInterval = setInterval(() => {}, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  });
   const { value: password } = await Swal.fire({
     title: "Enter password",
     icon: "question",
@@ -265,7 +281,7 @@ async function DeleteFile(Delete) {
     },
   });
 
-  if (password != "1") {
+  if (password != "12345") {
     Swal.fire({
       icon: "error",
       title: "Password",
