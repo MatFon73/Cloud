@@ -20,13 +20,6 @@ h3 {
   color: var(--text-secunday-color);
 }
 
-th,
-td,
-table {
-  color: var(--text-primary-color);
-  font-size: 20px;
-}
-
 a {
   color: var(--text-primary-color);
   text-decoration: none;
@@ -46,9 +39,6 @@ a:hover {
   color: var(--text-primary-color);
 }
 
-table {
-  border-collapse: collapse;
-}
 
 .urlFile {
   color: var(--text-primary-color);
@@ -59,8 +49,31 @@ table {
   outline: none;
 }
 
-h6, h1 {
+h6,
+h1 {
   color: var(--text-primary-color);
+}
+
+.darkmode {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 10px;
+  z-index: 0;
+  float: right;
+  color: var(--text-secunday-color);
+  background-color: var(--Primary-color);
+  margin-right: .5%;
+  margin-top: -47px;
+  text-align: center;
+  transition: .5s;
+  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+}
+
+.darkmode:hover {
+  color: var(--Secondary-color);
 }
 
 .grids {
@@ -135,26 +148,29 @@ h6, h1 {
   background-color: rgb(29, 33, 41);
   color: white;
   outline: 0;
-  margin-top:-1%;
+  margin-top: -1%;
   margin-right: -50%;
   font-size: medium;
   border: 1px solid rgb(41, 46, 54);
   border-left: none;
   transition: 0.5s;
 }
-#SearchFile:focus{
+
+#SearchFile:focus {
   border: 1px solid white;
   border-left: none;
 }
+
 a,
 h1,
 button {
   animation: slide-down 0.3s ease-out;
 }
+
 .IconSearch {
   background-color: rgb(29, 33, 41);
   color: white;
-  border:1px solid rgb(41, 46, 54);
+  border: 1px solid rgb(41, 46, 54);
   text-align: center;
   margin-top: -3px;
   width: 40px;
@@ -164,6 +180,7 @@ button {
   transition: 0.5s;
   cursor: pointer;
 }
+
 .info {
   margin-top: .5%;
   margin-left: -0.5%;
@@ -195,6 +212,7 @@ button {
     margin-top: -3%;
     height: 115%;
   }
+
   h1,
   h2,
   h4,
@@ -230,7 +248,8 @@ button {
     width: 100%;
     border-left: 1px solid rgb(41, 46, 54);
   }
-  #SearchFile:focus{
+
+  #SearchFile:focus {
     border-left: 1px solid white;
   }
 }
