@@ -71,7 +71,7 @@ class LoadFile
         error_reporting(E_ALL ^ E_NOTICE);
         try {
             if (file_exists($url) == false) {
-                echo '<h1 class ="text-center">Path not found</h1>';
+                echo '<h6 class ="text-center">Path not found</h6>';
                 exit();
             } else {
                 $List = scandir($url, 0);

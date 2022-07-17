@@ -59,7 +59,7 @@ table {
   outline: none;
 }
 
-h1 {
+h6 {
   color: var(--text-primary-color);
 }
 
@@ -111,6 +111,7 @@ h1 {
   width: 83%;
   height: 100%;
   overflow: scroll;
+  scrollbar-color: var(--Primary-color) var(--Light-color);
 }
 
 #process {
@@ -222,7 +223,6 @@ button {
 
   .IconSearch {
     display: none;
-    margin-top: -18%;
   }
 
   #SearchFile {

@@ -13,7 +13,7 @@ class Rename
                     rename($OldName, $NewName);
                     echo "The name has been changed successfully.";
                 } else {
-                    if ($_POST['Nname'] == ".") {
+                    if ($_POST['Nname'] == "." || $_POST['Nname'] == "") {
                         echo "The name can not be changed.";
                     } else {
                         echo 'This folder or file already exists.';

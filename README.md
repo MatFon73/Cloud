@@ -26,7 +26,7 @@
 ## How to use
 - Search: write the name of the file.
 - Upload: click on "browser", select the file and then click on the "Upload" button.
-- Delete: click on the trash can icon.
+- Delete: click on the trash can icon. Has password in "app.js" file can be changed, default is "12345"
 - Rename: change the name.
 - Download: to download you must give in the file name.
 - Reaload: Reaload the word space.

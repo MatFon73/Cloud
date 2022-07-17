@@ -1,6 +1,6 @@
 {
   "name": "cloud",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "- this project was created by hobbie to make a \"google drive\" in local network.\r - Repository (https://github.com/MatheoFonck73/CodeQr).\r - Systems Engineering universidad de investigacion y desarrollo (UDI).\r - Creator for Mateo Fonseca (https://twitter.com/MatheoFonck73).",
   "main": "app.js",
   "dependencies": {

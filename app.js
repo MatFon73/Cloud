@@ -8,6 +8,22 @@ elem.onkeyup = function (e) {
     Load();
   }
 };
+Search.addEventListener(
+  "focus",
+  function () {
+    document.getElementById("IconSearch").style =
+      "border:1px solid white;  border-right: none;";
+  },
+  true
+);
+Search.addEventListener(
+  "blur",
+  function () {
+    document.getElementById("IconSearch").style =
+      "border:1px solid rgb(41, 46, 54);  border-right: none;";
+  },
+  true
+);
 function DarkMode() {
   var root = document.documentElement;
   if (button.value == "1") {
@@ -124,7 +140,6 @@ function Properties(file) {
           text: r,
           confirmButtonColor: "#5cb85c",
         });
-        
       }
     },
     error: function (e) {
@@ -143,7 +158,7 @@ function SearchFile() {
     data: directory,
     success: function (r) {
       if (r == "") {
-        $("#table").html('<h1 class ="text-center">File not found </h1>');
+        $("#table").html('<h6 class ="text-center">File not found </h6>');
       } else {
         $("#table").html(r);
       }
@@ -157,7 +172,6 @@ function SearchFile() {
 function UploadFile() {
   var formData = new FormData();
   var File = $("#FilesForm")[0].files[0];
-  var FileName = $("#FilesForm")[0].files[0].name;
   formData.append("I", File);
   formData.append("url", document.getElementById("urlFile").value);
   let timerInterval;
@@ -222,7 +236,6 @@ function UploadFile() {
   });
   return false;
 }
-
 function Storage() {
   $.ajax({
     url: "php/Storage_controller.php",
@@ -252,7 +265,7 @@ async function DeleteFile(Delete) {
     },
   });
 
-  if (password != "12345") {
+  if (password != "1") {
     Swal.fire({
       icon: "error",
       title: "Password",
@@ -278,7 +291,7 @@ async function DeleteFile(Delete) {
         url: "php/Delete_controller.php",
         data: "Delete=" + Delete.value,
         success: function (r) {
-          if (r == "Delete Complete") {
+          if (r == "Delete Complete.") {
             Swal.fire({
               icon: "success",
               title: "Delete",
@@ -308,6 +321,10 @@ function Load() {
   if (Url == "") {
     return false;
   }
+  if (Url.startsWith("upload") == false) {
+    Url = "upload/" + Url;
+    document.getElementById("urlFile").value = Url;
+  }
   $.ajax({
     url: "php/LoadFile_controller.php",
     type: "POST",
@@ -315,7 +332,7 @@ function Load() {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+          $("#table").html('<h6 class ="text-center">No found documents</h6>');
         } else {
           $("#table").html(r);
         }
@@ -330,13 +347,19 @@ function Load() {
 function PreviousFolder() {
   var Url = $("#urlFile").val();
   var directory = "upload";
+  if (Url.startsWith("upload") == false) {
+    Url = "upload/" + Url;
+    document.getElementById("urlFile").value = Url;
+  }
   if (Url != "upload") {
-    for (i = Url.length - 1; i >= 0; i--) {
-      if (Url[i] == "/") {
-        directory = Url.substring(null, i);
-        break;
-      } else {
-        directory = Url.substring(null, i);
+    if (Url != "/upload") {
+      for (i = Url.length - 1; i >= 0; i--) {
+        if (Url[i] != "/") {
+          directory = Url.substring(null, i);
+        } else {
+          directory = Url.substring(null, i);
+          break;
+        }
       }
     }
   }
@@ -349,7 +372,7 @@ function PreviousFolder() {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+          $("#table").html('<h6 class ="text-center">No found documents</h6>');
         } else {
           $("#table").html(r);
         }
@@ -373,7 +396,7 @@ function OpenFolder(boton) {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h1 class ="text-center">No found documents</h1>');
+          $("#table").html('<h6 class ="text-center">No found documents</h6>');
         } else {
           $("#table").html(r);
         }
@@ -389,6 +412,10 @@ async function NewFolder() {
   var Url = $("#urlFile").val();
   if (Url == "") {
     return false;
+  }
+  if (Url.startsWith("upload") == false) {
+    Url = "upload/" + Url;
+    document.getElementById("urlFile").value = Url;
   }
   await Swal.fire({
     confirmButtonColor: "#5cb85c",

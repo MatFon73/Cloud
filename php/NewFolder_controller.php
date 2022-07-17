@@ -12,7 +12,7 @@ class NewFolder
                     mkdir($upload, 0777, true);
                     echo "The folder has been created successfully.";
                 } else {
-                    if ($_POST['name'] == ".") {
+                    if ($_POST['name'] == "." || $_POST['name'] == "") {
                         echo "Can not create a folder with that name.";
                     } else {
                         echo 'This folder already exists.';
