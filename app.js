@@ -435,6 +435,10 @@ async function NewFolder() {
   if (Url == "") {
     return false;
   }
+  if (Url.startsWith("upload/..") == true) {
+    Url = Url.replace("upload/..", "upload");
+    document.getElementById("urlFile").value = Url;
+  }
   if (Url.startsWith("upload") == false) {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
