@@ -250,7 +250,6 @@ function Storage() {
   return false;
 }
 async function DeleteFile(Delete) {
-  
   const { value: password } = await Swal.fire({
     title: "Enter password",
     icon: "question",
@@ -342,6 +341,10 @@ function Load() {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
   }
+  if (Url.startsWith("upload/..") == true) {
+    Url = Url.replace("upload/..", "upload");
+    document.getElementById("urlFile").value = Url;
+  }
   $.ajax({
     url: "php/LoadFile_controller.php",
     type: "POST",
@@ -368,6 +371,8 @@ function PreviousFolder() {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
   }
+ 
+
   if (Url != "upload") {
     if (Url != "/upload") {
       for (i = Url.length - 1; i >= 0; i--) {
