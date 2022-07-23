@@ -36,11 +36,22 @@
   <body onload="Load(), Storage()">
     <div class="grids">
       <div class="Menu">
-
         <div class="row">
+          <div id="Menu-div" class="Button-M col-1">
+            <button
+              class="Button-Menu"
+              title="Menu"
+              id="Menu"
+              style="background-color: rgb(29, 33, 41);color: white;"
+              onclick="Menu()"
+            >
+            <i class="fas fa-solid fa-circle-chevron-down"></i>
+            </button>
+          </div>
           <div class="col-2">
-            <h3 style="margin-left: 10%;">
-              <i class="fas fa-folder"></i>&nbsp;Files
+            <h3 class="text-file" style="margin-left: 2%;">
+              <i class="icon-folder fas fa-folder"></i>
+              &nbsp;Files
             </h3>
           </div>
           <div class="col-3">
@@ -76,7 +87,7 @@
           </div>
         </div>
       </div>
-      <div class="File">
+      <div class="File" id="File">
         <div style="margin-top:150px">
           <div id="Bar">
             <div class="col" style="padding: 5%">
@@ -109,7 +120,7 @@
                   onclick="UploadFile()"
                   title="Upload"
                 >
-                  Upload&nbsp;<i class="fas fa-cloud-upload-alt"></i>
+                 <i class="fas fa-cloud-upload-alt"></i>
                 </button>
                 <button
                   type="submit"
@@ -119,7 +130,7 @@
                   onclick="Load()"
                   title="Reload"
                 >
-                  Reload&nbsp;<i class="fas fa-solid fa-arrow-rotate-right"></i>
+                  <i class="fas fa-solid fa-arrow-rotate-right"></i>
                 </button>
               </center>
             </div>
@@ -127,7 +138,8 @@
           <div class="container-fluid align-items-end">
           <center><a title="Twitter" style="margin:2%; color: white;" target="_blank" href="https://twitter.com/MatheoFonck73"><i class="fa-brands fa-twitter"></i></a>
             <a title="Instagram" style="margin:2%; color: white;" target="_blank" href="https://www.instagram.com/matheofonck73/"><i class="fa-brands fa-instagram"></i></a>
-            <a title="Github" style="margin:2%; color: white;" target="_blank" href="https://github.com/MatheoFonck73"><i class="fa-brands fa-github"></i></a></center>
+            <a title="Github" style="margin:2%; color: white;" target="_blank" href="https://github.com/MatheoFonck73"><i class="fa-brands fa-github"></i></a>
+            <a title="Linkedin" style="margin:2%; color: white;" target="_blank" href="https://www.linkedin.com/in/mateo-fonseca-ab939a164/"><i class="fa-brands fa-linkedin"></i></a></center>
             <h6 title="#Creator: MatheoFonck73 - Copyright"class="text-center" style="color: white;"><i class="fa-solid fa-copyright"></i> - Mateo Fonseca - 2022</h6>
           </div>
         </div>

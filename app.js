@@ -24,6 +24,39 @@ Search.addEventListener(
   },
   true
 );
+if (
+  navigator.userAgent.match(/Android/i) ||
+  navigator.userAgent.match(/webOS/i) ||
+  navigator.userAgent.match(/iPhone/i) ||
+  navigator.userAgent.match(/iPad/i) ||
+  navigator.userAgent.match(/iPod/i) ||
+  navigator.userAgent.match(/BlackBerry/i) ||
+  navigator.userAgent.match(/Windows Phone/i)
+) {
+}else{
+  $(window).resize(function () {
+    Menu();
+  });
+}
+function Menu() {
+  if ($("#File").is(":visible") == false) {
+    document
+      .getElementById("File")
+      .animate([{ opacity: "0" }, { opacity: "1" }], {
+        duration: 300,
+      })
+      .then((document.getElementById("File").style = "display:block;"));
+  } else {
+    if (window.outerWidth < 1000) {
+      document
+        .getElementById("File")
+        .animate([{ opacity: "0" }, { opacity: "1" }], {
+          duration: 300,
+        })
+        .then((document.getElementById("File").style = "display:none;"));
+    }
+  }
+}
 function DarkMode() {
   var root = document.documentElement;
   if (button.value == "1") {
@@ -371,7 +404,6 @@ function PreviousFolder() {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
   }
- 
 
   if (Url != "upload") {
     if (Url != "/upload") {

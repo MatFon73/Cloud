@@ -50,8 +50,8 @@ class LoadFile
 				</div></div>';
             } else {
                 echo '<div style="margin:3%;" class="col text-center">';
-                echo "<h1 ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
-                echo "<button title='folder' type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
+                echo "<h1 title='Folder'><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
+                echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
                 echo '<div class="dropdown">
             <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">

@@ -25,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+.Button-Menu {
+  outline: none;
+  margin-top: 5px;
+}
+
 button {
   color: var(--text-primary-color);
   text-decoration: none;
@@ -38,7 +43,6 @@ button {
 a:hover {
   color: var(--text-primary-color);
 }
-
 
 .urlFile {
   color: var(--text-primary-color);
@@ -207,7 +211,7 @@ button {
   color: var(--Danger-color);
 }
 
-@media only screen and (max-width: 1600px) and (min-width: 1000px) {
+@media only screen and (max-width: 1600px) and (min-width: 1300px) {
   .File {
     margin-top: -3%;
     height: 115%;
@@ -217,20 +221,58 @@ button {
   h2,
   h4,
   h5,
-  h6,
-  .form-control {
-    size: 10px;
+  h6{
+  size: 10px;
+}
+
+table,
+td,
+th,
+tr {
+  font-size: 15px;
+}
+
+#UploadFile {
+  font-size: 10px;
+}
+}
+
+@media only screen and (min-width:1000px) {
+  .Button-M {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 999px) and (min-width:100px) {
+  .File {
+    display: none;
+    width: 50%;
+    background-color: rgba(29, 33, 41, .97);
   }
 
-  table,
-  td,
-  th,
-  tr {
-    font-size: 15px;
+  .Data {
+    left: auto;
+    width: 100%;
   }
 
-  #UploadFile {
-    font-size: 10px;
+  .icon-folder {
+    display: none;
+  }
+
+  .darkmode {
+    width: 35px;
+    height: 35px;
+    margin-top: -40px;
+    margin-right: 5px;
+  }
+
+  .Button-M {
+    display: block;
+  }
+
+  .text-file {
+    margin-top: 7px;
+    float: left;
   }
 }
 
@@ -240,17 +282,11 @@ button {
   }
 
   .IconSearch {
-    display: none;
+    margin-top: 1px;
   }
 
   #SearchFile {
-    border-radius: 3px 3px 3px 3px;
-    width: 100%;
-    border-left: 1px solid rgb(41, 46, 54);
-  }
-
-  #SearchFile:focus {
-    border-left: 1px solid white;
+    margin-top: 1px;
   }
 }
 
