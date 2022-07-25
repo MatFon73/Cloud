@@ -28,6 +28,8 @@ a {
 .Button-Menu {
   outline: none;
   margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
 button {
@@ -86,13 +88,13 @@ h1 {
   grid-template-rows: 0.1fr 1.45fr 1.45fr;
   gap: 0px 0px;
   grid-template-areas:
-    "Menu Menu Menu"
-    "File Data Data"
-    "File Data Data";
+    "Bar Bar Bar"
+    "Menu Data Data"
+    "Menu Data Data";
 }
 
-.File {
-  grid-area: File;
+.Menu {
+  grid-area: Menu;
   height: 100%;
   width: 16.5%;
   background-color: var(--Primary-color);
@@ -103,8 +105,8 @@ h1 {
   box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
-.Menu {
-  grid-area: Menu;
+.Bar {
+  grid-area: Bar;
   padding-top: 0.5%;
   background-color: var(--Primary-color);
   color: var(--Light-color);
@@ -212,7 +214,7 @@ button {
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1300px) {
-  .File {
+  .Menu {
     margin-top: -3%;
     height: 115%;
   }
@@ -244,7 +246,7 @@ tr {
 }
 
 @media only screen and (max-width: 999px) and (min-width:100px) {
-  .File {
+  .Menu {
     display: none;
     width: 50%;
     background-color: rgba(29, 33, 41, .97);

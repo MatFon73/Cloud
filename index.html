@@ -35,17 +35,17 @@
   </head>
   <body onload="Load(), Storage()">
     <div class="grids">
-      <div class="Menu">
+      <div class="Bar">
         <div class="row">
           <div id="Menu-div" class="Button-M col-1">
             <button
               class="Button-Menu"
-              title="Menu"
-              id="Menu"
+              title="Open Menu"
+              id="OpenMenu"
               style="background-color: rgb(29, 33, 41);color: white;"
-              onclick="Menu()"
+              onclick="OpenMenu()"
             >
-            <i class="fas fa-solid fa-circle-chevron-down"></i>
+            <i class="fa-solid fa-bars"></i>
             </button>
           </div>
           <div class="col-2">
@@ -87,7 +87,7 @@
           </div>
         </div>
       </div>
-      <div class="File" id="File">
+      <div class="Menu" id="Menu">
         <div style="margin-top:150px">
           <div id="Bar">
             <div class="col" style="padding: 5%">
@@ -120,7 +120,7 @@
                   onclick="UploadFile()"
                   title="Upload"
                 >
-                 <i class="fas fa-cloud-upload-alt"></i>
+                  <i class="fas fa-cloud-upload-alt"></i>
                 </button>
                 <button
                   type="submit"
