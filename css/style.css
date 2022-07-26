@@ -170,7 +170,7 @@ h1 {
 a,
 h1,
 button {
-  animation: slide-down 0.3s ease-out;
+  animation: dispel 0.3s ease-out;
 }
 
 .IconSearch {
@@ -292,7 +292,7 @@ tr {
   }
 }
 
-@keyframes slide-down {
+@keyframes dispel {
   0% {
     opacity: 0;
   }

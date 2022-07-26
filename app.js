@@ -471,20 +471,10 @@ function OpenFolder(file) {
 }
 function OpenMenu() {
   if ($("#Menu").is(":visible") == false) {
-    document
-      .getElementById("Menu")
-      .animate([{ opacity: "0" }, { opacity: "1" }], {
-        duration: 300,
-      });
-      $("#Menu").show();
+    $("#Menu").fadeIn();
   } else {
     if (window.outerWidth < 1000) {
-      document
-        .getElementById("Menu")
-        .animate([{ opacity: "0" }, { opacity: "1" }], {
-          duration: 300,
-        });
-        $("#Menu").hide();
+      $("#Menu").fadeOut();
     }
   }
 }
