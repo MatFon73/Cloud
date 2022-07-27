@@ -10,17 +10,17 @@ class LoadFile
                 'file-word', 'file-word', 'file-excel', 'file-image',
                 'file-image', 'file-video', 'file-archive', 'file-archive',
                 'file-excel', 'file-pdf', 'file-image',
-                'file-image', 'file-powerpoint', 'file-alt', 'folder','file',
-                'file-code','file-code','file-code','file-code','file-archive','file'
+                'file-image', 'file-powerpoint', 'file-alt', 'folder', 'file',
+                'file-code', 'file-code', 'file-code', 'file-code', 'file-archive', 'file'
             );
             $format = array(
                 'iso', 'exe', 'mp3',
-                'doc', 'docx', 'xls', 
-                'jpeg','jpg', 'mp4', 
-                'rar', 'zip','xlsx', 
-                'pdf', 'png','gif', 'pptx', 
+                'doc', 'docx', 'xls',
+                'jpeg', 'jpg', 'mp4',
+                'rar', 'zip', 'xlsx',
+                'pdf', 'png', 'gif', 'pptx',
                 'txt', '', 'msi',
-                'php', 'js',  'html', 
+                'php', 'js',  'html',
                 'css',  '7z', 'jar'
             );
 
@@ -35,10 +35,23 @@ class LoadFile
     }
     public static function Data($element)
     {
+        $useragent = $_SERVER['HTTP_USER_AGENT'];
+        $division = "";
+        $Moviles = array("Mobile", "iPhone", "iPod", "BlackBerry", "Opera Mini", "Sony", "MOT", "Nokia", "samsung");
+        $detector = 0;
+        for ($i = 0; $i < count($Moviles); $i++) { 
+            $check = strpos($useragent, $Moviles[$i]);
+            if ($check != "") {
+                $detector = 1;
+            }
+        }
+        if ($detector == 1) { 
+            $division = "-5";
+        }
         try {
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
-                echo '<div style="margin:3%;" class="col text-center">';
-                echo "<h1 title='Icon - no click' ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
+                echo '<div style="margin:3%;" class="col'.$division.' text-center">';
+                echo "<h1 title='Icon - No Click' ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
                 echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
                 echo '<div class="dropdown">
 					<button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
@@ -49,8 +62,8 @@ class LoadFile
 					</ul>
 				</div></div>';
             } else {
-                echo '<div style="margin:3%;" class="col text-center">';
-                echo "<h1 title='Folder'><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
+                echo '<div style="margin:3%;" class="col'.$division.' text-center">';
+                echo "<h1 title='Folder - No Click'><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
                 echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
                 echo '<div class="dropdown">
             <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>

@@ -29,6 +29,8 @@ a {
   outline: none;
   margin-top: 5px;
   margin-left: 5px;
+  z-index: 1;
+  position: reltive;
   cursor: pointer;
 }
 
@@ -128,8 +130,9 @@ h1 {
   left: 17%;
   top: 55px;
   width: 83%;
-  height: 100%;
-  overflow: scroll;
+  height: 93.3%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   scrollbar-color: var(--Primary-color) var(--Light-color);
 }
 
@@ -223,20 +226,20 @@ button {
   h2,
   h4,
   h5,
-  h6{
-  size: 10px;
-}
+  h6 {
+    size: 10px;
+  }
 
-table,
-td,
-th,
-tr {
-  font-size: 15px;
-}
+  table,
+  td,
+  th,
+  tr {
+    font-size: 15px;
+  }
 
-#UploadFile {
-  font-size: 10px;
-}
+  #UploadFile {
+    font-size: 10px;
+  }
 }
 
 @media only screen and (min-width:1000px) {
