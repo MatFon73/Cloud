@@ -35,21 +35,6 @@ class LoadFile
     }
     public static function Data($element)
     {
-        $useragent = $_SERVER['HTTP_USER_AGENT'];
-        $division = "";
-        $Moviles = array("Mobile", "iPhone", "iPod", "BlackBerry", "Opera Mini", "Sony", "MOT", "Nokia", "samsung");
-        $detector = 0;
-        for ($i = 0; $i < count($Moviles); $i++) { 
-            $check = strpos($useragent, $Moviles[$i]);
-            if ($check != "") {
-                $detector = 1;
-            }
-        }
-        if ($detector == 1) { 
-            $division = "-5";
-        }else{
-            $division = "-2";
-        }
         try {
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
                 echo '<div style="margin:3%;" class="col text-center">';
