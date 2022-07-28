@@ -33,7 +33,7 @@ if (
   navigator.userAgent.match(/BlackBerry/i) ||
   navigator.userAgent.match(/Windows Phone/i)
 ) {
-}else{
+} else {
   $(window).resize(function () {
     OpenMenu();
   });
@@ -188,7 +188,7 @@ async function DeleteFile(file) {
   });
   return false;
 }
- function Load() {
+function Load() {
   var Url = $("#urlFile").val();
   if (Url == "") {
     return false;
@@ -472,9 +472,23 @@ function OpenFolder(file) {
 function OpenMenu() {
   if ($("#Menu").is(":visible") == false) {
     $("#Menu").fadeIn();
+    document.getElementById("OpenMenu").innerHTML =
+      '<i class="fa-solid fa-xmark"></i>';
+    document
+      .getElementById("OpenMenu")
+      .animate([{ opacity: "0" }, { opacity: "1" }], {
+        duration: 500,
+      });
   } else {
     if (window.outerWidth < 1000) {
       $("#Menu").fadeOut();
+      document.getElementById("OpenMenu").innerHTML =
+        '<i class="fa-solid fa-bars"></i>';
+      document
+        .getElementById("OpenMenu")
+        .animate([{ opacity: "0" }, { opacity: "1" }], {
+          duration: 500,
+        });
     }
   }
 }
