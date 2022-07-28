@@ -19,7 +19,6 @@ h4,
 h3 {
   color: var(--text-secunday-color);
 }
-
 a {
   color: var(--text-primary-color);
   text-decoration: none;
@@ -189,31 +188,11 @@ button {
   transition: 0.5s;
   cursor: pointer;
 }
-
-.info {
-  margin-top: .5%;
-  margin-left: -0.5%;
-  color: var(--text-primary-color);
-}
-
-.info:hover {
-  color: var(--text-primary-color);
-}
-
 .icon {
   background-color: var(--Light-color);
   color: var(--Shaders-color);
-  ;
   border-radius: 3%;
   width: 30%;
-}
-
-.Delete {
-  color: var(--Danger-color);
-}
-
-.Delete:hover {
-  color: var(--Danger-color);
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1300px) {
@@ -248,7 +227,7 @@ button {
   }
 }
 
-@media only screen and (max-width: 999px) and (min-width:100px) {
+@media only screen and (max-width: 1000px) {
   .Menu {
     display: none;
     width: 50%;
@@ -258,6 +237,7 @@ button {
   .Data {
     left: auto;
     width: 100%;
+    margin-top: -1%;
   }
 
   .icon-folder {
@@ -274,18 +254,13 @@ button {
   .Button-M {
     display: block;
   }
-
+  a{
+    font-size: 15px;
+  }
   .text-file {
     margin-top: 7px;
     float: left;
   }
-}
-
-@media only screen and (max-width: 1000px) {
-  .Data {
-    margin-top: -1%;
-  }
-
   .IconSearch {
     margin-top: 1px;
   }
@@ -294,7 +269,6 @@ button {
     margin-top: 1px;
   }
 }
-
 @keyframes dispel {
   0% {
     opacity: 0;

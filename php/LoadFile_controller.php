@@ -47,10 +47,12 @@ class LoadFile
         }
         if ($detector == 1) { 
             $division = "-5";
+        }else{
+            $division = "-2";
         }
         try {
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
-                echo '<div style="margin:3%;" class="col'.$division.' text-center">';
+                echo '<div style="margin:3%;" class="col text-center">';
                 echo "<h1 title='Icon - No Click' ><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
                 echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
                 echo '<div class="dropdown">
@@ -62,7 +64,7 @@ class LoadFile
 					</ul>
 				</div></div>';
             } else {
-                echo '<div style="margin:3%;" class="col'.$division.' text-center">';
+                echo '<div style="margin:3%;" class="col text-center">';
                 echo "<h1 title='Folder - No Click'><i class='fas fa-" . LoadFile::Icons($element) . "'></i></h1>";
                 echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
                 echo '<div class="dropdown">
@@ -93,8 +95,8 @@ class LoadFile
                 $SearchFile = $_POST["search"];
             }
             if (count($List) > 0) {
-                echo '<div class="container">
-                <div class="row">';
+                echo '<center><div class="DivisionElement container">
+                <div class="row align-items-center">';
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
                         LoadFile::Data($element);
@@ -104,7 +106,7 @@ class LoadFile
                         }
                     }
                 }
-                echo '</div></div>';
+                echo '</div></div></center>';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
