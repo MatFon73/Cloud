@@ -473,7 +473,7 @@ function OpenMenu() {
   if ($("#Menu").is(":visible") == false) {
     $("#Menu").fadeIn();
     document.getElementById("OpenMenu").innerHTML =
-      '<i class="fa-solid fa-xmark"></i>';
+      '<i class="fa-solid fa-x"></i>';
     document
       .getElementById("OpenMenu")
       .animate([{ opacity: "0" }, { opacity: "1" }], {
