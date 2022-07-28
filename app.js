@@ -407,6 +407,12 @@ function Storage() {
 function PreviousFolder() {
   var Url = $("#urlFile").val();
   var directory = "upload";
+
+  if (Url.startsWith("upload/") == false) {
+    Url = "upload/" + Url;
+    document.getElementById("urlFile").value = Url;
+  }
+
   if (Url.startsWith("upload") == false) {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
