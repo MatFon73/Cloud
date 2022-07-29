@@ -5,7 +5,6 @@
   --Danger-color: #dc3545;
   --Shaders-color: rgba(0, 0, 0, 0.75);
   --text-primary-color: rgb(29, 33, 41);
-  ;
   --text-secunday-color: white;
 }
 
@@ -19,6 +18,7 @@ h4,
 h3 {
   color: var(--text-secunday-color);
 }
+
 a {
   color: var(--text-primary-color);
   text-decoration: none;
@@ -28,9 +28,9 @@ a {
   outline: none;
   margin-top: 5px;
   margin-left: 5px;
-  z-index:1;
-  position:relative;
-  cursor:pointer;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
 }
 
 button {
@@ -132,7 +132,11 @@ h1 {
   height: 93.3%;
   overflow-y: scroll;
   overflow-x: hidden;
-  scrollbar-color: var(--Primary-color) var(--Light-color);
+  -webkit-appearance: none;
+}
+
+.Data::-webkit-scrollbar {
+  -webkit-appearance: none;
 }
 
 #process {
@@ -188,6 +192,7 @@ button {
   transition: 0.5s;
   cursor: pointer;
 }
+
 .icon {
   background-color: var(--Light-color);
   color: var(--Shaders-color);
@@ -254,13 +259,16 @@ button {
   .Button-M {
     display: block;
   }
-  a{
+
+  a {
     font-size: 15px;
   }
+
   .text-file {
     margin-top: 7px;
     float: left;
   }
+
   .IconSearch {
     margin-top: 1px;
   }
@@ -269,6 +277,7 @@ button {
     margin-top: 1px;
   }
 }
+
 @keyframes dispel {
   0% {
     opacity: 0;
