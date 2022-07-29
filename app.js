@@ -24,6 +24,20 @@ Search.addEventListener(
   },
   true
 );
+
+document.getElementById("Data").onclick = function () {
+  if (window.outerWidth < 1000 && ($("#Menu").is(":visible") == true)) {
+    $("#Menu").fadeOut();
+    document.getElementById("OpenMenu").innerHTML =
+      '<i class="fa-solid fa-bars"></i>';
+    document
+      .getElementById("OpenMenu")
+      .animate([{ opacity: "0" }, { opacity: "1" }], {
+        duration: 500,
+      });
+  }
+};
+
 if (
   navigator.userAgent.match(/Android/i) ||
   navigator.userAgent.match(/webOS/i) ||
