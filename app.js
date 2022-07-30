@@ -26,7 +26,7 @@ Search.addEventListener(
 );
 
 document.getElementById("Data").onclick = function () {
-  if (window.outerWidth < 1000 && ($("#Menu").is(":visible") == true)) {
+  if (window.outerWidth < 1000 && $("#Menu").is(":visible") == true) {
     $("#Menu").fadeOut();
     document.getElementById("OpenMenu").innerHTML =
       '<i class="fa-solid fa-bars"></i>';
@@ -237,20 +237,35 @@ function Load() {
 async function NewFolder() {
   var Url = $("#urlFile").val();
   if (Url == "") {
+    Swal.fire({
+      icon: "error",
+      background: background,
+      title: "New Folder",
+      text: 'There is not path.',
+      confirmButtonColor: "#5cb85c",
+    });
     return false;
   }
-  if (Url.startsWith("upload/..") == true) {
+  if (Url.startsWith("upload/..") == true ) {
     Url = Url.replace("upload/..", "upload");
     document.getElementById("urlFile").value = Url;
   }
-  if (Url.startsWith("upload/") == false) {
+  
+  if ((Url.startsWith("upload") == false) ) {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
   }
-  if (Url.startsWith("upload") == false) {
-    Url = "upload/" + Url;
-    document.getElementById("urlFile").value = Url;
+  if((Url.startsWith("upload/") == false) && (Url != "upload")){
+      Swal.fire({
+        icon: "warning",
+        background: background,
+        title: "New Folder",
+        text: 'There should be a "/" after upload.',
+        confirmButtonColor: "#5cb85c",
+      });
+      return false;
   }
+
   await Swal.fire({
     confirmButtonColor: "#5cb85c",
     background: background,
@@ -425,19 +440,11 @@ function Storage() {
 function PreviousFolder() {
   var Url = $("#urlFile").val();
   var directory = "upload";
-
-  if (Url.startsWith("upload/") == false) {
+  if ((Url.startsWith("upload") == false) || (Url.startsWith("upload/") == false) ) {
     Url = "upload/" + Url;
     document.getElementById("urlFile").value = Url;
   }
-
-  if (Url.startsWith("upload") == false) {
-    Url = "upload/" + Url;
-    document.getElementById("urlFile").value = Url;
-  }
-
-  if (Url != "upload") {
-    if (Url != "/upload") {
+  if ((Url != "upload") || (Url != "/upload")) {
       for (i = Url.length - 1; i >= 0; i--) {
         if (Url[i] != "/") {
           directory = Url.substring(null, i);
@@ -445,7 +452,6 @@ function PreviousFolder() {
           directory = Url.substring(null, i);
           break;
         }
-      }
     }
   }
   document.getElementById("SearchFile").value = "";
