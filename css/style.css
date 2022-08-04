@@ -127,7 +127,7 @@ h1 {
   margin-bottom: 25px;
   position: fixed;
   left: 17%;
-  top: 55px;
+  top: 52px;
   width: 83%;
   height: 93.3%;
   overflow-y: scroll;
@@ -242,6 +242,7 @@ button {
   .Data {
     left: auto;
     width: 100%;
+    top: 47px;
   }
 
   .icon-folder {
