@@ -6,7 +6,7 @@ class Delete
         $file = "../" . $_POST['Delete'];
         $delete = glob($file . "/*");
         try {
-            if (pathinfo($file, PATHINFO_EXTENSION) == false || count(@scandir($file)) > 2) {
+            if (pathinfo($file, PATHINFO_EXTENSION) == false) {
                 foreach ($delete as $element) {
                     if (pathinfo($element, PATHINFO_EXTENSION) == false) {
                         rmdir($element);
