@@ -222,7 +222,7 @@ function Load() {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h6 class ="text-center">No found documents</h6>');
+          $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
         } else {
           $("#table").html(r);
         }
@@ -413,7 +413,7 @@ function SearchFile() {
     data: directory,
     success: function (r) {
       if (r == "") {
-        $("#table").html('<h6 class ="text-center">File not found </h6>');
+        $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> File not found </h5>');
       } else {
         $("#table").html(r);
       }
@@ -463,7 +463,7 @@ function PreviousFolder() {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h6 class ="text-center">No found documents</h6>');
+          $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
         } else {
           $("#table").html(r);
         }
@@ -487,7 +487,7 @@ function OpenFolder(file) {
     success: function (r) {
       if (Search.value == "") {
         if (r == "") {
-          $("#table").html('<h6 class ="text-center">No found documents</h6>');
+          $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
         } else {
           $("#table").html(r);
         }
