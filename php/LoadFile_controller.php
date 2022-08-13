@@ -32,10 +32,12 @@ class LoadFile
         try {
             echo '<div style="margin:3%;" class="col text-center">';
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
-                echo "<h1 title='Icon - No Click' ><i class='fa-solid fa-" . LoadFile::Icons($element) . "'></i></h1>";
+                echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>
+                        <h1 title='File' ><i class='fa-solid fa-" . LoadFile::Icons($element) . "'></i></h1></a>";
                 echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
             } else {
-                echo "<h1 title='Folder - No Click'><i class='fa-solid fa-folder'></i></h1>";
+                echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>
+                        <h1 title='Folder'><i class='fa-solid fa-folder'></i></h1></button><br>";
                 echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
             }
             echo '<div class="dropdown">
