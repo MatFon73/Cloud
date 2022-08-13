@@ -30,15 +30,15 @@ class LoadFile
     public static function Data($element)
     {
         try {
-            echo '<div style="margin:3%;" class="col text-center">';
+            echo '<div style="margin:3%;" class="col-4 col-sm-3 text-center">';
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
                 echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>
                         <h1 title='File' ><i class='fa-solid fa-" . LoadFile::Icons($element) . "'></i></h1></a>";
-                echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
+                echo "<a class='text-center' title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
             } else {
                 echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>
                         <h1 title='Folder'><i class='fa-solid fa-folder'></i></h1></button><br>";
-                echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
+                echo "<button class='text-center' type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>$element</button>";
             }
             echo '<div class="dropdown">
             <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
@@ -67,8 +67,8 @@ class LoadFile
                 $SearchFile = $_POST["search"];
             }
             if (count($List) > 0) {
-                echo '<center><div class="DivisionElement container">
-                <div class="row align-items-center">';
+                echo '<center><div class="container">
+                <div class="row justify-content-around">';
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
                         LoadFile::Data($element);

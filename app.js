@@ -58,6 +58,16 @@ function UploadFile() {
   formData.append("I", File);
   formData.append("url", document.getElementById("urlFile").value);
   let timerInterval;
+  if((File.name.length) >= 25){
+    Swal.fire({
+      icon: "warning",
+      title: "Upload",
+      confirmButtonColor: "#5cb85c",
+      text: 'Filename is too long. use less than 15 characters',
+      background: background,
+    });
+    return false;
+  }
   Swal.fire({
     icon: "warning",
     title: "Upload alert!",

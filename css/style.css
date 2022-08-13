@@ -22,6 +22,7 @@ h3 {
 a {
   color: var(--text-primary-color);
   text-decoration: none;
+  text-align: center;
 }
 
 .Button-Menu {
