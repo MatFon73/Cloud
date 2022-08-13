@@ -63,7 +63,7 @@ function UploadFile() {
       icon: "warning",
       title: "Upload",
       confirmButtonColor: "#5cb85c",
-      text: 'Filename is too long. use less than 15 characters',
+      text: 'Filename is too long. use less than 25 characters',
       background: background,
     });
     return false;
