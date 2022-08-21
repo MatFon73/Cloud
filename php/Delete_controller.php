@@ -4,17 +4,10 @@ class Delete
     public static function File()
     {
         $file = "../" . $_POST['Delete'];
-        $delete = glob($file . "/*");
+        $command = "rm -rf $file";
         try {
             if (pathinfo($file, PATHINFO_EXTENSION) == false) {
-                foreach ($delete as $element) {
-                    if (pathinfo($element, PATHINFO_EXTENSION) == false) {
-                        rmdir($element);
-                    } else {
-                        unlink($element);
-                    }
-                }
-                rmdir($file);
+                shell_exec($command);
             }else{
                 unlink($file);
             }
