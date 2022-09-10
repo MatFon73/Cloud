@@ -12,7 +12,7 @@
 - php: backend.
 - html and css: frontend.
 
-## Librarys
+## Libraries
 - boostap: Page design.
 - jquery: to make requests.
 - sweetalert2: alert.
