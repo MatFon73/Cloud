@@ -5,7 +5,7 @@
 - The file "php.ini" is configured to increase the size of the file that can be uploaded to 6g. 
 - Repository (https://github.com/MatheoFonck73/Cloud).
 - Systems Engineering universidad de investigacion y desarrollo (UDI).
-- Opetation video (https://youtu.be/VxZoZKJHlhY).
+- Operation video (https://youtu.be/VxZoZKJHlhY).
 - Created by Mateo Fonseca (https://twitter.com/MatheoFonck73).
 
 ## Programming Languages
