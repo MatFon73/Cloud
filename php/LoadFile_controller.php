@@ -1,7 +1,8 @@
 <?php
 class LoadFile
 {
-    public static function Icons($element)
+
+    function Icons($element)
     {
         try {
             $Extension = pathinfo($element, PATHINFO_EXTENSION);
@@ -27,14 +28,14 @@ class LoadFile
             echo "An error has occurred: " . $e;
         }
     }
-    public static function Data($element)
+    function Data($element, $url)
     {
         try {
             echo '<div style="margin:3%;" class="col-4 col-sm-3 text-center">';
             if (pathinfo($element, PATHINFO_EXTENSION) == true) {
-                echo "<a title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>
+                echo "<a title='Download' download='$element' target='_blank' href='" . $url . "/$element'>
                         <h1 title='File' ><i class='fa-solid fa-" . LoadFile::Icons($element) . "'></i></h1></a>";
-                echo "<a class='text-center' title='Download' download='$element' target='_blank' href='" . $_POST['url'] . "/$element'>$element</a> ";
+                echo "<a class='text-center' title='Download' download='$element' target='_blank' href='" . $url . "/$element'>$element</a> ";
             } else {
                 echo "<button type='submit' onclick='OpenFolder(this)' href='$element' value ='$element'>
                         <h1 title='Folder'><i class='fa-solid fa-folder'></i></h1></button><br>";
@@ -43,18 +44,18 @@ class LoadFile
             echo '<div class="dropdown">
             <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                <button onclick="Rename(this)" value="' . $_POST['url'] . '/' . $element . '" class="dropdown-item"><i class="fas fa-pencil"></i>&nbsp;Raname</button>
-                <button onclick="DeleteFile(this)" value="' . $_POST['url'] . '/' . $element . '" class="dropdown-item"><i class="fas fa-trash-can"></i>&nbsp;Delete</button>
-                <button onclick="Properties(this)" value="' . $_POST['url'] . '/' . $element . '" class="dropdown-item"><i class="fas fa-circle-info"></i>&nbsp;Properties</button>
+                <button onclick="Rename(this)" value="' . $url . '/' . $element . '" class="dropdown-item"><i class="fas fa-pencil"></i>&nbsp;Raname</button>
+                <button onclick="DeleteFile(this)" value="' . $url . '/' . $element . '" class="dropdown-item"><i class="fas fa-trash-can"></i>&nbsp;Delete</button>
+                <button onclick="Properties(this)" value="' . $url . '/' . $element . '" class="dropdown-item"><i class="fas fa-circle-info"></i>&nbsp;Properties</button>
             </ul>
         </div></div>';
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
     }
-    public static function Load()
+    function Load($Load)
     {
-        $url = "../" . $_POST['url'];
+        $url = "../" . $Load;
         error_reporting(E_ALL ^ E_NOTICE);
         try {
             if (file_exists($url) == false) {
@@ -71,10 +72,10 @@ class LoadFile
                 <div class="row justify-content-around">';
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
-                        LoadFile::Data($element);
+                        LoadFile::Data($element, $Load);
                     } else {
                         if (strlen(strstr($element, $SearchFile)) > 0) {
-                            LoadFile::Data($element);
+                            LoadFile::Data($element, $Load);
                         }
                     }
                 }
@@ -85,5 +86,4 @@ class LoadFile
         }
     }
 }
-LoadFile::Load();
 #Creator: Mateo Fonseca (MatheoFonck73)
