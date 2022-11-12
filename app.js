@@ -1,8 +1,23 @@
-var Search = document.getElementById("SearchFile");
-var button = document.getElementById("darkmode");
-var color = ["rgb(29, 33, 41)", "#fff"];
+const Search = document.getElementById("SearchFile");
+const button = document.getElementById("darkmode");
+const color = ["rgb(29, 33, 41)", "#fff"];
 var background = color[button.value];
-var elem = document.getElementById("urlFile");
+const elem = document.getElementById("urlFile");
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    Load();
+    Storage();
+    if (localStorage.getItem("DarkValue", button.value) == 0) {
+        localStorage.setItem("DarkValue", button.value)
+        return false;
+    } else {
+        DarkMode();
+    }
+});
+
+
+
 elem.onkeyup = function(e) {
     if (e.keyCode == 13) {
         Load();
@@ -53,8 +68,8 @@ if (
 }
 
 function UploadFile() {
-    var formData = new FormData();
-    var File = $("#FilesForm")[0].files[0];
+    let formData = new FormData();
+    let File = $("#FilesForm")[0].files[0];
     formData.append("I", File);
     formData.append("url", document.getElementById("urlFile").value);
     let timerInterval;
@@ -214,7 +229,7 @@ async function DeleteFile(file) {
 }
 
 function Load() {
-    var Url = $("#urlFile").val();
+    let Url = $("#urlFile").val();
     if (Url == "") {
         return false;
     }
@@ -246,7 +261,7 @@ function Load() {
     return false;
 }
 async function NewFolder() {
-    var Url = $("#urlFile").val();
+    let Url = $("#urlFile").val();
     if (Url == "") {
         Swal.fire({
             icon: "error",
@@ -327,7 +342,7 @@ async function NewFolder() {
     });
 }
 async function Rename(file) {
-    var Url = $("#urlFile").val();
+    let Url = $("#urlFile").val();
     await Swal.fire({
         confirmButtonColor: "#5cb85c",
         background: background,
@@ -417,9 +432,9 @@ function Properties(file) {
 }
 
 function SearchFile() {
-    var Url = $("#urlFile").val();
-    var Search = $("#SearchFile").val();
-    var directory = "Load=" + Url + "&search=" + Search;
+    let Url = $("#urlFile").val();
+    let Search = $("#SearchFile").val();
+    let directory = "Load=" + Url + "&search=" + Search;
     $.ajax({
         url: "php/Execute_controller.php",
         type: "POST",
@@ -454,8 +469,8 @@ function Storage() {
 }
 
 function PreviousFolder() {
-    var Url = $("#urlFile").val();
-    var directory = "upload";
+    let Url = $("#urlFile").val();
+    let directory = "upload";
     if ((Url.startsWith("upload") == false) || (Url.startsWith("upload/") == false)) {
         Url = "upload/" + Url;
         document.getElementById("urlFile").value = Url;
@@ -493,9 +508,9 @@ function PreviousFolder() {
 }
 
 function OpenFolder(file) {
-    var Url = $("#urlFile").val();
+    let Url = $("#urlFile").val();
     document.getElementById("urlFile").value = Url + "/" + file.value;
-    var directory = "Load=" + Url + "/" + file.value;
+    let directory = "Load=" + Url + "/" + file.value;
     document.getElementById("SearchFile").value = "";
     $.ajax({
         url: "php/Execute_controller.php",
@@ -542,10 +557,10 @@ function OpenMenu() {
 }
 
 function DarkMode() {
-    var root = document.documentElement;
-    if (button.value == "1") {
+    let root = document.documentElement;
+    if (button.value == "0") {
         button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
-        button.value = "0";
+        button.value = "1";
         background = color[button.value];
         root.style.setProperty("--Light-color", color[0]);
         root.style.setProperty("--text-primary-color", color[1]);
@@ -559,7 +574,7 @@ function DarkMode() {
             });
     } else {
         button.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        button.value = "1";
+        button.value = "0";
         background = color[button.value];
         root.style.setProperty("--Light-color", color[1]);
         root.style.setProperty("--text-primary-color", color[0]);
@@ -572,10 +587,11 @@ function DarkMode() {
                 duration: 500,
             });
     }
+    localStorage.setItem("DarkValue", button.value)
 }
 
 function Unlock() {
-    var button = document.getElementById("UploadFile");
+    let button = document.getElementById("UploadFile");
     button.disabled = false;
 }
 // #Creator: Mateo Fonseca (MatheoFonck73)
