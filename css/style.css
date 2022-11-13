@@ -1,307 +1,292 @@
 :root {
-  --Primary-color: rgb(29, 33, 41);
-  --Secondary-color: rgb(187, 187, 187);
-  --Light-color: white;
-  --Danger-color: #dc3545;
-  --Shaders-color: rgba(0, 0, 0, 0.75);
-  --text-primary-color: rgb(29, 33, 41);
-  --text-secunday-color: white;
+    --Primary-color: rgb(29, 33, 41);
+    --Secondary-color: rgb(187, 187, 187);
+    --Light-color: white;
+    --Danger-color: #dc3545;
+    --Shaders-color: rgba(0, 0, 0, 0.75);
+    --text-primary-color: rgb(29, 33, 41);
+    --text-secunday-color: white;
 }
 
 body {
-  font-family: "Josefin Sans", sans-serif;
-  background-color: var(--Light-color);
-  margin: 0;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: var(--Light-color);
+    margin: 0;
 }
 
 h4,
 h3 {
-  color: var(--text-secunday-color);
+    color: var(--text-secunday-color);
 }
 
 a {
-  color: var(--text-primary-color);
-  text-decoration: none;
-  text-align: center;
+    color: var(--text-primary-color);
+    text-decoration: none;
+    text-align: center;
 }
 
 .Button-Menu {
-  outline: none;
-  margin-top: 5px;
-  margin-left: 5px;
-  z-index: 1;
-  position: relative;
-  cursor: pointer;
+    outline: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
 }
 
 button {
-  color: var(--text-primary-color);
-  text-decoration: none;
-  background-color: var(--Light-color);
-  font-size: 100%;
-  border: none;
-  text-align: center;
-  cursor: pointer;
+    color: var(--text-primary-color);
+    text-decoration: none;
+    background-color: var(--Light-color);
+    font-size: 100%;
+    border: none;
+    text-align: center;
+    cursor: pointer;
 }
 
 a:hover {
-  color: var(--text-primary-color);
+    color: var(--text-primary-color);
 }
 
 .urlFile {
-  color: var(--text-primary-color);
-  background-color: var(--Light-color);
-  border: none;
-  width: 100%;
-  margin-bottom: 1%;
-  outline: none;
+    color: var(--text-primary-color);
+    background-color: var(--Light-color);
+    border: none;
+    width: 100%;
+    margin-bottom: 1%;
+    outline: none;
 }
 
 h6,
 h1 {
-  color: var(--text-primary-color);
+    color: var(--text-primary-color);
 }
 
 .darkmode {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 10px;
-  z-index: 0;
-  float: right;
-  color: var(--text-secunday-color);
-  background-color: var(--Primary-color);
-  margin-right: .5%;
-  margin-top: -47px;
-  text-align: center;
-  transition: .5s;
-  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 10px;
+    z-index: 0;
+    float: right;
+    color: var(--text-secunday-color);
+    background-color: var(--Primary-color);
+    margin-right: .5%;
+    margin-top: -47px;
+    text-align: center;
+    transition: .5s;
+    -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
 .darkmode:hover {
-  color: var(--Secondary-color);
+    color: var(--Secondary-color);
 }
 
 .grids {
-  display: grid;
-  grid-template-columns: 0.5fr 1.48fr 1.25fr;
-  grid-template-rows: 0.1fr 1.45fr 1.45fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "Bar Bar Bar"
-    "Menu Data Data"
-    "Menu Data Data";
+    display: grid;
+    grid-template-columns: 0.5fr 1.48fr 1.25fr;
+    grid-template-rows: 0.1fr 1.45fr 1.45fr;
+    gap: 0px 0px;
+    grid-template-areas: "Bar Bar Bar" "Menu Data Data" "Menu Data Data";
 }
 
 .Menu {
-  grid-area: Menu;
-  height: 100%;
-  width: 16.5%;
-  background-color: var(--Primary-color);
-  margin-right: 1px var(--Light-color) solid;
-  position: fixed;
-  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    grid-area: Menu;
+    height: 100%;
+    width: 16.5%;
+    background-color: var(--Primary-color);
+    margin-right: 1px var(--Light-color) solid;
+    position: fixed;
+    -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
 .Bar {
-  grid-area: Bar;
-  padding-top: 0.5%;
-  background-color: var(--Primary-color);
-  color: var(--Light-color);
-  width: 100%;
-  font-size: 20px;
-  position: fixed;
-  z-index: 1;
-  -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
-  box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    grid-area: Bar;
+    padding-top: 0.5%;
+    background-color: var(--Primary-color);
+    color: var(--Light-color);
+    width: 100%;
+    font-size: 20px;
+    position: fixed;
+    z-index: 1;
+    -webkit-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    -moz-box-shadow: 0px 0px 5px 0px var(--Shaders-color);
+    box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
 .Data {
-  grid-area: Data;
-  padding: .5%;
-  z-index: -1;
-  margin-bottom: 25px;
-  position: fixed;
-  left: 17%;
-  top: 52px;
-  width: 83%;
-  height: 93.3%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-appearance: none;
+    grid-area: Data;
+    padding: .5%;
+    z-index: -1;
+    margin-bottom: 25px;
+    position: fixed;
+    left: 17%;
+    top: 52px;
+    width: 83%;
+    height: 93.3%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-appearance: none;
 }
 
 .Data::-webkit-scrollbar {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 #process {
-  background-color: var(--text-secunday-color);
-  border-radius: 5px;
-  z-index: -1
+    background-color: var(--text-secunday-color);
+    border-radius: 5px;
+    z-index: -1
 }
 
 #process-back {
-  background-color: var(--Secondary-color);
-  border-radius: 5px;
-  position: relative;
-  z-index: -1
+    background-color: var(--Secondary-color);
+    border-radius: 5px;
+    position: relative;
+    z-index: -1
 }
 
 #SearchFile {
-  display: inline-block;
-  width: 60%;
-  height: 38px;
-  border-radius: 0px 3px 3px 0px;
-  background-color: rgb(29, 33, 41);
-  color: white;
-  outline: 0;
-  margin-top: -1%;
-  margin-right: -50%;
-  font-size: medium;
-  border: 1px solid rgb(41, 46, 54);
-  border-left: none;
-  transition: 0.5s;
+    display: inline-block;
+    width: 60%;
+    height: 38px;
+    border-radius: 0px 3px 3px 0px;
+    background-color: rgb(29, 33, 41);
+    color: white;
+    outline: 0;
+    margin-top: -1%;
+    margin-right: -50%;
+    font-size: medium;
+    border: 1px solid rgb(41, 46, 54);
+    border-left: none;
+    transition: 0.5s;
 }
 
 #SearchFile:focus {
-  border: 1px solid white;
-  border-left: none;
+    border: 1px solid white;
+    border-left: none;
 }
 
 a,
 h1,
 button {
-  animation: dispel 0.3s ease-out;
+    animation: dispel 0.3s ease-out;
 }
 
 .IconSearch {
-  background-color: rgb(29, 33, 41);
-  color: white;
-  border: 1px solid rgb(41, 46, 54);
-  text-align: center;
-  margin-top: -3px;
-  width: 40px;
-  float: left;
-  border-radius: 3px 0px 0px 3px;
-  border-right: none;
-  transition: 0.5s;
-  cursor: pointer;
+    background-color: rgb(29, 33, 41);
+    color: white;
+    border: 1px solid rgb(41, 46, 54);
+    text-align: center;
+    margin-top: -3px;
+    width: 40px;
+    float: left;
+    border-radius: 3px 0px 0px 3px;
+    border-right: none;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .icon {
-  background-color: var(--Light-color);
-  color: var(--Shaders-color);
-  border-radius: 3%;
-  width: 30%;
+    background-color: var(--Light-color);
+    color: var(--Shaders-color);
+    border-radius: 3%;
+    width: 30%;
 }
 
 @media only screen and (max-width: 1600px) and (min-width: 1300px) {
-  .Menu {
-    margin-top: -3%;
-    height: 115%;
-  }
-
-  h1,
-  h2,
-  h4,
-  h5,
-  h6 {
-    size: 10px;
-  }
-
-  table,
-  td,
-  th,
-  tr {
-    font-size: 15px;
-  }
-
-  #UploadFile {
-    font-size: 10px;
-  }
+    .Menu {
+        margin-top: -3%;
+        height: 115%;
+    }
+    h1,
+    h2,
+    h4,
+    h5,
+    h6 {
+        size: 10px;
+    }
+    table,
+    td,
+    th,
+    tr {
+        font-size: 15px;
+    }
+    #UploadFile {
+        font-size: 10px;
+    }
 }
 
 @media only screen and (min-width:1000px) {
-  .Button-M {
-    display: none;
-  }
+    .Button-M {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
-  .Menu {
-    display: none;
-    width: 50%;
-    background-color: rgba(29, 33, 41, .97);
-  }
-
-  .Data {
-    left: auto;
-    width: 100%;
-    top: 47px;
-  }
-
-  .icon-folder {
-    display: none;
-  }
-
-  .darkmode {
-    width: 35px;
-    height: 35px;
-    margin-top: -40px;
-    margin-right: 5px;
-  }
-
-  .Button-M {
-    display: block;
-  }
-
-  a {
-    font-size: 15px;
-  }
-
-  .text-file {
-    margin-top: 7px;
-    float: left;
-  }
-
-  .IconSearch {
-    margin-top: 1px;
-  }
-
-  #SearchFile {
-    margin-top: 1px;
-  }
+    .Menu {
+        display: none;
+        width: 50%;
+        background-color: rgba(29, 33, 41, .97);
+    }
+    .Data {
+        left: auto;
+        width: 100%;
+        top: 50px;
+    }
+    .icon-folder {
+        display: none;
+    }
+    .darkmode {
+        width: 35px;
+        height: 35px;
+        margin-top: -40px;
+        margin-right: 5px;
+    }
+    .Button-M {
+        display: block;
+    }
+    a {
+        font-size: 15px;
+    }
+    .text-file {
+        margin-top: 7px;
+        float: left;
+    }
+    .IconSearch {
+        margin-top: 1px;
+    }
+    #SearchFile {
+        margin-top: 1px;
+    }
 }
 
 @keyframes dispel {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .dropdown-item,
 .dropdown-menu {
-  color: var(--text-primary-color);
-  background-color: var(--Light-color);
+    color: var(--text-primary-color);
+    background-color: var(--Light-color);
 }
 
 .dropdown-item:hover {
-  color: var(--text-primary-color);
-  background-color: var(--Light-color);
+    color: var(--text-primary-color);
+    background-color: var(--Light-color);
 }
+
 
 /* #Creator: Mateo Fonseca (MatheoFonck73) */

@@ -4,19 +4,51 @@ const color = ["rgb(29, 33, 41)", "#fff"];
 var background = color[button.value];
 const elem = document.getElementById("urlFile");
 
-
 document.addEventListener("DOMContentLoaded", function() {
     Load();
     Storage();
-    if (localStorage.getItem("DarkValue", button.value) == 1) {
+    if (localStorage.getItem("DarkValue", button.value) == 0) {
+        DarkMode();
+    } else {
         localStorage.setItem("DarkValue", button.value)
         return false;
-    } else {
-        DarkMode();
     }
 });
 
-
+function DarkMode() {
+    let root = document.documentElement;
+    if (button.value == "1") {
+        button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
+        button.value = "0";
+        background = color[button.value];
+        root.style.setProperty("--Light-color", color[0]);
+        root.style.setProperty("--text-primary-color", color[1]);
+        button.animate([{ opacity: "0" }, { opacity: "1" }], {
+            duration: 500,
+        });
+        document
+            .getElementById("Data")
+            .animate([{ opacity: "0" }, { opacity: "1" }], {
+                duration: 500,
+            });
+        localStorage.setItem("DarkValue", button.value)
+    } else {
+        button.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        button.value = "1";
+        background = color[button.value];
+        root.style.setProperty("--Light-color", color[1]);
+        root.style.setProperty("--text-primary-color", color[0]);
+        button.animate([{ opacity: "0" }, { opacity: "1" }], {
+            duration: 500,
+        });
+        document
+            .getElementById("Data")
+            .animate([{ opacity: "0" }, { opacity: "1" }], {
+                duration: 500,
+            });
+        localStorage.setItem("DarkValue", button.value)
+    }
+}
 
 elem.onkeyup = function(e) {
     if (e.keyCode == 13) {
@@ -554,40 +586,6 @@ function OpenMenu() {
                 });
         }
     }
-}
-
-function DarkMode() {
-    let root = document.documentElement;
-    if (button.value == "1") {
-        button.innerHTML = '<i class="fas fa-solid fa-sun"></i>';
-        button.value = "0";
-        background = color[button.value];
-        root.style.setProperty("--Light-color", color[0]);
-        root.style.setProperty("--text-primary-color", color[1]);
-        button.animate([{ opacity: "0" }, { opacity: "1" }], {
-            duration: 500,
-        });
-        document
-            .getElementById("Data")
-            .animate([{ opacity: "0" }, { opacity: "1" }], {
-                duration: 500,
-            });
-    } else {
-        button.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        button.value = "1";
-        background = color[button.value];
-        root.style.setProperty("--Light-color", color[1]);
-        root.style.setProperty("--text-primary-color", color[0]);
-        button.animate([{ opacity: "0" }, { opacity: "1" }], {
-            duration: 500,
-        });
-        document
-            .getElementById("Data")
-            .animate([{ opacity: "0" }, { opacity: "1" }], {
-                duration: 500,
-            });
-    }
-    localStorage.setItem("DarkValue", button.value)
 }
 
 function Unlock() {
