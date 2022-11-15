@@ -57,16 +57,20 @@ class Crud
             if (pathinfo($_POST['Nname'], PATHINFO_EXTENSION) == false && pathinfo($OName, PATHINFO_EXTENSION) == true) {
                 echo "You must put extension to the name.";
             } else {
-                if (!file_exists($NewName)) {
-                    rename($OldName, $NewName);
-                    echo "The name has been changed successfully.";
-                } else {
-                    if ( $Nname == "." || $Nname == "") {
-                        echo "The name can not be changed.";
+                if(pathinfo($_POST['Nname'], PATHINFO_EXTENSION) == true && pathinfo($OName, PATHINFO_EXTENSION) == false){
+                    echo "Is a folder, you can not put extension.";
+                }else{
+                    if (!file_exists($NewName)) {
+                        rename($OldName, $NewName);
+                        echo "The name has been changed successfully.";
                     } else {
-                        echo 'This folder or file already exists.';
+                        if ( $Nname == "." || $Nname == "") {
+                            echo "The name can not be changed.";
+                        } else {
+                            echo 'This folder or file already exists.';
+                        }
                     }
-                }
+                }                
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
