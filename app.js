@@ -4,7 +4,7 @@ const color = ["rgb(29, 33, 41)", "#fff"];
 var background = color[button.value];
 const elem = document.getElementById("urlFile");
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     Load();
     Storage();
     if (localStorage.getItem("DarkValue", button.value) == 0) {
@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return false;
     }
 });
-
+function Unlock() {
+    let button = document.getElementById("UploadFile");
+    button.disabled = false;
+}
 function DarkMode() {
     let root = document.documentElement;
     if (button.value == "1") {
@@ -50,14 +53,14 @@ function DarkMode() {
     }
 }
 
-elem.onkeyup = function(e) {
+elem.onkeyup = function (e) {
     if (e.keyCode == 13) {
         Load();
     }
 };
 Search.addEventListener(
     "focus",
-    function() {
+    function () {
         document.getElementById("IconSearch").style =
             "border:1px solid white;  border-right: none;";
     },
@@ -65,14 +68,14 @@ Search.addEventListener(
 );
 Search.addEventListener(
     "blur",
-    function() {
+    function () {
         document.getElementById("IconSearch").style =
             "border:1px solid rgb(41, 46, 54);  border-right: none;";
     },
     true
 );
 
-document.getElementById("Data").onclick = function() {
+document.getElementById("Data").onclick = function () {
     if (window.outerWidth < 1000 && $("#Menu").is(":visible") == true) {
         $("#Menu").fadeOut();
         document.getElementById("OpenMenu").innerHTML =
@@ -93,12 +96,43 @@ if (
     navigator.userAgent.match(/iPod/i) ||
     navigator.userAgent.match(/BlackBerry/i) ||
     navigator.userAgent.match(/Windows Phone/i)
-) {} else {
-    $(window).resize(function() {
+) { } else {
+    $(window).resize(function () {
         OpenMenu();
     });
 }
-
+function Load() {
+    let Url = $("#urlFile").val();
+    if (Url == "") {
+        return false;
+    }
+    if (Url.startsWith("upload") == false) {
+        Url = "upload/" + Url;
+        document.getElementById("urlFile").value = Url;
+    }
+    if (Url.startsWith("upload/..") == true) {
+        Url = Url.replace("upload/..", "upload");
+        document.getElementById("urlFile").value = Url;
+    }
+    $.ajax({
+        url: "php/Execute_controller.php",
+        type: "POST",
+        data: "Load=" + Url,
+        success: function (r) {
+            if (Search.value == "") {
+                if (r == "") {
+                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                } else {
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                }
+            }
+        },
+        error: function (e) {
+            $("#table").html(e);
+        },
+    });
+    return false;
+}
 function UploadFile() {
     let formData = new FormData();
     let File = $("#FilesForm")[0].files[0];
@@ -125,7 +159,7 @@ function UploadFile() {
         didOpen: () => {
             Swal.showLoading();
             const b = Swal.getHtmlContainer().querySelector("b");
-            timerInterval = setInterval(() => {}, 100);
+            timerInterval = setInterval(() => { }, 100);
         },
         willClose: () => {
             clearInterval(timerInterval);
@@ -137,7 +171,7 @@ function UploadFile() {
         data: formData,
         processData: false,
         contentType: false,
-        success: function(r) {
+        success: function (r) {
             if (r == "It is not the correct format.") {
                 Swal.fire({
                     icon: "error",
@@ -164,7 +198,7 @@ function UploadFile() {
                 Load();
             }
         },
-        error: function(e) {
+        error: function (e) {
             Swal.fire({
                 icon: "error",
                 title: "Upload",
@@ -172,122 +206,6 @@ function UploadFile() {
                 text: e,
                 background: background,
             });
-        },
-    });
-    return false;
-}
-async function DeleteFile(file) {
-    const { value: password } = await Swal.fire({
-        title: "Enter password",
-        icon: "question",
-        background: background,
-        confirmButtonColor: "#5cb85c",
-        input: "password",
-        inputLabel: "Password",
-        inputPlaceholder: "Enter password",
-        inputAttributes: {
-            maxlength: 10,
-            autocapitalize: "off",
-            autocorrect: "off",
-        },
-    });
-
-    if (password != "12345") {
-        Swal.fire({
-            icon: "error",
-            title: "Password",
-            confirmButtonColor: "#5cb85c",
-            text: "Incorrect password",
-            background: background,
-        });
-        return false;
-    }
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        background: background,
-        confirmButtonColor: "#5cb85c",
-        cancelButtonColor: "#dc3545",
-        confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                icon: "warning",
-                title: "Delete alert!",
-                confirmButtonColor: "#5cb85c",
-                text: "Delete File.",
-                background: background,
-                timerProgressBar: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                    const b = Swal.getHtmlContainer().querySelector("b");
-                    timerInterval = setInterval(() => {}, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                },
-            });
-            $.ajax({
-                type: "POST",
-                url: "php/Execute_controller.php",
-                data: "Delete=" + file.value,
-                success: function(r) {
-                    if (r == "Delete Complete.") {
-                        Swal.fire({
-                            icon: "success",
-                            title: "Delete",
-                            background: background,
-                            text: r,
-                            confirmButtonColor: "#5cb85c",
-                        });
-                        Storage();
-                        Load();
-                    } else {
-                        Swal.fire({
-                            icon: "error",
-                            background: background,
-                            title: "Delete",
-                            text: r,
-                            confirmButtonColor: "#5cb85c",
-                        });
-                    }
-                },
-            });
-        }
-    });
-    return false;
-}
-
-function Load() {
-    let Url = $("#urlFile").val();
-    if (Url == "") {
-        return false;
-    }
-    if (Url.startsWith("upload") == false) {
-        Url = "upload/" + Url;
-        document.getElementById("urlFile").value = Url;
-    }
-    if (Url.startsWith("upload/..") == true) {
-        Url = Url.replace("upload/..", "upload");
-        document.getElementById("urlFile").value = Url;
-    }
-    $.ajax({
-        url: "php/Execute_controller.php",
-        type: "POST",
-        data: "Load=" + Url,
-        success: function(r) {
-            if (Search.value == "") {
-                if (r == "") {
-                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
-                } else {
-                    $("#table").html(r);
-                }
-            }
-        },
-        error: function(e) {
-            $("#table").html(e);
         },
     });
     return false;
@@ -339,7 +257,7 @@ async function NewFolder() {
                 url: "php/Execute_controller.php",
                 type: "POST",
                 data: "Create=" + Url + "&name=" + Newfolder,
-                success: function(r) {
+                success: function (r) {
                     if (r == "The folder has been created successfully.") {
                         Swal.fire({
                             icon: "success",
@@ -359,7 +277,7 @@ async function NewFolder() {
                         });
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     Swal.fire({
                         icon: "error",
                         background: background,
@@ -390,7 +308,7 @@ async function Rename(file) {
                 url: "php/Execute_controller.php",
                 type: "POST",
                 data: "NewName=" + Url + "&Nname=" + Newfolder + "&Oname=" + file.value,
-                success: function(r) {
+                success: function (r) {
                     if (r == "The name has been changed successfully.") {
                         Swal.fire({
                             icon: "success",
@@ -410,7 +328,7 @@ async function Rename(file) {
                         });
                     }
                 },
-                error: function(e) {
+                error: function (e) {
                     Swal.fire({
                         icon: "error",
                         background: background,
@@ -424,13 +342,12 @@ async function Rename(file) {
         }
     });
 }
-
 function Properties(file) {
     $.ajax({
         url: "php/Execute_controller.php",
         type: "POST",
         data: "Properties=" + file.value,
-        success: function(r) {
+        success: function (r) {
             if (
                 file.value.split(".").pop() == "jpg" ||
                 file.value.split(".").pop() == "png" ||
@@ -456,50 +373,53 @@ function Properties(file) {
                 });
             }
         },
-        error: function(e) {
+        error: function (e) {
             $("#table").html(e);
         },
     });
     return false;
 }
-
 function SearchFile() {
     let Url = $("#urlFile").val();
     let Search = $("#SearchFile").val();
     let directory = "Load=" + Url + "&search=" + Search;
+    if (Url == "") {
+        return false;
+    }
     $.ajax({
         url: "php/Execute_controller.php",
         type: "POST",
         data: directory,
-        success: function(r) {
-            if (r == "") {
-                $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> File not found </h5>');
-            } else {
-                $("#table").html(r);
+        success: function (r) {
+            if (Search.value != "") {
+                if (r != "") {
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                    console.log(r);
+                } else {
+                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                }
             }
         },
-        error: function(e) {
+        error: function (e) {
             $("#table").html(e);
         },
     });
     return false;
 }
-
 function Storage() {
     $.ajax({
         url: "php/Execute_controller.php",
         type: "POST",
         data: "Storage=" + '../upload',
-        success: function(r) {
+        success: function (r) {
             $("#Storage").html(r);
         },
-        error: function(e) {
+        error: function (e) {
             $("#Storage").html(e);
         },
     });
     return false;
 }
-
 function PreviousFolder() {
     let Url = $("#urlFile").val();
     let directory = "upload";
@@ -523,22 +443,21 @@ function PreviousFolder() {
         url: "php/Execute_controller.php",
         type: "POST",
         data: "Load=" + directory,
-        success: function(r) {
+        success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
                 } else {
-                    $("#table").html(r);
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
                 }
             }
         },
-        error: function(e) {
+        error: function (e) {
             $("#table").html(e);
         },
     });
     return false;
 }
-
 function OpenFolder(file) {
     let Url = $("#urlFile").val();
     document.getElementById("urlFile").value = Url + "/" + file.value;
@@ -548,22 +467,21 @@ function OpenFolder(file) {
         url: "php/Execute_controller.php",
         type: "POST",
         data: directory,
-        success: function(r) {
+        success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
                 } else {
-                    $("#table").html(r);
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
                 }
             }
         },
-        error: function(e) {
+        error: function (e) {
             $("#table").html(e);
         },
     });
     return false;
 }
-
 function OpenMenu() {
     if ($("#Menu").is(":visible") == false) {
         $("#Menu").fadeIn();
@@ -587,9 +505,87 @@ function OpenMenu() {
         }
     }
 }
+async function DeleteFile(file) {
+    const { value: password } = await Swal.fire({
+        title: "Enter password",
+        icon: "question",
+        background: background,
+        confirmButtonColor: "#5cb85c",
+        input: "password",
+        inputLabel: "Password",
+        inputPlaceholder: "Enter password",
+        inputAttributes: {
+            maxlength: 10,
+            autocapitalize: "off",
+            autocorrect: "off",
+        },
+    });
 
-function Unlock() {
-    let button = document.getElementById("UploadFile");
-    button.disabled = false;
+    if (password != "12345") {
+        Swal.fire({
+            icon: "error",
+            title: "Password",
+            confirmButtonColor: "#5cb85c",
+            text: "Incorrect password",
+            background: background,
+        });
+        return false;
+    }
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        background: background,
+        confirmButtonColor: "#5cb85c",
+        cancelButtonColor: "#dc3545",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                icon: "warning",
+                title: "Delete alert!",
+                confirmButtonColor: "#5cb85c",
+                text: "Delete File.",
+                background: background,
+                timerProgressBar: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector("b");
+                    timerInterval = setInterval(() => { }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                },
+            });
+            $.ajax({
+                type: "POST",
+                url: "php/Execute_controller.php",
+                data: "Delete=" + file.value,
+                success: function (r) {
+                    if (r == "Delete Complete.") {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Delete",
+                            background: background,
+                            text: r,
+                            confirmButtonColor: "#5cb85c",
+                        });
+                        Storage();
+                        Load();
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            background: background,
+                            title: "Delete",
+                            text: r,
+                            confirmButtonColor: "#5cb85c",
+                        });
+                    }
+                },
+            });
+        }
+    });
+    return false;
 }
 // #Creator: Mateo Fonseca (MatheoFonck73)

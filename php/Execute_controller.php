@@ -20,7 +20,6 @@ if (isset($_POST['Load'])) {
     $LoadFile->Load($_POST['Load']);
 }
 
-
 //Crud
 if (isset($_FILES['I']['name']) && $_FILES['I']['tmp_name']) {
     $Crud->Upload();

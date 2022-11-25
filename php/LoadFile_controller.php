@@ -1,7 +1,6 @@
 <?php
 class LoadFile
 {
-
     function Icons($element)
     {
         try {
@@ -68,8 +67,6 @@ class LoadFile
                 $SearchFile = $_POST["search"];
             }
             if (count($List) > 0) {
-                echo '<center><div class="container">
-                <div class="row justify-content-around">';
                 foreach ($List as $element) {
                     if ($SearchFile == "") {
                         LoadFile::Data($element, $Load);
@@ -79,7 +76,6 @@ class LoadFile
                         }
                     }
                 }
-                echo '</div></div></center>';
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
