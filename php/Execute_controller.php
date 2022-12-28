@@ -7,6 +7,7 @@ $LoadFile = new LoadFile();
 $Detail = new Detail();
 $Crud = new Crud();
 
+
 //Detail
 if(isset($_POST['Storage'])){
     $Detail->Size($_POST['Storage']);
@@ -18,6 +19,10 @@ if (isset($_POST['Properties'])) {
 //Load
 if (isset($_POST['Load'])) {
     $LoadFile->Load($_POST['Load']);
+}
+
+if (isset($_POST['TotalFile'])) {
+    $LoadFile->TotalFile($_POST['TotalFile']);
 }
 
 //Crud

@@ -1,6 +1,8 @@
 <?php
 class LoadFile
 {
+    protected $number;
+
     function Icons($element)
     {
         try {
@@ -79,6 +81,16 @@ class LoadFile
             }
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
+        }
+    }
+    function TotalFile($TotalFile)
+    {
+        $url = "../" . $TotalFile;
+        $lastModified = filemtime($url);
+        $currentTime = time();
+
+        if ($lastModified == $currentTime) {
+            echo "true";
         }
     }
 }

@@ -123,7 +123,7 @@ function Load() {
                 if (r == "") {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
                 } else {
-                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
             }
         },
@@ -195,7 +195,6 @@ function UploadFile() {
                     },
                 });
                 Storage();
-                Load();
             }
         },
         error: function (e) {
@@ -317,7 +316,6 @@ async function Rename(file) {
                             text: r,
                             confirmButtonColor: "#5cb85c",
                         });
-                        Load();
                     } else {
                         Swal.fire({
                             icon: "warning",
@@ -393,7 +391,7 @@ function SearchFile() {
         success: function (r) {
             if (Search.value != "") {
                 if (r != "") {
-                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                     console.log(r);
                 } else {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
@@ -448,7 +446,7 @@ function PreviousFolder() {
                 if (r == "") {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
                 } else {
-                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
             }
         },
@@ -472,7 +470,7 @@ function OpenFolder(file) {
                 if (r == "") {
                     $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
                 } else {
-                    $("#table").html('<center><div class="container"><div class="row justify-content-around">'+ r + '</div></div></center>');
+                    $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
             }
         },
@@ -572,7 +570,6 @@ async function DeleteFile(file) {
                             confirmButtonColor: "#5cb85c",
                         });
                         Storage();
-                        Load();
                     } else {
                         Swal.fire({
                             icon: "error",
@@ -588,4 +585,20 @@ async function DeleteFile(file) {
     });
     return false;
 }
+setInterval(() => {
+    let Url = $("#urlFile").val();
+    $.ajax({
+        url: "php/Execute_controller.php",
+        type: "POST",
+        data: "TotalFile=" + Url,
+        success: function (r) {
+            if (r == "true") {
+                Load();
+            }
+        },
+        error: function (e) {
+            $("#table").html(e);
+        },
+    });
+}, 500);
 // #Creator: Mateo Fonseca (MatheoFonck73)
