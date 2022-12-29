@@ -89,7 +89,7 @@ class LoadFile
         $lastModified = filemtime($url);
         $currentTime = time();
 
-        if ($lastModified == $currentTime) {
+        if ($lastModified == $currentTime || $lastModified - 1 == $currentTime  || $lastModified + 1  == $currentTime) {
             echo "true";
         }
     }

@@ -3,6 +3,7 @@ const button = document.getElementById("darkmode");
 const color = ["rgb(29, 33, 41)", "#fff"];
 var background = color[button.value];
 const elem = document.getElementById("urlFile");
+let = lastExecuted = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     Load();
@@ -131,6 +132,7 @@ function Load() {
             $("#table").html(e);
         },
     });
+    lastExecuted = Date.now();
     return false;
 }
 function UploadFile() {
@@ -265,7 +267,6 @@ async function NewFolder() {
                             text: r,
                             confirmButtonColor: "#5cb85c",
                         });
-                        Load();
                     } else {
                         Swal.fire({
                             icon: "warning",
@@ -587,18 +588,24 @@ async function DeleteFile(file) {
 }
 setInterval(() => {
     let Url = $("#urlFile").val();
+    let currentTime = Date.now();
     $.ajax({
         url: "php/Execute_controller.php",
         type: "POST",
         data: "TotalFile=" + Url,
         success: function (r) {
-            if (r == "true") {
-                Load();
+            if (currentTime - lastExecuted >= 1000) {
+                if (r == "true") {
+                    console.log(currentTime - lastExecuted)
+                    Load();
+                } else {
+                    return false
+                }
             }
         },
         error: function (e) {
             $("#table").html(e);
         },
     });
-}, 500);
+}, 1000);
 // #Creator: Mateo Fonseca (MatheoFonck73)
