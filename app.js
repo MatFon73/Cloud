@@ -596,7 +596,6 @@ setInterval(() => {
         success: function (r) {
             if (currentTime - lastExecuted >= 1000) {
                 if (r == "true") {
-                    console.log(currentTime - lastExecuted)
                     Load();
                 } else {
                     return false
