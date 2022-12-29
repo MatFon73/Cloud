@@ -196,7 +196,6 @@ function UploadFile() {
                         clearInterval(timerInterval);
                     },
                 });
-                Storage();
             }
         },
         error: function (e) {
@@ -570,7 +569,6 @@ async function DeleteFile(file) {
                             text: r,
                             confirmButtonColor: "#5cb85c",
                         });
-                        Storage();
                     } else {
                         Swal.fire({
                             icon: "error",
@@ -597,6 +595,7 @@ setInterval(() => {
             if (currentTime - lastExecuted >= 1000) {
                 if (r == "true") {
                     Load();
+                    Storage();
                 } else {
                     return false
                 }
