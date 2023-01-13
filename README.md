@@ -1,12 +1,12 @@
-# Cloud - MatFon73
+# Cloud - MatheoFonck73
 
 ## Basic information
 - This project was created by hobbie to make a "google drive" in local network.
 - The file "php.ini" is configured to increase the size of the file that can be uploaded to 6g. 
-- Repository (https://github.com/MatFon73/Cloud).
+- Repository (https://github.com/MatheoFonck73/Cloud).
 - Systems Engineering universidad de investigacion y desarrollo (UDI).
 - Operation video (https://youtu.be/VxZoZKJHlhY).
-- Created by Mateo Fonseca (https://twitter.com/MatFon73).
+- Created by Mateo Fonseca (https://twitter.com/MatheoFonck73).
 
 ## Programming Languages
 - js: ajax.
