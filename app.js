@@ -53,9 +53,13 @@ function DarkMode() {
         localStorage.setItem("DarkValue", button.value)
     }
 }
-
+function Clear() {
+    document.getElementById("SearchFile").value = "";
+    SearchFile();
+    document.getElementById("ClearInput").style = "display: none;";
+}
 elem.onkeyup = function (e) {
-    if (e.keyCode == 13) {
+    if (e.keyCode == 13 ) {
         Load();
     }
 };
@@ -64,6 +68,9 @@ Search.addEventListener(
     function () {
         document.getElementById("IconSearch").style =
             "border:1px solid white;  border-right: none;";
+        document.getElementById("CloseSearch").style =
+            "border:1px solid white; border-left: none;";
+        document.getElementById("ClearInput").style = "border-left: none; display: block;";
     },
     true
 );
@@ -72,6 +79,12 @@ Search.addEventListener(
     function () {
         document.getElementById("IconSearch").style =
             "border:1px solid rgb(41, 46, 54);  border-right: none;";
+        document.getElementById("CloseSearch").style =
+            "border:1px solid rgb(41, 46, 54); border-left: none;";
+
+        if (document.getElementById("SearchFile").value == "") {
+            document.getElementById("ClearInput").style = "display: none;";
+        }
     },
     true
 );
@@ -102,6 +115,7 @@ if (
         OpenMenu();
     });
 }
+
 function Load() {
     let Url = $("#urlFile").val();
     if (Url == "") {
@@ -473,6 +487,7 @@ function OpenFolder(file) {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
             }
+            document.getElementById("ClearInput").style = "display: none;";
         },
         error: function (e) {
             $("#table").html(e);

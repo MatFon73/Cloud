@@ -8,6 +8,15 @@
     --text-secunday-color: white;
 }
 
+h1,
+button {
+    animation: dispel 0.3s ease-out;
+}
+
+h5 {
+    animation: dispel 0.3s ease-out;
+}
+
 body {
     font-family: "Josefin Sans", sans-serif;
     background-color: var(--Light-color);
@@ -25,14 +34,6 @@ a {
     text-align: center;
 }
 
-.Button-Menu {
-    outline: none;
-    margin-top: 5px;
-    margin-left: 5px;
-    z-index: 1;
-    position: relative;
-    cursor: pointer;
-}
 
 button {
     color: var(--text-primary-color);
@@ -48,6 +49,21 @@ a:hover {
     color: var(--text-primary-color);
 }
 
+
+
+h6,
+h1 {
+    color: var(--text-primary-color);
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: 0.5fr 1.48fr 1.25fr;
+    grid-template-rows: 0.1fr 1.45fr 1.45fr;
+    gap: 0px 0px;
+    grid-template-areas: "Bar Bar Bar" "Menu Data Data" "Menu Data Data";
+}
+
 .urlFile {
     color: var(--text-primary-color);
     background-color: var(--Light-color);
@@ -57,9 +73,13 @@ a:hover {
     outline: none;
 }
 
-h6,
-h1 {
-    color: var(--text-primary-color);
+.Button-Menu {
+    outline: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
 }
 
 .darkmode {
@@ -82,14 +102,6 @@ h1 {
 
 .darkmode:hover {
     color: var(--Secondary-color);
-}
-
-.grids {
-    display: grid;
-    grid-template-columns: 0.5fr 1.48fr 1.25fr;
-    grid-template-rows: 0.1fr 1.45fr 1.45fr;
-    gap: 0px 0px;
-    grid-template-areas: "Bar Bar Bar" "Menu Data Data" "Menu Data Data";
 }
 
 .Menu {
@@ -137,6 +149,58 @@ h1 {
     -webkit-appearance: none;
 }
 
+.IconSearch {
+    background-color: rgb(29, 33, 41);
+    color: white;
+    border: 1px solid rgb(41, 46, 54);
+    text-align: center;
+    margin-top: -3px;
+    width: 40px;
+    float: left;
+    border-radius: 3px 0px 0px 3px;
+    border-right: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.CloseSearch {
+    background-color: rgb(29, 33, 41);
+    color: white;
+    border: 1px solid rgb(41, 46, 54);
+    text-align: center;
+    margin-top: -3px;
+    width: 40px;
+    height: 38px;
+    float: right;
+    border-radius: 0px 3px 3px 0px;
+    border-left: none;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-right: 110px;
+}
+
+.icon {
+    background-color: var(--Light-color);
+    color: var(--Shaders-color);
+    border-radius: 3%;
+    width: 30%;
+}
+
+.Button-M {
+    display: none;
+}
+
+.dropdown-item,
+.dropdown-menu {
+    color: var(--text-primary-color);
+    background-color: var(--Light-color);
+}
+
+.dropdown-item:hover {
+    color: var(--text-primary-color);
+    background-color: var(--Light-color);
+}
+
 #process {
     background-color: var(--text-secunday-color);
     border-radius: 5px;
@@ -154,7 +218,6 @@ h1 {
     display: inline-block;
     width: 60%;
     height: 38px;
-    border-radius: 0px 3px 3px 0px;
     background-color: rgb(29, 33, 41);
     color: white;
     outline: 0;
@@ -163,132 +226,41 @@ h1 {
     font-size: medium;
     border: 1px solid rgb(41, 46, 54);
     border-left: none;
+    border-right: none;
     transition: 0.5s;
 }
 
 #SearchFile:focus {
     border: 1px solid white;
     border-left: none;
+    border-right: none;
 }
 
-a,
-h1,
-button {
-    animation: dispel 0.3s ease-out;
-}
-h5{
-    animation: dispel 0.3s ease-out;
-}
-.IconSearch {
+#ClearInput {
+    display: none;
     background-color: rgb(29, 33, 41);
     color: white;
-    border: 1px solid rgb(41, 46, 54);
-    text-align: center;
-    margin-top: -3px;
-    width: 40px;
-    float: left;
-    border-radius: 3px 0px 0px 3px;
-    border-right: none;
-    transition: 0.5s;
-    cursor: pointer;
+    z-index: 1;
+    outline: none
 }
 
-.icon {
-    background-color: var(--Light-color);
-    color: var(--Shaders-color);
-    border-radius: 3%;
-    width: 30%;
+#ClearInput:hover {
+    color: rgb(210, 210, 210);
 }
 
-@media only screen and (max-width: 1600px) and (min-width: 1300px) {
-    .Menu {
-        margin-top: -3%;
-        height: 115%;
-    }
-    h1,
-    h2,
-    h4,
-    h5,
-    h6 {
-        size: 10px;
-    }
-    table,
-    td,
-    th,
-    tr {
-        font-size: 15px;
-    }
-    #UploadFile {
-        font-size: 10px;
-    }
-}
-
-@media only screen and (min-width:1000px) {
-    .Button-M {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .Menu {
-        display: none;
-        width: 50%;
-        background-color: rgba(29, 33, 41, .97);
-    }
-    .Data {
-        left: auto;
-        width: 100%;
-        top: 50px;
-    }
-    .icon-folder {
-        display: none;
-    }
-    .darkmode {
-        width: 35px;
-        height: 35px;
-        margin-top: -40px;
-        margin-right: 5px;
-    }
-    .Button-M {
-        display: block;
-    }
-    a {
-        font-size: 15px;
-    }
-    .text-file {
-        margin-top: 7px;
-        float: left;
-    }
-    .IconSearch {
-        margin-top: 1px;
-    }
-    #SearchFile {
-        margin-top: 1px;
-    }
-}
 
 @keyframes dispel {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 0.5;
     }
+
     100% {
         opacity: 1;
     }
 }
-
-.dropdown-item,
-.dropdown-menu {
-    color: var(--text-primary-color);
-    background-color: var(--Light-color);
-}
-
-.dropdown-item:hover {
-    color: var(--text-primary-color);
-    background-color: var(--Light-color);
-}
-
 
 /* #Creator: Mateo Fonseca (MatheoFonck73) */
