@@ -136,7 +136,7 @@ function Load() {
         success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
-                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                    $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
                 } else {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
@@ -414,7 +414,7 @@ function SearchFile() {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                     console.log(r);
                 } else {
-                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                    $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
                 }
             }
         },
@@ -464,7 +464,7 @@ function PreviousFolder() {
         success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
-                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                    $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
                 } else {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
@@ -488,7 +488,7 @@ function OpenFolder(file) {
         success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
-                    $("#table").html('<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h5>');
+                    $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
                 } else {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
