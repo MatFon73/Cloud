@@ -59,7 +59,7 @@ function Clear() {
     document.getElementById("ClearInput").style = "display: none;";
 }
 elem.onkeyup = function (e) {
-    if (e.keyCode == 13 ) {
+    if (e.keyCode == 13) {
         Load();
     }
 };
@@ -306,21 +306,27 @@ async function NewFolder() {
 }
 async function Rename(file) {
     let Url = $("#urlFile").val();
+    console.log(Url+"/"+file.value)
     await Swal.fire({
         confirmButtonColor: "#5cb85c",
         background: background,
         title: "Rename.",
-        input: "text",
+        input: 'text',
+        inputValue: file.value,
+        inputAttributes: {
+            placeholder: 'New Name File',
+          },
         showCancelButton: true,
         confirmButtonText: "Rename",
         cancelButtonText: "Cancel",
     }).then((result) => {
         if (result.isConfirmed) {
             let Newfolder = result.value;
+            let NameFile = Url+file.value;
             $.ajax({
                 url: "php/Execute_controller.php",
                 type: "POST",
-                data: "NewName=" + Url + "&Nname=" + Newfolder + "&Oname=" + file.value,
+                data: "NewName=" + Url + "&Nname=" + Newfolder + "&Oname=" + (Url+"/"+file.value),
                 success: function (r) {
                     if (r == "The name has been changed successfully.") {
                         Swal.fire({
