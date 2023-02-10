@@ -71,6 +71,7 @@ h1 {
     width: 100%;
     margin-bottom: 1%;
     outline: none;
+    z-index: 2;
 }
 
 .Button-Menu {
@@ -130,6 +131,12 @@ h1 {
     box-shadow: 0px 0px 5px 0px var(--Shaders-color);
 }
 
+.div-1 {
+    height: 50%;
+}
+.moveDark{
+    height: 1%;
+}
 .Data {
     grid-area: Data;
     padding: .5%;
@@ -164,7 +171,7 @@ h1 {
 }
 
 .CloseSearch {
-    background-color: rgb(29, 33, 41);
+    background-color: rgba(29, 33, 41, 0);
     color: white;
     border: 1px solid rgb(41, 46, 54);
     text-align: center;
@@ -228,6 +235,7 @@ h1 {
     border-left: none;
     border-right: none;
     transition: 0.5s;
+    z-index: 999;
 }
 
 #SearchFile:focus {

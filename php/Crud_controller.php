@@ -49,7 +49,7 @@ class Crud
         }
     }
 
-    function NewName( $url, $Nname, $OName)
+    function NewName($url, $Nname, $OName)
     {
         $OldName = "../" . $OName;
         $NewName = "../" .  $url . "/" . $Nname;

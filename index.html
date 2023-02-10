@@ -29,19 +29,19 @@
 <body>
     <div class="grids">
         <div class="Bar">
-            <div class="row">
+            <div class="row div-1">
                 <div id="Menu-div" class="Button-M col-1">
                     <button class="Button-Menu" title="Open Menu" id="OpenMenu"
                         style="background-color: rgb(29, 33, 41);color: white;" onclick="OpenMenu()">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
-                <div class="col-2">
+                <div class="col-2  div-1">
                     <h3 class="text-file" style="margin-left: 2%;">
                         <i class="icon-folder fas fa-folder"></i> &nbsp;Files
                     </h3>
                 </div>
-                <div class="col-3">
+                <div class="col-3  div-1">
                     <span class="IconSearch form-control" id="IconSearch" title="Search"><i
                             class="fa fa-search"></i></span>
                     <input title="Search" type="text" autocomplete="off" onkeyup="SearchFile()" placeholder="Search"
@@ -52,8 +52,8 @@
                         </button>
                     </span>
                 </div>
-                <div class="col-12">
-                    <button style="float: right;" title="Dark Mode" value="1" id="darkmode" class="darkmode"
+                <div class="moveDark">
+                    <button style="float: right; z-index: 1" title="Dark Mode" value="1" id="darkmode" class="darkmode"
                         type="submit" onclick="DarkMode()">
                         <i class="fas fa-solid fa-moon"></i>
                     </button>

@@ -10,7 +10,19 @@
         position: relative;
         left: 190px;
     }
+
+    .darkmode {
+        width: 40px;
+        height: 40px;
+        margin-top: -47px;
+        margin-right: 5px;
+    }
+
+    .Bar {
+        height: 50px;
+    }
 }
+
 @media only screen and (min-width: 1590px) and (max-width: 1700px) {
     .CloseSearch {
         position: relative;
@@ -18,18 +30,14 @@
     }
 
     .Bar {
-        height: 6.7%;
-    }
-
-    .darkmode {
-        margin-top: -76px;
-        margin-right: 5px;
+        height: 48px;
     }
 
     #SearchFile {
         width: 100%;
     }
 }
+
 @media only screen and (min-width: 1400px) and (max-width: 1590px) {
     .CloseSearch {
         position: relative;
@@ -38,16 +46,22 @@
     }
 
     .Bar {
-        height: 6.7%;
-    }
-
-    .darkmode {
-        margin-top: -76px;
-        margin-right: 5px;
+        height: 50px;
     }
 
     #SearchFile {
         width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 1100px) {
+
+    .darkmode {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        margin-right: 5px;
     }
 }
 
@@ -74,7 +88,7 @@
 
     .CloseSearch {
         position: relative;
-        left: 190px;
+        left: 180px;
         bottom: 35px;
     }
 
@@ -88,22 +102,23 @@
     }
 
     .Bar {
-        height: 6.7%;
+        height: 48px;
     }
 
-    .darkmode {
-        margin-top: -76px;
-        margin-right: 5px;
-    }
+
 }
 
 @media only screen and (min-width: 745px) and (max-width: 1100px) {
     .CloseSearch {
         position: relative;
-        left: 190px;
+        width: 15%;
+        left: 170px;
         bottom: 35px;
     }
-
+    #ClearInput {
+        position: relative;
+        right: 10px;
+    }
     #SearchFile {
         margin-top: 1px;
         width: 100%;
@@ -114,14 +129,33 @@
     }
 
     .Bar {
-        height: 6.7%;
+        height: 48px;
     }
 
+    .Data {
+        left: auto;
+        width: 100%;
+        top: 50px;
+    }
+
+    .icon-folder {
+        display: none;
+    }
+
+    .Button-M {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 745px) and (max-width: 1100px) {
     .darkmode {
-        margin-top: -76px;
+        width: 40px;
+        height: 40px;
+        margin-top: -40px;
         margin-right: 5px;
     }
 }
+
 
 @media only screen and (max-width: 745px) {
     a {
@@ -130,17 +164,22 @@
 
     .Menu {
         display: none;
-        width: 50%;
+        width: 70%;
         background-color: rgba(29, 33, 41, .97);
     }
 
+    .div-1 {
+        height: 70%;
+    }
+
     .Bar {
-        height: 6.5%;
+        height: 48px !important;
     }
 
     .CloseSearch {
         position: relative;
-        left: 150px;
+        width: 25%;
+        left: 170px;
         bottom: 35px;
     }
 
@@ -155,9 +194,9 @@
     }
 
     .darkmode {
-        width: 35px;
-        height: 35px;
-        margin-top: -70px;
+        width: 40px;
+        height: 40px;
+        margin-top: -35px;
         margin-right: 5px;
     }
 
@@ -172,10 +211,16 @@
 
     .IconSearch {
         margin-top: 1px;
+        height: 38px;
     }
 
     #SearchFile {
         margin-top: 1px;
-        width: 75%;
+        width: 99%;
+    }
+
+    #ClearInput {
+        position: relative;
+        right: 20px;
     }
 }
