@@ -60,7 +60,7 @@ class LoadFile
         error_reporting(E_ALL ^ E_NOTICE);
         try {
             if (file_exists($url) == false) {
-                echo '<h5 class ="text-center"><i class="fa-solid fa-face-frown"></i> Path not found</h5>';
+                echo '<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> Path not found</h2>';
                 exit();
             } else {
                 $List = scandir($url, 0);
