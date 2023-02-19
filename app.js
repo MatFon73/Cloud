@@ -306,7 +306,6 @@ async function NewFolder() {
 }
 async function Rename(file) {
     let Url = $("#urlFile").val();
-    console.log(Url+"/"+file.value)
     await Swal.fire({
         confirmButtonColor: "#5cb85c",
         background: background,
@@ -412,7 +411,6 @@ function SearchFile() {
             if (Search.value != "") {
                 if (r != "") {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
-                    console.log(r);
                 } else {
                     $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
                 }
