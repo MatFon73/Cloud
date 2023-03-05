@@ -66,7 +66,7 @@ class LoadFile
                 $List = scandir($url, 0);
                 unset($List[array_search('.', $List, true)]);
                 unset($List[array_search('..', $List, true)]);
-                $SearchFile = $_POST["search"];
+                $SearchFile = $_POST["search"] ?? null;
             }
             if (count($List) > 0) {
                 foreach ($List as $element) {
