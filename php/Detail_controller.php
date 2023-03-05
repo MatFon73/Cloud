@@ -19,7 +19,7 @@ class Detail
 
     function Properties($url)
     {
-        error_reporting(E_ALL ^ E_NOTICE);
+        error_reporting(0);
         $extension = pathinfo('../' . $url, PATHINFO_EXTENSION);
         $type_size = array(" Byte", " KB", " MB", " GB");
         $size = array(1, 1024, 1048576, 1073741824);
@@ -27,7 +27,7 @@ class Detail
         try {
             if (file_exists("../" . $url)) {
                 for ($j = 0; $j <= count($size); ++$j) {
-                    if (filesize("../" . $url) >= $size[$j] && filesize("../" . $url) < $size[$j + 1]) {
+                    if (filesize("../" . $url) >= $size[$j] && filesize("../" . $url) <= $size[$j + 1]) {
                         $x = $j;
                     } else {
                         if (filesize("../" . $url) > $size[3] && $j == 3) {

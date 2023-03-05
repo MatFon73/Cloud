@@ -45,7 +45,7 @@ class LoadFile
             echo '<div class="dropdown">
             <button type="button" data-bs-toggle="dropdown" id="dropdownMenu"><i class="fa-solid fa-caret-down"></i></a></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                <button onclick="Rename(this)" value="'. $element . '" class="dropdown-item"><i class="fas fa-pencil"></i>&nbsp;Raname</button>
+                <button onclick="Rename(this)" value="' . $element . '" class="dropdown-item"><i class="fas fa-pencil"></i>&nbsp;Raname</button>
                 <button onclick="DeleteFile(this)" value="' . $url . '/' . $element . '" class="dropdown-item"><i class="fas fa-trash-can"></i>&nbsp;Delete</button>
                 <button onclick="Properties(this)" value="' . $url . '/' . $element . '" class="dropdown-item"><i class="fas fa-circle-info"></i>&nbsp;Properties</button>
             </ul>
@@ -57,7 +57,6 @@ class LoadFile
     function Load($Load)
     {
         $url = "../" . $Load;
-        error_reporting(E_ALL ^ E_NOTICE);
         try {
             if (file_exists($url) == false) {
                 echo '<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> Path not found</h2>';
