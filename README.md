@@ -17,6 +17,11 @@
 - boostap: Page design.
 - jquery: to make requests.
 - sweetalert2: alert.
+## Interface - Login
+![](https://i.ibb.co/Q684Tzq/Logn.png)
+
+## Interface - Sign up
+![](https://i.ibb.co/0Mv3mbx/SignIn.png)
 
 ## Interface - Light Mode
 ![](https://i.ibb.co/0DtdsrP/Light-mode.png)
@@ -25,6 +30,9 @@
 ![](https://i.ibb.co/0q7gLjb/Dark-mode.png)
 
 ## How to use
+- Login: To access the main page you must use your user credentials and click the login button.
+- Sign up: fill in the required information and click the sign up button.
+- LogOut: Press the LogOut button to end the current session.
 - Search: write the name of the file.
 - Upload: click on "browser", select the file and then click on the "Upload" button.
 - Delete: click on the trash can icon. Has password in "app.js" file can be changed, default is "12345"
@@ -43,6 +51,8 @@
 ### Command for install
 - sudo apt install apache2.
 - sudo apt install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd php7.3-curl php7.3-mysql.
+- sudo apt install mysql-server
+- sudo mysql_secure_installation
 
 ## php.ini
 - To change the load size of php you must modify the following variables in the file "php.ini".

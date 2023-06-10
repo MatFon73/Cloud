@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet" />
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="../node_modules/sweetalert2/dist/sweetalert2.min.css" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="../node_modules/@fortawesome/css/all.css" />
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="../favicon.png" />
+
+    <title>Sign up</title>
+</head>
+
+<body>
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card  text-white" style="border-radius: 1rem; background-color: var(--Primary-color);">
+                        <div class="card-body p-5 text-center">
+                            <div class="mb-md-3 mt-md-2 pb-3">
+                                <h3 class="fw-bold mb-2 text-uppercase">sign up</h3>
+                                <p class="text-white-50 mb-5">Please enter the data!</p>
+                                <div class="form-outline form-white mb-4">
+                                    <form method="POST">
+                                        <input type="text" id="User" class="form-control form-control-lg text-center"
+                                            autocomplete="off" required />
+                                        <label class="form-label">User</label>
+                                        <input type="text" id="Name" class="form-control form-control-lg text-center"
+                                            autocomplete="off" required />
+                                        <label class="form-label">Name</label>
+                                        <input type="password" id="Password" class="form-control form-control-lg text-center"
+                                            autocomplete="off" required />
+                                        <label class="form-label">Password</label>
+                                        <input type="password" id="Rpassword" class="form-control form-control-lg text-center"
+                                            autocomplete="off" required />
+                                        <label class="form-label">Repeat Password</label>
+                                    </form>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-light" onclick="SignUp()">Sign up</button>
+                                </div>
+
+                            </div>
+                            <div>
+                                <p class="mb-10">Do have an account? <a href="../index.html"
+                                        class="text-white-50 fw-bold">Login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="../node_modules/Jquery-3.5.0/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="../node_modules/@fortawesome/js/all.js"></script>
+    <script type="text/javascript" src="js/Auth.js"></script>
+
+</body>
+
+</html>
