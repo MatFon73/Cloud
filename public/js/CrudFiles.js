@@ -6,7 +6,7 @@ function Load() {
         success: function (r) {
             if (Search.value == "") {
                 if (r == "") {
-                    $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
+                    $("#table").html('<h2 class ="text-center"><i class="fas fa-sad-tear"></i> No found documents</h2>');
                 } else {
                     $("#table").html('<center><div class="container"><div class="row justify-content-around">' + r + '</div></div></center>');
                 }
@@ -179,7 +179,7 @@ function PreviousFolder() {
             } else {
                 if (Search.value == "") {
                     if (data.r == "") {
-                        $("#table").html('<h2 class ="text-center"><i class="fa-solid fa-face-frown"></i> No found documents</h2>');
+                        $("#table").html('<h2 class ="text-center"><i class="fas fa-sad-tear"></i> No found documents</h2>');
                     } else {
                         if (data.r == "\\") {
                             data.r = "";

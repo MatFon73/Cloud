@@ -54,7 +54,7 @@ document.getElementById("Data").onclick = function () {
     if (window.outerWidth < 1000 && $("#Menu").is(":visible") == true) {
         $("#Menu").fadeOut();
         document.getElementById("OpenMenu").innerHTML =
-            '<i class="fa-solid fa-bars"></i>';
+            '<i class="fas fa-bars"></i>';
         document
             .getElementById("OpenMenu")
             .animate([{ opacity: "0" }, { opacity: "1" }], {
@@ -127,7 +127,7 @@ function OpenMenu() {
     if ($("#Menu").is(":visible") == false) {
         $("#Menu").fadeIn();
         document.getElementById("OpenMenu").innerHTML =
-            '<i class="fa-solid fa-x"></i>';
+            '<i class="fas fa-times"></i>';
         document
             .getElementById("OpenMenu")
             .animate([{ opacity: "0" }, { opacity: "1" }], {
@@ -137,7 +137,7 @@ function OpenMenu() {
         if (window.outerWidth < 1000) {
             $("#Menu").fadeOut();
             document.getElementById("OpenMenu").innerHTML =
-                '<i class="fa-solid fa-bars"></i>';
+                '<i class="fas fa-bars"></i>';
             document
                 .getElementById("OpenMenu")
                 .animate([{ opacity: "0" }, { opacity: "1" }], {
