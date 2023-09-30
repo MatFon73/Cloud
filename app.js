@@ -106,7 +106,7 @@ function DarkMode() {
             });
         localStorage.setItem("DarkValue", button.value)
     } else {
-        button.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        button.innerHTML = '<i class="fas fa-solid fa-moon"></i>';
         button.value = "1";
         background = color[button.value];
         root.style.setProperty("--Light-color", color[1]);
