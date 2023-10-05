@@ -6,21 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error 404</title>
 
+    <!-- change when you use hosting -->
+    <base href="http://localhost/Cloud/">
+
     <!-- Icon -->
     <link rel="icon" type="image/png" href="favicon.png" />
 
     <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet" />
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css" />
 </head>
 <style>
     body {
         font-family: "Josefin Sans", sans-serif;
+        padding: 2%;
+    }
+
+    .square {
+        height: 320px;
+        width: 50%;
+        border-radius: 5px;
+        border: 1px black solid;
+        margin: 0 auto;
+        -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+        box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    .rectangle {
+        margin-top: 5%;
+        height: 250px;
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    .fa-times-circle {
+        float: right;
+        margin: 1%;
+    }
+
+    .fa-bars {
+        float: left;
+        margin: 1%;
+    }
+
+    .fa-lg {
+        margin-top: 5%;
+    }
+
+    .title {
+        margin-top: 10%;
+        font-size: 40px;
+    }
+
+    @media (max-width: 767px) {
+        .square {
+            height: 250px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px black solid;
+            margin: 0 auto;
+            -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+            -moz-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+            box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .rectangle {
+            margin-top: 7%;
+            height: 200px;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
     }
 </style>
 
 <body>
+    <div class="square">
+
+        <div>
+            <i class="fas fa-times-circle"></i>
+        </div>
+        <div>
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="rectangle">
+            <i class="fas fa-exclamation-triangle fa-lg"></i>
+            <h1 class="title">Error 404</h1>
+        </div>
+    </div>
+
     <center>
-        <h1>Page Not Found</h1>
+        <div>
+            <h1>Page Not Found</h1>
+        </div>
     </center>
 </body>
+
 </html>
