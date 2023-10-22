@@ -106,6 +106,7 @@ function LogOut() {
             Swal.fire({
                 icon: "success",
                 title: "LogOut",
+                background: background,
                 confirmButtonColor: "#5cb85c",
                 text: "Logged out successfully.",
             }).then(function () {
@@ -128,16 +129,16 @@ function CheckLog() {
         url: "app/Execute_controller.php",
         type: "POST",
         data: "CheckUser=" + localStorage.getItem("UserData"),
-        dataType:'json',
+        dataType: 'json',
         success: function (data) {
-            if(data){
-                window.location.href = "public/"+data.location;
-            }else{
+            if (data) {
+                window.location.href = "public/" + data.location;
+            } else {
                 return false;
             }
         },
         error: function (e) {
-           console.log(e.status);
+            console.log(e.status);
         },
     });
     return false;
@@ -147,16 +148,16 @@ function CheckSign() {
         url: "../app/Execute_controller.php",
         type: "POST",
         data: "CheckUser=" + localStorage.getItem("UserData"),
-        dataType:'json',
+        dataType: 'json',
         success: function (data) {
-            if(data){
+            if (data) {
                 window.location.href = data.location;
-            }else{
+            } else {
                 return false;
             }
         },
         error: function (e) {
-           console.log(e.status);
+            console.log(e.status);
         },
     });
     return false;
@@ -166,22 +167,17 @@ function CheckOut() {
         url: "../app/Execute_controller.php",
         type: "POST",
         data: "CheckOut=" + localStorage.getItem("UserData"),
-        dataType:'json',
+        dataType: 'json',
         success: function (data) {
-            if(data){
+            if (data) {
                 window.location.href = data.location;
-            }else{
+            } else {
                 return false;
             }
         },
         error: function (e) {
-           console.log(e.status);
+            console.log(e.status);
         },
     });
     return false;
-}
-
-
-function RecoverPassword() {
-
 }
