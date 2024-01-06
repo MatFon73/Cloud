@@ -16,12 +16,11 @@ class Detail
             echo "An error has occurred: " . $e;
         }
     }
-
     function Properties($url)
     {
-        $text = $url;
-        $Word0 = "../uploads";
-        $Location = str_replace([$Word0], "", $text);
+        str_replace('//', '/', $url);
+        str_replace(".//", "", $url);
+        str_replace("///", "/", $url);
 
         error_reporting(0);
         $extension = pathinfo($url, PATHINFO_EXTENSION);
@@ -39,27 +38,21 @@ class Detail
                         }
                     }
                 }
-           
+                echo  "Date: " . date("F d Y", filemtime($url));
                 if ($extension == 'jpg' || $extension == 'png' || $extension == 'jpeg') {
-                    echo  "Date: " . date("F d Y", filectime($url));
-                    echo " \nSize: " . round(filesize($url) / $size[$x], 2) . " " . $type_size[$x];
-                    echo  " \nLocation: " . $Location;
-                    echo  " \nType file: " . pathinfo($url, PATHINFO_EXTENSION);
+                    echo " Size: " . round(filesize($url) / $size[$x], 2) . " " . $type_size[$x];
                 } else {
                     if ($extension == "") {
-                        echo  "Date: " . date("F d Y", filectime($url));
-                        echo  " Type file: folder";
-                        echo "\nLocation: " . $Location;
+                        $extension = "folder";
                     } else {
-                        echo  "Date: " . date("F d Y", filectime($url));
-                        echo " \nSize: " . round(filesize($url) / $size[$x], 2) . " " . $type_size[$x];
-                        echo  " \nType file: " . pathinfo($url, PATHINFO_EXTENSION) . "\n";
-                        echo "\nLocation: " . $Location;
+                        echo " Size: " . round(filesize($url) / $size[$x], 2) . " " . $type_size[$x];
                     }
                 }
             } else {
                 echo $url;
             }
+            echo  " Location: " . $url;
+            echo  " Type file: " . $extension;
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }

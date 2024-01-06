@@ -1,5 +1,4 @@
 function Properties(file) {
-    console.log(file.value)
     $.ajax({
         url: "../app/Execute_controller.php",
         type: "POST",
@@ -40,7 +39,7 @@ function SearchFile() {
     $.ajax({
         url: "../app/Execute_controller.php",
         type: "POST",
-        data: "Load=" + RootDirectory + "/" + Url + "&search=" + Search.value,
+        data: "Load=" + RootDirectory + elem.value + "&search=" + Search.value,
         success: function (r) {
             if (Search != "") {
                 if (r != "") {
@@ -71,12 +70,11 @@ function Storage() {
     return false;
 }
 function OpenFolder(file) {
-    document.getElementById("SearchFile").value = "";
     elem.value = elem.value +"/"+ file.value;
     $.ajax({
         url: "../app/Execute_controller.php",
         type: "POST",
-        data:  "Load=" + RootDirectory  + elem.value+ "/",
+        data:  "Load=" + RootDirectory  + elem.value + "/",
         success: function (r) {
             if (Search.value == "") {
                 if (r == "") {

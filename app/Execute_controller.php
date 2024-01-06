@@ -14,17 +14,14 @@ $Auth = new Auth();
 if (isset($_POST['nameSignup']) && isset($_POST['passSignup']) && isset($_POST['userSignup'])) {
     $Auth->SignUp($_POST['nameSignup'], $_POST['userSignup'], $_POST['passSignup']);
 }
-
 //Login
 if (isset($_POST['passLogin']) && isset($_POST['userLogin'])) {
     $Auth->Login($_POST['userLogin'], $_POST['passLogin']);
 }
-
 //LogOut
 if (isset($_POST["LogOut"])) {
     $Auth->LogOut($_POST["LogOut"]);
 }
-
 //CheckUser
 if (isset($_POST["CheckUser"])) {
     $Auth->Check($_POST["CheckUser"]);
@@ -33,6 +30,8 @@ if (isset($_POST["CheckUser"])) {
 if (isset($_POST["CheckOut"])) {
     $Auth->CheckOut($_POST["CheckOut"]);
 }
+
+
 //Detail
 if (isset($_POST['Storage'])) {
     $Detail->Size($_POST['Storage']);
@@ -42,20 +41,20 @@ if (isset($_POST['Properties'])) {
     $Detail->Properties($_POST['Properties']);
 }
 
+
 //Previous
 if (isset($_POST['Previous'])) {
     $Crud->PreviousFolder($_POST['Previous']);
 }
-
 //Load
 if (isset($_POST['Load'])) {
     $LoadFile->Load($_POST['Load']);
 }
-
 //Total
 if (isset($_POST['TotalFile'])) {
     $LoadFile->TotalFile($_POST['TotalFile']);
 }
+
 
 //Crud
 if (isset($_FILES['I']['name']) && $_FILES['I']['tmp_name']) {

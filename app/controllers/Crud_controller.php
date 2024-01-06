@@ -26,7 +26,6 @@ class Crud
                 $Messege = "It has been uploaded successfully.";
             }
             Crud::PrintMessenge($Icon, $Messege);
-
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
@@ -52,12 +51,10 @@ class Crud
                 }
             }
             Crud::PrintMessenge($Icon, $Messege);
-
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
     }
-
     function NewName($url, $Nname, $OName)
     {
         $OldName = $OName;
@@ -84,48 +81,45 @@ class Crud
                 }
             }
             Crud::PrintMessenge($Icon, $Messege);
-
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
     }
-
     function PreviousFolder($Load)
     {
-        $ProyectPath = dirname($Load);
+        $ProyectPath = rtrim(dirname($Load), DIRECTORY_SEPARATOR);
 
         $response = array(
-            'r' => $ProyectPath
+            'r' => $ProyectPath."/"
         );
-
         echo json_encode($response);
     }
     function Delete($Delete)
     {
         $file = $Delete;
-        $command = "rm -rf $file";
         try {
             if (pathinfo($file, PATHINFO_EXTENSION) == false) {
-                shell_exec($command);
+                if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                    exec("rmdir /s /q \"$file\"");
+                } else {
+                    shell_exec("rm -rf $file");
+                }
             } else {
                 unlink($file);
             }
             $Icon = "success";
             $Messege = "Delete Complete.";
-
             Crud::PrintMessenge($Icon, $Messege);
         } catch (Exception $e) {
             echo "An error has occurred: " . $e;
         }
     }
-
     function PrintMessenge($Icon, $Messege)
     {
         $response = array(
             'r1' => $Messege,
             'r2' => $Icon
         );
-
         echo json_encode($response);
     }
 }

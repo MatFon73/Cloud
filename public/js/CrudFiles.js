@@ -173,17 +173,12 @@ function PreviousFolder() {
         data: "Previous=" + elem.value,
         dataType: 'json',
         success: function (data) {
+            console.log(data.r)
             if (elem.value.length === 0) {
-                console.log(elem.value);
                 return false;
             } else {
                 if (Search.value == "") {
-                    if (data.r == "") {
-                        $("#table").html('<h2 class ="text-center"><i class="fas fa-sad-tear"></i> No found documents</h2>');
-                    } else {
-                        if (data.r == "\\") {
-                            data.r = "";
-                        }
+                    if (data.r != "") {
                         elem.value = data.r;
                         Load();
                     }
