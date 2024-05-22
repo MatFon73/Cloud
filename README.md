@@ -1,69 +1,59 @@
 # Cloud - MatFon73
 
-## Basic information
-- This project was created by hobbie to make a "google drive" in local network.
-- The file "php.ini" is configured to increase the size of the file that can be uploaded to 6g. 
-- Repository (https://github.com/MatFon73/Cloud).
-- Systems Engineering universidad de investigacion y desarrollo (UDI).
-- Operation video (https://youtu.be/VxZoZKJHlhY).
-- Created by Mateo Fonseca (https://twitter.com/MatFon73).
-- If you use my database the user is "MatFon73" and the password is "mateo".
+## Basic Information
+This project was created as a hobby to make a "Google Drive" in a local network. The `php.ini` file is configured to increase the size of the file that can be uploaded to 6GB.
+
+- **Repository:** [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/MatFon73/Cloud)
+- **Systems Engineering, Universidad de Investigación y Desarrollo (UDI)**
+- **Operation Video:** [![YouTube](https://img.shields.io/badge/YouTube-Operation%20Video-red?logo=youtube)](https://youtu.be/VxZoZKJHlhY)
+- **Created by:** Mateo Fonseca [![Twitter](https://img.shields.io/twitter/url?label=@MatFon73&style=social&url=https%3A%2F%2Ftwitter.com%2FMatFon73)](https://twitter.com/MatFon73)
+- **Database:** Username: `MatFon73`, Password: `mateo`
 
 ## Programming Languages
-- js: ajax.
-- php: backend.
-- html and css: frontend.
+- **JavaScript:** AJAX
+- **PHP:** Backend
+- **HTML and CSS:** Frontend
 
 ## Libraries
-- boostap: Page design.
-- jquery: to make requests.
-- sweetalert2: alert.
-## Interface - Login
-![](https://i.ibb.co/Q684Tzq/Logn.png)
+- **Bootstrap:** Page design
+- **jQuery:** To make requests
+- **SweetAlert2:** Alerts
 
-## Interface - Sign up
-![](https://i.ibb.co/0Mv3mbx/SignIn.png)
+## Interfaces
 
-## Interface - Light Mode
-![](https://i.ibb.co/0DtdsrP/Light-mode.png)
+### Login
+![Login](https://i.postimg.cc/zGFX0bz6/Login.png)
 
-## Interface - Dark Mode
-![](https://i.ibb.co/0q7gLjb/Dark-mode.png)
+### Sign Up
+![Sign Up](https://i.postimg.cc/N0GGVsLM/Singup.png)
 
-## How to use
-- Login: To access the main page you must use your user credentials and click the login button.
-- Sign up: fill in the required information and click the sign up button.
-- LogOut: Press the LogOut button to end the current session.
-- Search: write the name of the file.
-- Upload: click on "browser", select the file and then click on the "Upload" button.
-- Delete: click on the trash can icon. Has password in "app.js" file can be changed, default is "12345"
-- Rename: change the name.
-- Download: to download you must give in the file name.
-- Reaload: Reaload the word space.
-- Previous folder: returns you to the previous folder.
-- New Folder: create a new folder. 
-- Propierties: shows file details.
-- Menu: activate and deactivate menu.
+### Light Mode
+![Light Mode](https://i.postimg.cc/2SDSQFDn/Light-Mode.png)
 
-## Server Linux
-- You can use any version of linux server, in my case I use ubuntu server (https://ubuntu.com/download/server).
-- You must install apache and php to be able to use it.
+### Dark Mode
+![Dark Mode](https://i.postimg.cc/xTHdNpW0/DarkMode.png)
 
-### Command for install
-- sudo apt install apache2.
-- sudo apt install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd php7.3-curl php7.3-mysql.
-- sudo apt install mysql-server
-- sudo mysql_secure_installation
+## How to Use
+- **Login:** To access the main page, use your credentials and click the login button.
+- **Sign Up:** Fill in the required information and click the sign up button.
+- **LogOut:** Press the LogOut button to end the current session.
+- **Search:** Write the name of the file.
+- **Upload:** Click on "Browse", select the file, and then click the "Upload" button.
+- **Delete:** Click on the trash can icon. You must use the user's password to delete.
+- **Rename:** Change the file name.
+- **Download:** To download, click on the file name.
+- **Reload:** Reload the workspace.
+- **Previous Folder:** Returns you to the previous folder.
+- **New Folder:** Create a new folder.
+- **Properties:** Shows file details.
+- **Menu:** Activate and deactivate the menu.
 
-## php.ini
-- To change the load size of php you must modify the following variables in the file "php.ini".
-- file location: /etc/php/{version}/apache2/php.ini.
-- upload_max_filesize: this maximum size in megabytes. 
-- post_max_size: Defines the maximum upload limit for POST requests.
-- max_execution_time: this sets the maximum time in seconds that a script can run before it ends.
-- max_input_time: this sets the maximum time in seconds that a script can parse input data.
-- memory limit: Defines the memory allocated to PHP.
-- when they change the file "php.ini" you must restart the apache service inside the server with the following command "sudo service apache2 restart".
-- you must give permissions to the "Cloud" folder with the command "sudo chmod -R 777".
+## Linux Server
+You can use any version of Linux server; in my case, I use Ubuntu Server ([Download](https://ubuntu.com/download/server)). You must install Apache and PHP to use it.
 
-### End
+### Command to Install
+```bash
+sudo apt install apache2
+sudo apt install php7.3 php7.3-common php7.3-opcache php7.3-cli php7.3-gd php7.3-curl php7.3-mysql
+sudo apt install mysql-server
+sudo mysql_secure_installation
